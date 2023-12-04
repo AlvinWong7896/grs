@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentGreenBikeSG</title>
+    <meta name="description" content="A brief description"/>
+    <meta name="author" content="We hope to do our share to reduce waste by encouraging recycle used (good condition) bicycles and to support skilful mechanics who took pride in their know-hows."/>
+
+    <!-- Include CSS files here -->>
+    <link rel="preload" as="style" href="{% static 'css/style.css' %}" onload="this.rel = 'stylesheet'"/>
+
+</head>
+<body>
+    <!-- Header content -->
+    {% include 'partials/_header.html' %}
+    <main>
+        
+        {% block content %}
+            
+        {% endblock content %}
+
+            
+    </main>
+
+    <!-- Footer content -->
+    {% include 'partials/_footer.html' %}
+</body>
+</html>
