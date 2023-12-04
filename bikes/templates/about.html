@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <article>
+    <h1>About GreenBikeSG</h1>
+    <!--Begin row-->
+    <div class="row">
+      <!--Begin col-->
+      <div class="column">
+        <p>
+          The COVID-19 pandemic brought about a surge in cycling enthusiasts, leading to a global shortage of bicycles. This sudden demand prompt many to purchase new bikes, but as restrictions eased and the initial craze subsided, a significant number of these bicycles found themselves abandoned in HDB void decks and public places.
+        </p>
+        <p>
+          This growing trend of discarded bicycles raises concerns about the environmental impact and the waste of valuable resources. The production of new bicycles requires extraction and processing of raw materials, leaving an ecological footprint. Moreover, the abandoned bicycles, often left to rust and decay, create an unsightly blemish on Singapore's urban landscape.
+        </p>
+
+        <p>
+          The restaurant has a rustic and relaxed atmosphere with moderate
+          prices, making it a popular place for a meal any time of the day.
+        </p>
+
+        <p>
+          Purchasing a second-hand bicycle not only reduces the demand for new ones but also extends the lifespan of existing bicycles, minimizing the need for additional production and mitigating the associated environmental impact. Additional, buying second-hand bicycles is a more affordable option, making cycling accessible to a wider range of people.
+        </p>
+
+        <p>
+          GreenBikeSG aims to promote awareness about the availability and benefits of pre-owned bikes. Highlighting the environmental and economic advantages, while also encouraging individuals to donate their unused bicycles to those in need.
+        </p>
+
+        <p>
+          By embracing pre-owned bicycles and promoting their reuse, we can alleviate the problem of abandoned bicycles, reduce the environmental impact of bicycle production, and making cycling more accessible to all. Let's work together to create a more sustainable and equitable cycling culture in Singapore.
+        </p>
+      </div>
+      <!--End col-->
+
+      <!--Begin col-->
+      <div class="column">
+        <figure class="figure">
+          <img
+            src="{% static 'img/abandoned_bikes2.jpg' %}"
+            alt="abandoned bikes"
+          />
+          <figcaption class="figure-caption">
+            Common sight of discarded bicycles in common areas.
+          </figcaption>
+        </figure>
+        <figure class="figure">
+          <img
+            src="{% static 'img/abandoned_bikes.jpg' %}"
+            alt="abandoned bikes"
+          />
+          <figcaption class="figure-caption">
+            Common sight of discarded bicycles in HDB void decks.
+          </figcaption>
+        </figure>
+      </div>
+      <!--End col-->
+    </div>
+    <!--End row-->
+  </article>
+</section>
+{% endblock %}

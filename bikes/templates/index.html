@@ -7,18 +7,41 @@
         <article id="'here">
             <h1 class="heading_shadow">Spring-cleaning or moving house soon?</h1>
                 <p>
-                    Why not donate your old, useable bicycle and put a smile on their faces!
+                    Why not donate your old, useable bicycles, and put a smile on their faces?
                 </p>
                 <img src="{% static 'img/ThankYou3.png' %}"/>
-                <href="#" class="cta">Contact Us now</a>
+                <a href="#" class="cta">Contact Us now</a>
 
         </article>
     </section>
     <section>
         <article>
-            <h2>Opening Hours</h2>
+          <h2>Our Pre-owned bikes</h2>
+          <img src="{% static 'img/bike2.jpg' %}">
+          <p>
+            We have about 20 different bicycles which I hope you will find one that is to your likings and budget.
+          </p>
+          <p>
+            <a href="{% url 'menu' %}">See our bicycles</a>
+          </p>
+        </article>
+        <article>
+          <h2>Book an Appointment</h2>
+          <img src="{% static 'img/bike1.jpg' %}">
+          <p>
+            Our bicycles are located within 50 metres with MRT station making it very convenience for you to commute and bring them home. 
+          </p>
+          <p>
+            <a href="{% url 'book' %}">Book an appointment now</a>
+          </p>
+        </article>
+    <section>
+        <article>
+            <h2>Operating Hours</h2>
+            <img src="{% static 'img/welcome.png' %}">
             <p>
-                GreenBikeSG serves you 7 days a week, except for Public Holidays.
+                GreenBikeSG serves you 7 days a week, 
+                except for Public Holidays.
             </p>
         <ul>
             <li>Mon - Fri: 2pm to 10pm</li>
