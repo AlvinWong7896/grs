@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>Menu</h1>
+<h1>Our pre-owned Bikes</h1>
 <!--Begin col-->
 <div class="column">
     <!-- Create for loop -->
-    {% for item in menu.menu %}
+    {% for bike in bike_list %}
     <p>
-        <a href="{% url 'menu_item' pk=item.pk %}">
-        {{ item.name }}
+        <a href="{% url 'menu_item' pk=bike.pk %}">
+        {{ bike.name }}
         </a>
         <span class="menu-price">
-            ${{ item.price }}.00
+            ${{ bike.selling_price }}.00
         </span>
     </p>
     <!-- End or Loop -->
