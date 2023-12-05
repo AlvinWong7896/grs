@@ -50,3 +50,47 @@ class Photo(models.Model):
                 is_main_photo=False
             )
         super(Photo, self).save(*args, **kwargs)
+
+
+# models.py
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+import secrets
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from django.core.mail import send_mail
+from django.utils import timezone
+
+
+# bikes/models.py
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
+
+class CustomUser(AbstractUser):
+    email = models.EmailField(unique=True)
+    is_verified = models.BooleanField(default=False)
+    otp = models.CharField(max_length=6, blank=True, null=True)
+    otp_created_at = models.DateTimeField(blank=True, null=True)
+
+    # Add related_name to avoid clashes with auth.User model
+    groups = models.ManyToManyField(Group, related_name="custom_user_set", blank=True)
+    user_permissions = models.ManyToManyField(
+        Permission, related_name="custom_user_set", blank=True
+    )
+
+
+# Generate OTP and send an email on user registration
+@receiver(post_save, sender=CustomUser)
+def generate_otp(sender, instance, created, **kwargs):
+    if created:
+        instance.otp = secrets.token_hex(3).upper()  # Generating a 6-digit OTP
+        instance.otp_created_at = timezone.now()
+        instance.save()
+        send_mail(
+            "OTP for Registration",
+            f"Your OTP is: {instance.otp}",
+            "from@example.com",
+            [instance.email],
+            fail_silently=False,
+        )

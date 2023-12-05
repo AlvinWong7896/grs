@@ -1,0 +1,8 @@
+<!-- verify_otp.html -->
+<form method="post" action="{% url 'verify_otp' %}">
+    {% csrf_token %}
+    <label for="otp">Enter OTP:</label>
+    <input type="text" name="otp" id="otp" required aria-label="Enter OTP">
+    <button type="submit">Verify OTP</button>
+  </form>
+  

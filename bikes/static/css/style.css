@@ -4,7 +4,7 @@ body {
     margin-bottom: 3rem;
     margin-left: 5%;
     margin-right: 5%;
-    color: darkgreen;
+    color: black;
 }
 
 
@@ -254,3 +254,34 @@ footer p {
         width: 100%;
     }
   }
+
+#sign_in-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#sign_in-content {
+    margin-left: auto;      /* Pushes the sign-in content to the right */
+}
+
+.sign_in-button {
+    font-size: 1.5rem;
+    color: #EDEFEE;
+    text-decoration: none;
+}
+
+.sign_in-button hover {
+    text-decoration: underline;
+}
+
+/*Add a green indicator when signed in */
+#sign_in-section.sign-in {
+    background-color: #4CAF50;
+}
+
+/* Change to red indicator when not signed in */
+#sign_in-section:not(signed-in) {
+    background-color: #FF0000;
+}
+

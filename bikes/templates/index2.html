@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Sign-in Section -->
+    <div id="signin-section">
+        <!-- Placeholder for Sign-in Button or Form -->
+        <div id="signin-content">
+            <!-- Add your sign-in form or button here -->
+            <a href="{% url 'login' %}" class="signin-button">Sign In</a>
+        </div>
+    </div>
+
+    <!-- Rest of your content -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+
+    <section>
+        <article id="here">
+            <h1 class="heading_shadow">Spring-cleaning or moving house soon?</h1>
+            <p>
+                Why don't donate your pre-owned bicycles and put a smile on their faces?
+            </p>
+            <img src="{% static 'img/ThankYou3.png'%}" alt="Thank You">
+            <a href="#" class="cta">Contact Us now</a>
+        </article>
+    </section>
+
+    <section>
+        <article>
+            <h2>Our Pre-owned bikes</h2>
+            <img src="{% static 'img/bike2.jpg' %}" alt="Pre-owned Bikes">
+            <p>
+                We have more than 20 different bicycles which we hope you will find one that suits your liking and budget.
+            </p>
+            <p>
+                <a href="{% url 'menu' %}">See our bicycles</a>
+            </p>
+        </article>
+        <article>
+            <h2>Book an Appointment</h2>
+            <img src="{% static 'img/bike1.jpg' %}" alt="Book an Appointment">
+            <p>
+                Our bicycles are located within 50 meters from the MRT station, making it very convenient for you to commute and bring them home.
+            </p>
+            <p>
+                <a href="{% url 'book' %}">Book an appointment now</a>
+            </p>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h2>Operating Hours</h2>
+            <img src="{% static 'img/friendly.png' %}" alt="Operating Hours">
+            <p>
+                GreenBikeSG serves you 7 days a week, except for Public Holidays.
+            </p>
+            <ul>
+                <li>Mon - Fri: 2pm to 10pm</li>
+                <li>Sat: 10am to 2pm</li>
+                <li>Sun: 10am to 2pm</li>
+            </ul>
+        </article>
+    </section>
+{% endblock content %}

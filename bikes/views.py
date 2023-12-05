@@ -1,6 +1,10 @@
-from django.shortcuts import render
-from .forms import BookingForm
-from .models import Bike
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from .forms import BookingForm, BikeForm, CustomUserCreationForm, PhotoForm
+from .models import Bike, Photo
 
 
 def home(request):
@@ -21,43 +25,31 @@ def book(request):
     return render(request, "book.html", context)
 
 
+def signup_view(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log in the user after registration
+            return redirect("home")  # Redirect to the desired page after registration
+        else:
+            form = CustomUserCreationForm()
+
+        return render(request, "registration/register.html", {"form": form})
+
+
 def menu(request):
-    # Retrieve all Bike objects
     bikes = Bike.objects.all()
-
-    # Prepare a list to store each bike's data along with its main photo
-    bikes_with_photos = []
-
-    for bike in bikes:
-        # Get the main photo for each bike
-        main_photo = bike.main_photo.image.url if bike.main_photo else None
-
-        # Collect other relevant data for each bike
-        bike_data = {
-            "id": bike.id,
-            "name": bike.name,
-            "model": bike.model,
-            "new_price": bike.new_price,
-            "selling_price": bike.selling_price,
-            "description": bike.description,
-            "main_photo": main_photo,
-            # Additional fields or methods can be added as needed
-        }
-
-        # Append the bike data to the list
-        bikes_with_photos.append(bike_data)
-
-    # Pass the list of bikes with photos to the template
-    context = {"menu": bikes_with_photos}
+    context = {"bikes": bikes}
     return render(request, "menu.html", context)
 
 
-from django.shortcuts import render, redirect
-from .models import Bike, Photo
-from .forms import BikeForm, PhotoForm
-
-
+@login_required
 def create_bike(request):
+    if not request.user.is_manager:
+        # Redirect or show a message for non-manager users
+        return redirect("menu")
+
     if request.method == "POST":
         bike_form = BikeForm(request.POST)
         photo_form = PhotoForm(request.POST, request.FILES)
@@ -66,7 +58,7 @@ def create_bike(request):
             bike = bike_form.save()
             photo = photo_form.save(commit=False)
             photo.bike = bike
-            photo.is_main_photo = True  # Set the first uploaded photo as the main photo
+            photo.is_main_photo = True
             photo.save()
 
             return redirect("menu")
@@ -80,22 +72,12 @@ def create_bike(request):
     )
 
 
-from django.shortcuts import render
-from .models import Bike
-
-
-def menu(request):
-    bikes = Bike.objects.all()
-    context = {"bikes": bikes}
-    return render(request, "menu.html", context)
-
-
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Bike, Photo
-from .forms import BikeForm, PhotoForm
-
-
+@login_required
 def update_bike(request, bike_id):
+    if not request.user.is_manager:
+        # Redirect or show a message for non-manager users
+        return redirect("menu")
+
     bike = get_object_or_404(Bike, id=bike_id)
     if request.method == "POST":
         bike_form = BikeForm(request.POST, instance=bike)
@@ -118,11 +100,50 @@ def update_bike(request, bike_id):
     )
 
 
-from django.shortcuts import get_object_or_404, redirect
-from .models import Bike
-
-
+@login_required
 def delete_bike(request, bike_id):
+    if not request.user.is_manager:
+        # Redirect or show a message for non-manager users
+        return redirect("menu")
+
     bike = get_object_or_404(Bike, id=bike_id)
     bike.delete()
     return redirect("menu")
+
+
+def display_menu_item(request, pk):
+    bike = get_object_or_404(Bike, pk=pk)
+    context = {"bike": bike}
+    return render(request, "display_menu_item.html", context)
+
+
+def register(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log in the user after registration
+            return redirect("home")  # Redirect to the desired page after registration
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, "registration/register.html", {"form": form})
+
+
+def verify_otp(request):
+    if request.method == "POST":
+        otp_entered = request.POST.get("otp")
+        user = request.user
+
+        # Check if OTP is correct and not expired
+        if (
+            user.otp == otp_entered
+            and (timezone.now() - user.otp_created_at).seconds < 30
+        ):
+            user.is_verified = True
+            user.save()
+            return HttpResponse("OTP verified successfully!")
+        else:
+            return HttpResponse("Invalid OTP or expired. Please request a new OTP.")
+
+    return render(request, "verify_otp.html")

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bike.name }} - Bike Information</title>
+</head>
+<body>
+    <h2>{{ bike.name }} - Bike Information</h2>
+    
+    <p><strong>Model:</strong> {{ bike.model }}</p>
+    <p><strong>New Price:</strong> {{ bike.new_price }}</p>
+    <p><strong>Selling Price:</strong> {{ bike.selling_price }}</p>
+    <p><strong>Description:</strong> {{ bike.description }}</p>
+
+    <!-- Add logic to display photos if needed -->
+    {% if bike.photos.all %}
+        <h3>Photos:</h3>
+        <ul>
+            {% for photo in bike.photos.all %}
+                <li><img src="{{ photo.image.url }}" alt="Bike Photo"></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{% url 'menu' %}">Back to Menu</a>
+</body>
+</html>
