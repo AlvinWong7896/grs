@@ -1,4 +1,10 @@
+from django.core.mail import send_mail
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils import timezone
+import secrets
 
 
 class Appointment(models.Model):
@@ -9,9 +15,6 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
-
-
-from django.db import models
 
 
 class Bike(models.Model):
@@ -36,7 +39,7 @@ class Bike(models.Model):
 
 class Photo(models.Model):
     bike = models.ForeignKey(Bike, on_delete=models.CASCADE, related_name="photos")
-    image = models.ImageField(upload_to="bike_photos/")
+    image = models.ImageField(upload_to="photos/")
     is_main_photo = models.BooleanField(default=False)
 
     def __str__(self):
@@ -50,21 +53,6 @@ class Photo(models.Model):
                 is_main_photo=False
             )
         super(Photo, self).save(*args, **kwargs)
-
-
-# models.py
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-import secrets
-from django.dispatch import receiver
-from django.db.models.signals import post_save
-from django.core.mail import send_mail
-from django.utils import timezone
-
-
-# bikes/models.py
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import AbstractUser, Group, Permission
 
 
 class CustomUser(AbstractUser):

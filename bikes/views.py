@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
@@ -38,18 +38,24 @@ def signup_view(request):
         return render(request, "registration/register.html", {"form": form})
 
 
+def is_manager(user):
+    return user.groups.filter(name="Manager").exists()
+
+
+manager_required = user_passes_test(is_manager)
+
+
 def menu(request):
     bikes = Bike.objects.all()
-    context = {"bikes": bikes}
+    is_manager_flag = request.user.is_authenticated and is_manager(request.user)
+    context = {"bikes": bikes, "is_manager": is_manager_flag}
+    # context = {"bikes": bikes, "user": request.user}
     return render(request, "menu.html", context)
 
 
 @login_required
+@manager_required
 def create_bike(request):
-    if not request.user.is_manager:
-        # Redirect or show a message for non-manager users
-        return redirect("menu")
-
     if request.method == "POST":
         bike_form = BikeForm(request.POST)
         photo_form = PhotoForm(request.POST, request.FILES)
