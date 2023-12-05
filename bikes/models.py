@@ -22,7 +22,17 @@ class Bike(models.Model):
     model = models.CharField(max_length=50)
     new_price = models.DecimalField(max_digits=8, decimal_places=2)
     selling_price = models.DecimalField(max_digits=7, decimal_places=2)
-    description = models.TextField(max_length=800, default="")
+    location = models.CharField(max_length=50, default="Bishan")
+    description = models.TextField(blank=True, null=True)
+
+    STATUS_CHOICES = [
+        ("Available", "Available"),
+        ("Reserved", "Reserved"),
+        ("Sold", "Sold"),
+    ]
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default="Available"
+    )
 
     # Add a foreign key to the Photo model
     main_photo = models.ForeignKey(

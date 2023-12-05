@@ -54,28 +54,32 @@ def menu(request):
 
 
 @login_required
-@manager_required
 def create_bike(request):
-    if request.method == "POST":
-        bike_form = BikeForm(request.POST)
-        photo_form = PhotoForm(request.POST, request.FILES)
+    if not request.user.groups.filter(name="Manager").exists():
+        return redirect("menu")
 
-        if bike_form.is_valid() and photo_form.is_valid():
+    if request.method == "POST":
+        bike_form = BikeForm(request.POST, request.FILES)
+
+        if bike_form.is_valid():
             bike = bike_form.save()
-            photo = photo_form.save(commit=False)
-            photo.bike = bike
-            photo.is_main_photo = True
-            photo.save()
+
+            # Handle main photo
+            main_photo = request.FILES.get("main_photo")
+            if main_photo:
+                Photo.objects.create(bike=bike, image=main_photo, is_main_photo=True)
+
+            # Handle multiple photos
+            additional_photos = request.FILES.getlist("additional_photos")
+            for photo in additional_photos:
+                Photo.objects.create(bike=bike, image=photo, is_main_photo=False)
 
             return redirect("menu")
 
     else:
         bike_form = BikeForm()
-        photo_form = PhotoForm()
 
-    return render(
-        request, "create_bike.html", {"bike_form": bike_form, "photo_form": photo_form}
-    )
+    return render(request, "create_bike.html", {"bike_form": bike_form})
 
 
 @login_required
