@@ -10,7 +10,7 @@
         <div class="bike-item">
             <a href="{% url 'menu_item' pk=bike.pk %}">
                 {% if bike.main_photo %}
-                    <img src="{{ bike.main_photo.url }}" alt="{{ bike.name }}">
+                    <img src="{{ bike.main_photo.url }}?v=2" alt="{{ bike.name }}">
                 {% else %}
                 <img src='{% static 'img/default_photo.jpg' %}' alt="Default Image">
                 {% endif %}

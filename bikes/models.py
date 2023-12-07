@@ -21,7 +21,7 @@ class Appointment(models.Model):
 
 class Bike(models.Model):
     name = models.CharField(max_length=50)
-    main_photo = models.ImageField(upload_to="photos/", blank=True)
+    main_photo = models.ImageField(upload_to="photos/")
     model = models.CharField(max_length=50)
     new_price = models.DecimalField(max_digits=8, decimal_places=2)
     selling_price = models.DecimalField(max_digits=7, decimal_places=2)
