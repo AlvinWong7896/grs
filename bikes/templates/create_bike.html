@@ -1,3 +1,5 @@
+ <!-- bikes (app)/create_bike.html -->
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -10,13 +12,13 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ bike_form.as_p }}
-                {{ photo_form.as_p }}
-                <label for="{{ bike_form.main_photo.id_for_label }}">Main Photo:</label>
-                {{ bike_form.main_photo }}
-                <br>
-                <label for="{{ bike_form.additional_photos.id_for_label }}">Additional Photos:</label>
-                {{ bike_form.additional_photos }}
-                <br>                             
+                <label for="{{ bike_photo_form.image_for_label }}">Bike Photo:</label>
+                {{ bike_photo_form.image }}
+
+                <!-- Use a hidden field to indicate this is the main photo -->
+                {{ bike_photo_form.is_main_photo }}
+                
+                <br>                         
                 <input type="submit" value='Create New Record' aria-label="Create New Record">
             </form>
             <a href="{% url 'menu' %}">Back to Menu</a>

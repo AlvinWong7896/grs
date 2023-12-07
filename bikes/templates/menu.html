@@ -1,24 +1,31 @@
+<!-- bikes (app)/templates/menu.html -->
+
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <h1>Our pre-owned Bikes</h1>
 <!--Begin col-->
 <div class="column">
-    <!-- Create for loop -->
     {% for bike in bikes %}
-    <p>
-        <a href="{% url 'menu_item' pk=bike.pk %}">
-        {{ bike.name }}
-        </a>
-        <span class="menu-price">
-            ${{ bike.selling_price }}.00
-        </span>
-    </p>
-    <!-- End or Loop -->
+        <div class="bike-item">
+            <a href="{% url 'menu_item' pk=bike.pk %}">
+                {% if bike.main_photo %}
+                    <img src="{{ bike.main_photo.url }}" alt="{{ bike.name }}">
+                {% else %}
+                <img src='{% static 'img/default_photo.jpg' %}' alt="Default Image">
+                {% endif %}
+            </a>
+            <span class='link-description'>Click me to view details</span>
+            <p>Make/Model: {{ bike.name }}  {{bike.model}}</p>
+            <p>New Price: ${{ bike.new_price }}   |    Selling Price: ${{ bike.selling_price }}</p>
+            <p>Location:  {{ bike.location }}        |    Status: {{ bike.status }}</p>
+            <p>Description: {{ bike.description }}</p>
+        </div>
+        <hr>
+
     {% endfor %}
 </div>
 <!-- End col -->
-
 
 {% if is_manager %}
     <div>
@@ -26,4 +33,4 @@
     </div>
 {% endif %}
 
-{% endblock %}
+{% endblock content %}

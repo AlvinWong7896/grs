@@ -26,20 +26,7 @@ class BikeForm(forms.ModelForm):
         ]
 
 
-class PhotoForm(forms.Form):
-    class Meta:
-        model = Photo
-        fields = ["image", "is_main_photo"]
-        widgets = {
-            "image": forms.ClearableFileInput(),
-            "is_main_photo": forms.HiddenInput(),
-        }
-
-    def clean_additional_photos(self):
-        additional_photos = self.cleaned_data.get("additional_photos")
-
-
-class PhotoForm(forms.ModelForm):
+class BikePhotoForm(forms.ModelForm):
     class Meta:
         model = Photo
         fields = ["image", "is_main_photo"]

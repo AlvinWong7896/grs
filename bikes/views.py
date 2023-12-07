@@ -1,9 +1,11 @@
+# bikes (app)/views.py
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .forms import BookingForm, BikeForm, CustomUserCreationForm, PhotoForm
+from .forms import BookingForm, BikeForm, CustomUserCreationForm, BikePhotoForm
 from .models import Bike, Photo
 
 
@@ -54,32 +56,32 @@ def menu(request):
 
 
 @login_required
+@manager_required
 def create_bike(request):
-    if not request.user.groups.filter(name="Manager").exists():
-        return redirect("menu")
-
     if request.method == "POST":
-        bike_form = BikeForm(request.POST, request.FILES)
+        bike_form = BikeForm(request.POST)
+        bike_photo_form = BikePhotoForm(request.POST, request.FILES)
 
-        if bike_form.is_valid():
+        if bike_form.is_valid() and bike_photo_form.is_valid():
+            # Save the bike record
             bike = bike_form.save()
 
-            # Handle main photo
-            main_photo = request.FILES.get("main_photo")
-            if main_photo:
-                Photo.objects.create(bike=bike, image=main_photo, is_main_photo=True)
-
-            # Handle multiple photos
-            additional_photos = request.FILES.getlist("additional_photos")
-            for photo in additional_photos:
-                Photo.objects.create(bike=bike, image=photo, is_main_photo=False)
+            # Save the bike photo
+            bike_photo = bike_photo_form.save(commit=False)
+            bike_photo.bike = bike
+            bike_photo.save()
 
             return redirect("menu")
 
     else:
         bike_form = BikeForm()
+        bike_photo_form = BikePhotoForm()
 
-    return render(request, "create_bike.html", {"bike_form": bike_form})
+    return render(
+        request,
+        "create_bike.html",
+        {"bike_form": bike_form, "bike_photo_form": bike_photo_form},
+    )
 
 
 @login_required

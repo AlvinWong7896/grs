@@ -261,6 +261,15 @@ footer p {
     padding: 10px;
 }
 
+.bike-item {
+    text-align: center; 
+}
+
+.bike-image {
+    max-width: 50%;
+    height: auto;
+}
+
 #sign_in-content {
     margin-left: auto;      /* Pushes the sign-in content to the right */
 }
@@ -272,16 +281,6 @@ footer p {
 }
 
 .sign_in-button hover {
-    text-decoration: underline;
-}
-
-/*Add a green indicator when signed in */
-#sign_in-section.sign-in {
-    background-color: #4CAF50;
-}
-
-/* Change to red indicator when not signed in */
-#sign_in-section:not(signed-in) {
-    background-color: #FF0000;
+    text-decoration: underline; 
 }
 

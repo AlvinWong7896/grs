@@ -1,3 +1,5 @@
+# bikes (app)/urls.py
+
 from django.urls import path
 
 from . import views
@@ -19,3 +21,6 @@ urlpatterns = [
     path("verify_otp/", views.verify_otp, name="verify_otp"),
     path("signup/", views.signup_view, name="signup"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

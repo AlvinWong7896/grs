@@ -1,3 +1,5 @@
+# bikes (app)/models.py
+
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
@@ -19,6 +21,7 @@ class Appointment(models.Model):
 
 class Bike(models.Model):
     name = models.CharField(max_length=50)
+    main_photo = models.ImageField(upload_to="photos/", blank=True)
     model = models.CharField(max_length=50)
     new_price = models.DecimalField(max_digits=8, decimal_places=2)
     selling_price = models.DecimalField(max_digits=7, decimal_places=2)
@@ -35,13 +38,6 @@ class Bike(models.Model):
     )
 
     # Add a foreign key to the Photo model
-    main_photo = models.ForeignKey(
-        "Photo",
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name="main_photo_of",
-        blank=True,
-    )
 
     def __str__(self):
         return self.name
