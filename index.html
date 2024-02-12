@@ -1,190 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staybnb</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/b550cc9444.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="header">
-        <nav id="navBar">
-            <img src="images/logo.png" class="logo">
-            <ul class="nav-links">
-                <li><a href="#" class="active">Popular Places</a></li>
-                <li><a href="#">Travel Outside</a></li>
-                <li><a href="/listing.html">Online Packages</a></li>
-            </ul>
-            <a href="#" class="register-btn">Register Now</a>
-            <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
-        </nav>
+{% extends 'base.html' %}
 
-        <div class="container">
-            <h1>Find Your Next Stay</h1>
-            <div class="search-bar">
-                <form>
-                    <div class="location-input">
-                        <label>Location</label>
-                        <input type="text" placeholder="Where are you going?">
-                    </div>
-                    <div>
-                        <label>Check In</label>
-                        <input type="text" placeholder="Add Date">
-                    </div>
-                    <div>
-                        <label>Check Out</label>
-                        <input type="text" placeholder="Add Date">
-                    </div>
-                    <div>
-                        <label>Guest</label>
-                        <input type="text" placeholder="Add Guest">
-                    </div>
-                    <button type="submit"><img src="images/search.png"></button>
-                </form>
-            </div>
-        </div>
+
+{% block content %}
+<div class="container">
+    <h1>Our Missions</h1>
+    <div class="about-msg">
+        <h2>Promotes cycling as a healthy, accessible and time-efficient activities for all ages.</h2>
+        <p>Do you know that by biking for just 30 minutes daily, it will build up your cardiovascular and muscular endurance?</p>
+        <p>We will share with you some experts' researches and findings on how you can benefits this low this low impact cardio exercise and how to do it safely.</p>
     </div>
-    <div class="container">
-
-        <h2 class="sub-title">Exclusives</h2>
-        <div class="exclusives">
-            <div>
-                <img src="images/image-1.png">
-                <span>
-                    <h3>London</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-2.png">
-                <span>
-                    <h3>Switzerland</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-3.png">
-                <span>
-                    <h3>Australia</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-4.png">
-                <span>
-                    <h3>France</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-5.png">
-                <span>
-                    <h3>Amsterdam</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-6.png">
-                <span>
-                    <h3>Netherland</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-7.png">
-                <span>
-                    <h3>New York</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-8.png">
-                <span>
-                    <h3>Chicago</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-9.png">
-                <span>
-                    <h3>San Francisco</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-            <div>
-                <img src="images/image-10.png">
-                <span>
-                    <h3>Shanghai</h3>
-                    <p>Starts @ 250</p>
-                </span>
-            </div>
-        </div>
-
-        <h2 class="sub-title">Trending Places</h2>
-        <div class="trending">
-            <div>
-                <img src="images/dubai.png">
-                <h3>Dubai</h3>
-            </div>
-            <div>
-                <img src="images/new-york.png">
-                <h3>New York</h3>
-            </div>
-            <div>
-                <img src="images/paris.png">
-                <h3>Paris</h3>
-            </div>
-            <div>
-                <img src="images/new-delhi.png">
-                <h3>New Delhi</h3>
-            </div>
-        </div>
-
-        <div class="cta">
-            <h3>Sharing <br>Is Earning Now</h3>
-            <p>Great opportunity to make money by <br>sharing your extra space.</p>
-            <a href="#" class="cta-btn">Know More</a>
-        </div>
-
-        <h2 class="sub-title">Travelers' Stories</h2>
-        <div class="stories">
-            <div>
-                <img src="images/story-1.png">
-                <p>Popular European countries with a budget of just $10,000</p>
-            </div>
-            <div>
-                <img src="images/story-2.png">
-                <p>Traveled more than 100 countries in less than a year.</p>
-            </div>
-            <div>
-                <img src="images/story-3.png">
-                <p>Best experience you get while traveling to Thailand.</p>
-            </div>
-        </div>
-        <a href="#" class="start-btn">Start making money</a>
-
-        <div class="about-msg">
-            <h2>About Staybnb</h2>
-            <p>Contrary to popular belief, Lorem Ipsum is not a random text. It is roots in a place of classic Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the obscure Latin words, consecetur, from a Lorem Ipsum passage, and going through the cities of the word in classical literature, discovered the undoubtable source.</p>
-        </div>
-        
-        <div class="footer">
-            <a href="https://facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://youtube.com"><i class="fa-brands fa-square-youtube"></i></a>
-            <a href="https://twitter.com"><i class="fa-brands fa-square-twitter"></i></a>
-            <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://instagram.com"><i class="fa-brands fa-square-instagram"></i></a>
-            <hr>
-            <p>Copyright @ 2024, Staybnb.</p>
-        </div>
+    <div class="about-msg">
+        <h2>Empowers cyclists to maintain their bikes with ease.</h2>
+        <p>To ensure safety and a enjoyable bike ride, your bicycle needs to regular checkups, maintenance and servicing.</p>
+        <p>We will share with you the location and operating hours of a bike repair shops near you, simple checks and DIY repairs which you will find it handy.</p>
     </div>
-<script>
-    var navBar = document.getElementById("navBar");
+    <div class="about-msg">
+        <h2>Tackles the growing issue of abandoned bikes</h2>
+        <p>We provide a marketplace where you can sell, donate and responsibly disposal of your underutilized bicycles to keep our public areas neat and clean.</p>
+        <p>Give them a second life and do your part to conserve the natural resources and make our Earth greener.</p>
+    </div>
+</div>
+</div>
+<div class="container">
 
-    function togglebtn(){
-        navBar.classList.toggle("hidemenu");
-    }
-</script>
-</body>
-</html>
+<h2 class="sub-title">Exclusive Promotions for our Sponsors</h2>
+<div class="exclusives">
+    <div>
+        <img src="images/adidas.png">
+        <span>
+            <h3>Adidas</h3>
+            <p>Supports sustainable materials and circular services...</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/nike.png">
+        <span>
+            <h3>Nike SG</h3>
+            <p>Just Do it</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/shimano.jpg">
+        <span>
+            <h3>Shimano</h3>
+            <p>A Japanese manufacturer of cycling components, fishing tackle, and rowing equipment</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/dahon.png">
+        <span>
+            <h3>Dahon</h3>
+            <p>World leader in folding bicycle</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/brompton.png">
+        <span>
+            <h3>Brompton</h3>
+            <p>World's best well-known folding bicycles from UK</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/giant.png">
+        <span>
+            <h3>Giant</h3>
+            <p>World's largest bicycle manufacturer in Taiwan</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/gt.jpg">
+        <span>
+            <h3>GT</h3>
+            <p>Top slopestyle and freeride mountain bikes</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/bell.png">
+        <span>
+            <h3>Bell bicycle helmets</h3>
+            <p>Premium bike helmets that feature advanced safety technology</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/smith.jpg">
+        <span>
+            <h3>Smith Trace</h3>
+            <p>Reduces forces caused by angled impacts to the head</p>
+        </span>
+    </div>
+    <div>
+        <img src="images/rapha.png">
+        <span>
+            <h3>Rapha</h3>
+            <p>Founded in 2004 - London. It is one of the biggest names in cycling clothes.</p>
+        </span>
+    </div>
+</div>
+
+<h2 class="sub-title">Most Popular Blogs</h2>
+<div class="trending">
+    <div>
+        <img src="images/cycling1.jpg" width="300" height="250">
+        <h3>120 likes...  12 shares</h3>
+    </div>
+    <div>
+        <img src="images/cycling2.jpg" width="300" height="200">
+        <h3>90 likes... 10 shares</h3>
+    </div>
+    <div>
+        <img src="images/cycling3.jpg" width="300" height="200">
+        <h3>88 likes... 9 shares</h3>
+    </div>
+    <div>
+        <img src="images/cycling4.jpg" width="300" height="300">
+        <h3>79 likes... 9 shares</h3>
+    </div>
+</div>
+<div>
+    <img src="images/cycling5.jpg" width="300" height="300">
+    <h3>62 likes... 2 shares</h3>
+</div>
+</div>
+
+<div class="cta">
+    <h3>Postings</h3>
+    <p>We welcome your sharing of thoughts on cycling here.</p>
+    <a href="#" class="cta-btn">Your post.</a>
+</div>
+
+<h2 class="sub-title">Latest Pre-owned Bikes for Sales</h2>
+<div class="stories">
+    <div>
+        <img src="images/bike1.jpg" width="300" height="250">
+        <p>Selling @ $80.00</p>
+    </div>
+    <div>
+        <img src="images/bike2.jpg" width="300" height="250">
+        <p>Selling @ $80.00</p>
+    </div>
+    <div>
+        <img src="images/bike3.jpg" width="300" height="250">
+        <p>Selling @ $100.00</p>
+    </div>
+</div>
+<a href="#" class="start-btn">Start making money</a>
+</div>
+{% endblock content %}
+
