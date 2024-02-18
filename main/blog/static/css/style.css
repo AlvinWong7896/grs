@@ -8,27 +8,28 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/banner.jpeg);
+    background-image: linear-gradient(to right, #6BB77B, transparent);
+    /* background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/banner.jpeg);
     background-size: cover;
-    background-position: center;
+    background-position: center; */
 }
 
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 7%;
+    padding: 10px 2%;
 }
 
 .logo{
-    width: 140px;
+    width: 150px;
     cursor: pointer;
 }
 
 .nav-links li{
     list-style: none;
     display: inline-block;
-    margin: 10px 50px;
+    margin: 5px 30px;
 }
 
 .active{
@@ -37,7 +38,7 @@ nav{
 
 .active::after{
     content: "";
-    background: #fff;
+    background: #172D13;
     width: 25px;
     height: 2px;
     position: absolute;
@@ -70,12 +71,31 @@ nav .fa-bars{
 }
 
 .header h1{
-    font-size: 4vw;
+    font-size: 52px;
     font-weight: 500;
-    color: #fff;
+    color: #ff5361;
     text-align: center;
-    padding-top: 22%;
+    padding-top: 7%;
 }
+
+.header h2{
+    font-size: 38px;
+    font-weight: 500;
+    color: #172D13;
+    text-align: left;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.header p{
+    font-size: 18px;
+    color: #172D13;
+    text-align: left;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+
 
 .search-bar{
     background: #fff;
@@ -176,8 +196,8 @@ nav .fa-bars{
 /* ------- call to action ------- */
 
 .cta{
-    margin: 80px 0;
-    background-image: linear-gradient(to right, #3f2321, transparent), url(images/banner-2.png);
+    margin: 10px 0;
+    background-image: linear-gradient(to right, #3f2321, transparent);
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -186,13 +206,13 @@ nav .fa-bars{
 }
 
 .cta h3{
-    font-size: 4vw;
-    line-height: 5.3vw;
+    font-size: 18px;
+    /* line-height: 5.3vw; */
     font-weight: 500;
 }
 
 .cta p{
-    font-size: 18px;
+    font-size: 20px;
     margin: 10px 0;
 }
 
@@ -202,7 +222,7 @@ nav .fa-bars{
     text-decoration: none;
     padding: 12px 30px;
     border-radius: 4px;
-    margin-top: 20px;
+    margin-top: 12px;
     display: inline-block;
 }
 
@@ -259,7 +279,7 @@ nav .fa-bars{
 }
 
 .about-msg{
-    font-size: 28px;
+    font-size: 18px;
     margin-bottom: 30px;
     font-weight: 500;
 }
@@ -304,7 +324,7 @@ nav .fa-bars{
         z-index: 100;
         display: inline-block;width: 100%;
         padding: 100px 7% 0;
-        background: #000;
+        background: #333;
         text-align: right;
         max-height: 100px;
         overflow: hidden;

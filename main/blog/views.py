@@ -4,6 +4,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 
 
+def home(request):
+    return render(request, "blog/index.html")
+
+
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = "posts"
