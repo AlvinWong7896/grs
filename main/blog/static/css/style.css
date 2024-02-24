@@ -284,6 +284,11 @@ nav .fa-bars{
     font-weight: 500;
 }
 
+.pagination{
+    font-size: 9px;
+    text-align: center;
+}
+
 /* ------- footer ------- */
 
 .footer{
