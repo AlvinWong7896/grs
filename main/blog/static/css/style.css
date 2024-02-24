@@ -283,11 +283,34 @@ nav .fa-bars{
     margin-bottom: 30px;
     font-weight: 500;
 }
-
-.pagination{
-    font-size: 9px;
-    text-align: center;
-}
+.pagination .step-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pagination .step-links .prev,
+  .pagination .step-links .next {
+    padding: 5px 10px;
+    border: 1px solid blue;
+    border-radius: 3px;
+    background: blue;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .pagination .step-links .page-info {
+    font-weight: bold;
+    white-space: nowrap;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    width: 100px;
+  }
+  
+  .pagination .step-links .flexible {
+    flex-grow: 1;
+  }
 
 /* ------- footer ------- */
 
