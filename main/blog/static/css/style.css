@@ -8,10 +8,10 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to right, #6BB77B, transparent);
-    /* background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/banner.jpeg);
+    /* background-image: linear-gradient(to right, #6BB77B, transparent); */
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/banner.jpeg);
     background-size: cover;
-    background-position: center; */
+    background-position: center;
 }
 
 nav{
@@ -293,11 +293,12 @@ nav .fa-bars{
   .pagination .step-links .next {
     padding: 5px 10px;
     border: 1px solid blue;
-    border-radius: 3px;
+    border-radius: 17px;
     background: blue;
     text-decoration: none;
     color: white;
     font-weight: 500;
+    width: 230px;
   }
   
   .pagination .step-links .page-info {
