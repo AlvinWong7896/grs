@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listing Page</title>
+    <title>GreenBikeSG</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://kit.fontawesome.com/b550cc9444.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!--------- navigation bar --------->
     <nav id="navBar" class="navbar-white">
         <a href="{% url 'home' %}">
             <img src="{% static 'images/logo.png' %}" class="logo">
@@ -20,6 +21,7 @@
             <li><a href="#">Marketplace</a></li>
             <li><a href="#">About Us</a></li>
         </ul>
+        <a href="#" class="signin-btn">Sign In</a>
         <a href="#" class="register-btn">Register Now</a>
         <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
     </nav>
@@ -27,7 +29,7 @@
     {% block content %}
     {% endblock content %}
         
-    <div class="container">
+    <div class="foot-container">
         <div class="footer">
             <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-square-youtube"></i></a>

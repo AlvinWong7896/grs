@@ -2,18 +2,10 @@
     margin: o;
     padding: 0;
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'poppins', sans-serif;
 }
 
-.header{
-    min-height: 100vh;
-    width: 100%;
-    /* background-image: linear-gradient(to right, #6BB77B, transparent); */
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/banner.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-
+/* ------- base.html/navigation bar ------- */
 nav{
     display: flex;
     align-items: center;
@@ -50,13 +42,22 @@ nav{
 
 .nav-links li a{
     text-decoration: none;
+    color: #172D13;
+}
+
+.signin-btn{
+    background: rgb(255, 125, 0);
     color: #fff;
+    padding: 8px 42px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .register-btn{
-    background: #fff;
-    color: #000;
-    padding: 8px 20px;
+    background: rgb(255, 125, 0);
+    color: #fff;
+    padding: 8px 22px;
     border-radius: 20px;
     text-decoration: none;
     font-size: 14px;
@@ -66,33 +67,69 @@ nav .fa-bars{
     display: none;
 }
 
-.container{
+/* ------- base.html/footer ------- */
+
+.foot-container{
     padding: 0 7%;
 }
 
-.header h1{
-    font-size: 52px;
-    font-weight: 500;
-    color: #ff5361;
+.footer{
+    margin: 80px 0 10px;
     text-align: center;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #999;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.footer hr{
+    background: #999;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+
+.footer p{
+    margin-bottom: 15px;
+}
+
+/* ------- index.html/main section ------- */
+
+.hero{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../images/banner.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1{
+    font-size: 47px;
+    font-weight: 500;
+    color: #ddd;
+    margin-left: 3rem;
     padding-top: 7%;
 }
 
-.header h2{
-    font-size: 38px;
+.hero h2{
+    font-size: 37px;
     font-weight: 500;
-    color: #172D13;
+    color: #eee;
     text-align: left;
     padding-left: 8%;
-    padding-right: 8%;
+    padding-right: 48%;
 }
 
-.header p{
-    font-size: 18px;
-    color: #172D13;
+.hero p{
+    font-size: 27px;
+    color: #999;
     text-align: left;
     padding-left: 8%;
-    padding-right: 8%;
+    padding-right: 48%;
 }
 
 
@@ -269,7 +306,7 @@ nav .fa-bars{
     font-size: 20px;
 }
 
-/* ------- about-msg ------- */tw
+/* ------- about-msg ------- */
 
 .about-msg{
     text-align: center;
@@ -287,61 +324,36 @@ nav .fa-bars{
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .pagination .step-links .prev,
-  .pagination .step-links .next {
-    padding: 5px 10px;
-    border: 1px solid blue;
-    border-radius: 17px;
-    background: blue;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    width: 230px;
-  }
-  
-  .pagination .step-links .page-info {
-    font-weight: bold;
-    white-space: nowrap;
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
-    width: 100px;
-  }
-  
-  .pagination .step-links .flexible {
-    flex-grow: 1;
-  }
-
-/* ------- footer ------- */
-
-.footer{
-    margin: 80px 0 10px;
-    text-align: center;
 }
 
-.footer a{
-    text-decoration: none;
-    color: #999;
-    font-size: 22px;
-    margin: 0 10px;
+.pagination .step-links .prev,
+.pagination .step-links .next {
+padding: 5px 10px;
+border: 1px solid blue;
+border-radius: 17px;
+background: blue;
+text-decoration: none;
+color: white;
+font-weight: 500;
+width: 230px;
 }
 
-.footer hr{
-    background: #999;
-    height: 1px;
-    width: 100%;
-    border: 0;
-    margin: 20px 0;
+.pagination .step-links .page-info {
+font-weight: bold;
+white-space: nowrap;
+/* overflow: hidden; */
+text-overflow: ellipsis;
+width: 100px;
 }
 
-.footer p{
-    margin-bottom: 15px;
+.pagination .step-links .flexible {
+flex-grow: 1;
 }
+
 
 /* ------- for small screen devices ------- */
 
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
     .logo{
         position: fixed;
         top: 4%;
@@ -383,7 +395,7 @@ nav .fa-bars{
     .hidemenu{
         max-height: 300px;
     }
-    .header h1{
+    .hero h1{
         padding-top: 200px;
         font-size: 7vw;
     }
@@ -435,11 +447,11 @@ nav .fa-bars{
     .about-msg{
         font-size: 15px;
     }
-}
+} */
 
 /* ------- Listing page ------- */
 
-.navbar-white{
+/* .navbar-white{
     background: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 }
@@ -568,9 +580,9 @@ nav .fa-bars{
 
 .sidebar-link a{
     text-decoration: none;
-}
+} */
 
-.pagination{
+/* .pagination{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,7 +611,7 @@ nav .fa-bars{
 
 .right-arrow{
     transform: rotate(180deg);
-}
+} */
 
 /* ------- small screen for listing page ------- */
 
@@ -630,7 +642,7 @@ nav .fa-bars{
 
 /* ------- house details page ------- */
 
-.house-details{
+/* .house-details{
     padding: 0 12%;
 }
 
@@ -812,11 +824,11 @@ nav .fa-bars{
     padding: 15px 50px;
     border: 1px solid #ff5361;
     border-radius: 8px;
-}
+} */
 
 /* ------- media query for house details page ------- */
 
-@media screen and (max-width: 700px){
+/* @media screen and (max-width: 700px){
     .house-details{
         margin-top: 150px;
     }
@@ -861,4 +873,4 @@ nav .fa-bars{
         margin: 40px 0;
     }
 
-}
+} */
