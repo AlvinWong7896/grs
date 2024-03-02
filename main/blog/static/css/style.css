@@ -221,6 +221,143 @@ label::after{
     width: 85%;
 }
 
+/* ------- list.html/main section ------- */
+
+.blogs{
+    min-height: 100vh;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-size: cover;
+    background-position: left 220px center;
+}
+
+.blogs{
+    min-height: 100vh;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+    background-size: cover;
+    background-position: left 220px center;
+}
+
+.blogs h1{
+    font-size: 48px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 3rem;
+    padding-top: 7%;
+    margin-bottom: 20px;
+}
+
+.blog li{
+    list-style: none;
+    width: 50%;
+    padding: 5px;
+}
+
+input[type='radio']{
+    display: none;
+}
+
+.hero .statement li label{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    background: #323232;
+    color: #eee;
+    padding: 3%;
+    margin-left: 5%;
+    margin-bottom: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+label::after{
+    content: '>>';
+    font-size: 25px;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.5s;
+}
+
+.hero .details{
+    font-size: 18px;
+    background: #4b4b4b;
+    color: #eee;
+    margin-left: 5%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.hero input[type='radio']:checked + label + .details{
+    max-height: 600px;
+    padding: 30px 20px;
+}
+
+.hero input[type='radio']:checked + label::after{
+    transform: rotate(90deg);
+}
+
+/* ------- index.html/side bar ------- */
+
+.sidebar{
+    background: #fff;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    padding-right: 2%;
+    margin-bottom: 50px;
+    margin-top: 106px;
+    min-height: 100vh;
+    padding-left: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar h2{
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.sidebar .trending a{
+    font-size: .8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.sidebar .preowned img{
+    height: 4rem;
+    width: 5rem;
+    border-radius: 8%;
+    margin-bottom: 8%;
+}
+
+.sidebar .preowned{
+    font-size: .6rem;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 85%;
+}
+
+
+
+
+
+
+/* ------- end -------- */
 
 .small-sidebar{
     width: 5%;
@@ -383,6 +520,9 @@ label::after{
 }
 .pagination .step-links {
     display: flex;
+    padding-left: 40%;
+    padding-right: 40%;
+    padding-top: 5%;
     justify-content: space-between;
     align-items: center;
 }
@@ -393,6 +533,7 @@ padding: 5px 10px;
 border: 1px solid blue;
 border-radius: 17px;
 background: blue;
+text-align: center;
 text-decoration: none;
 color: white;
 font-weight: 500;
@@ -402,7 +543,7 @@ width: 100px;
 .pagination .step-links .page-info {
 font-weight: bold;
 white-space: nowrap;
-/* overflow: hidden; */
+text-align: center;
 text-overflow: ellipsis;
 width: 100px;
 }
