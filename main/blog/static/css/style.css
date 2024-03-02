@@ -155,11 +155,10 @@ label::after{
 }
 
 .hero .details{
-    font-size: 18px;
+    font-size: 40px;
     background: #4b4b4b;
     color: #eee;
     margin-left: 5%;
-    max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s, padding 0.5s;
 }
@@ -229,34 +228,75 @@ label::after{
     padding-right: 2%;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/image-6.png);
     background-size: cover;
-    background-position: left 220px center;
-}
-
-.blogs{
-    min-height: 100vh;
-    padding-left: 17%;
-    padding-right: 2%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
-    background-size: cover;
-    background-position: left 220px center;
+    background-position: center;
+    color: #eee;
 }
 
 .blogs h1{
     font-size: 48px;
     font-weight: 500;
-    color: #fff;
+    color: #bbb;
     margin-left: 3rem;
     padding-top: 7%;
     margin-bottom: 20px;
 }
 
-.blog li{
-    list-style: none;
-    width: 50%;
-    padding: 5px;
+.blogs a{
+    font-size: 32px;
+    color: #ddd;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 3rem;
+}
+
+.blogs .date{
+    font-size: 15px;
+    margin-left: 3rem;
+    padding: 0;
+}
+
+.blogs p{
+    font-size: 25px;
+    font-weight: 200;
+    margin-left: 3rem;
+    padding-bottom: 2%;
+}
+
+.pagination .step-links {
+    display: flex;
+    padding-left: 40%;
+    padding-right: 40%;
+    padding-top: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination .step-links .prev,
+.pagination .step-links .next {
+padding: 5px 10px;
+border: 1px solid blue;
+border-radius: 17px;
+background: blue;
+text-align: center;
+text-decoration: none;
+color: white;
+font-size: 20px;
+font-weight: 500;
+width: 100px;
+}
+
+.pagination .step-links .page-info {
+font-weight: bold;
+white-space: nowrap;
+text-align: center;
+text-overflow: ellipsis;
+width: 100px;
+}
+
+.pagination .step-links .flexible {
+flex-grow: 1;
 }
 
 input[type='radio']{
@@ -518,39 +558,7 @@ label::after{
     margin-bottom: 30px;
     font-weight: 500;
 }
-.pagination .step-links {
-    display: flex;
-    padding-left: 40%;
-    padding-right: 40%;
-    padding-top: 5%;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.pagination .step-links .prev,
-.pagination .step-links .next {
-padding: 5px 10px;
-border: 1px solid blue;
-border-radius: 17px;
-background: blue;
-text-align: center;
-text-decoration: none;
-color: white;
-font-weight: 500;
-width: 100px;
-}
-
-.pagination .step-links .page-info {
-font-weight: bold;
-white-space: nowrap;
-text-align: center;
-text-overflow: ellipsis;
-width: 100px;
-}
-
-.pagination .step-links .flexible {
-flex-grow: 1;
-}
 
 
 /* ------- for small screen devices ------- */
