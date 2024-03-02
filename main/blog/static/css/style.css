@@ -1,8 +1,13 @@
 *{
-    margin: o;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
+}
+
+body{
+    background: #fff;
+    color: blue;
 }
 
 /* ------- base.html/navigation bar ------- */
@@ -72,7 +77,7 @@ nav .fa-bars{
 /* ------- base.html/footer ------- */
 
 .foot-container{
-    padding: 0 7%;
+    padding: 0% 7%;
 }
 
 .footer{
@@ -96,7 +101,8 @@ nav .fa-bars{
 }
 
 .footer p{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    color: #323232;
 }
 
 
@@ -104,22 +110,10 @@ nav .fa-bars{
 
 .hero{
     min-height: 100vh;
-    padding-left: 17%;
-    padding-right: 2%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+    padding: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.7)), url(../images/banner.png);
     background-size: cover;
     background-position: left 220px center;
-}
-
-.hero h1{
-    font-size: 48px;
-    font-weight: 500;
-    color: #fff;
-    margin-left: 3rem;
-    padding-top: 7%;
-    margin-bottom: 20px;
 }
 
 .hero li{
@@ -146,24 +140,28 @@ input[type='radio']{
     cursor: pointer;
 }
 
-label::after{
+.hero .statement li label::after{
     content: '>>';
     font-size: 25px;
     position: absolute;
     right: 20px;
-    transition: transform 0.5s;
+    transition: transform .5s;
 }
 
 .hero .details{
-    font-size: 40px;
+    display: none;  /* Hide details by default */
+    font-size: 20px;
     background: #4b4b4b;
     color: #eee;
     margin-left: 5%;
     overflow: hidden;
-    transition: max-height 0.5s, padding 0.5s;
+    max-height: 0;
+    padding: 0;
+    transition: max-height .5s, padding .5s ease-in-out;
 }
 
-.hero input[type='radio']:checked + label + .details{
+.hero input[type='radio']:checked ~ .details{
+    display: block; /* show details when radio button is checked */
     max-height: 600px;
     padding: 30px 20px;
 }
@@ -172,6 +170,8 @@ label::after{
     transform: rotate(90deg);
 }
 
+
+
 /* ------- index.html/side bar ------- */
 
 .sidebar{
@@ -179,38 +179,31 @@ label::after{
     width: 15%;
     position: absolute;
     top: 0;
-    padding-right: 2%;
     margin-bottom: 50px;
-    margin-top: 106px;
-    min-height: 100vh;
-    padding-left: 2%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    min-height: 120vh;
+    padding: 20px;
 }
 
 .sidebar h2{
     font-size: .9rem;
     font-weight: 700;
     text-align: center;
-    padding-top: 5%;
+    padding: 5px;
 }
 
-.sidebar .trending a{
-    font-size: .8rem;
-    font-weight: 500;
-    text-align: center;
+.sidebar .preowned a{
     margin-top: 10%;
 }
 
-.sidebar .preowned img{
-    height: 4rem;
-    width: 5rem;
-    border-radius: 8%;
-    margin-bottom: 8%;
+.sidebar .preowned .image-text-container{
+    display: flex;
+    align-items: center;
 }
 
-.sidebar .preowned{
-    font-size: .6rem;
+.sidebar .preowned .image-text-container img{
+    margin-right: 10px;
+    width: 70px;
+    height: auto;
 }
 
 .sidebar hr{
@@ -238,9 +231,9 @@ label::after{
     font-size: 48px;
     font-weight: 500;
     color: #bbb;
-    margin-left: 3rem;
+    margin-left: 50px;
     padding-top: 7%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .blogs a{
@@ -248,20 +241,22 @@ label::after{
     color: #ddd;
     font-weight: 500;
     text-decoration: none;
-    margin-left: 3rem;
+    margin-left: 48px;
 }
 
 .blogs .date{
     font-size: 15px;
-    margin-left: 3rem;
-    padding: 0;
+    margin-left: 60px;
+    margin-bottom: 1px;
 }
 
 .blogs p{
     font-size: 25px;
     font-weight: 200;
-    margin-left: 3rem;
-    padding-bottom: 2%;
+    margin-left: 56px;
+    margin-right: 56px;
+    margin-top: 12px;
+    margin-bottom: 50px;
 }
 
 .pagination .step-links {
@@ -275,76 +270,31 @@ label::after{
 
 .pagination .step-links .prev,
 .pagination .step-links .next {
-padding: 5px 10px;
-border: 1px solid blue;
-border-radius: 17px;
-background: blue;
-text-align: center;
-text-decoration: none;
-color: white;
-font-size: 20px;
-font-weight: 500;
-width: 100px;
+    padding: 5px 10px;
+    border: 1px solid blue;
+    border-radius: 17px;
+    background: blue;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100px;
 }
 
 .pagination .step-links .page-info {
-font-weight: bold;
-white-space: nowrap;
-text-align: center;
-text-overflow: ellipsis;
-width: 100px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 100px;
 }
 
 .pagination .step-links .flexible {
 flex-grow: 1;
 }
 
-input[type='radio']{
-    display: none;
-}
-
-.hero .statement li label{
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 500;
-    background: #323232;
-    color: #eee;
-    padding: 3%;
-    margin-left: 5%;
-    margin-bottom: 0;
-    position: relative;
-    cursor: pointer;
-}
-
-label::after{
-    content: '>>';
-    font-size: 25px;
-    position: absolute;
-    right: 20px;
-    transition: transform 0.5s;
-}
-
-.hero .details{
-    font-size: 18px;
-    background: #4b4b4b;
-    color: #eee;
-    margin-left: 5%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s, padding 0.5s;
-}
-
-.hero input[type='radio']:checked + label + .details{
-    max-height: 600px;
-    padding: 30px 20px;
-}
-
-.hero input[type='radio']:checked + label::after{
-    transform: rotate(90deg);
-}
-
-/* ------- index.html/side bar ------- */
+/* ------- list.html/side bar ------- */
 
 .sidebar{
     background: #fff;
@@ -374,15 +324,88 @@ label::after{
     margin-top: 10%;
 }
 
-.sidebar .preowned img{
-    height: 4rem;
-    width: 5rem;
-    border-radius: 8%;
-    margin-bottom: 8%;
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 85%;
 }
 
-.sidebar .preowned{
-    font-size: .6rem;
+/* ------- detail.html/main section ------- */
+
+.detail{
+    min-height: 100vh;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/image-6.png);
+    background-size: cover;
+    background-position: center;
+    color: #eee;
+}
+
+.detail h1{
+    font-size: 48px;
+    font-weight: 500;
+    color: #bbb;
+    margin-left: 50px;
+    padding-top: 7%;
+    margin-bottom: 50px;
+}
+
+/* .blogs a{
+    font-size: 32px;
+    color: #ddd;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 48px;
+} */
+
+.detail .date{
+    font-size: 15px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.detail p{
+    font-size: 25px;
+    font-weight: 200;
+    margin-left: 56px;
+    margin-right: 56px;
+    margin-top: 12px;
+    margin-bottom: 50px;
+}
+
+/* ------- detail.html/side bar ------- */
+
+.sidebar{
+    background: #fff;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    padding-right: 2%;
+    margin-bottom: 50px;
+    margin-top: 106px;
+    min-height: 100vh;
+    padding-left: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar h2{
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.sidebar .trending a{
+    font-size: .8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10%;
 }
 
 .sidebar hr{
@@ -391,7 +414,6 @@ label::after{
     background: #ccc;
     width: 85%;
 }
-
 
 
 

@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% block title %}My Blog{% endblock %}
 {% block content %}
+<div class="container">
     <div class="blogs">
     <h1>My Blog</h1>
     {% for post in posts %}
@@ -18,21 +19,22 @@
   </div>
 
   <div class="sidebar">
-    <h2 class="sub-title">Popular Blog Topics</h2>
+  <h2 class="sub-title">Popular Blog Topics</h2>
     <div class="trending">
-        <div>
-            <a href="#">Health tips</a>
-        </div>
-        <div>
-            <a href="#">Bike DIY maintenance</a>
-        </div>
-        <div>
-            <a href="#">Professional biking</a>
-        </div>
-        <div>
-            <a href="#">Green advices</a>
-        </div>
-        <hr>
+      <div>
+          <a href="#">Health tips</a>
+      </div>
+      <div>
+          <a href="#">Bike DIY maintenance</a>
+      </div>
+      <div>
+          <a href="#">Professional biking</a>
+      </div>
+      <div>
+          <a href="#">Green advices</a>
+      </div>
+      <hr>
     </div>
+  </div>
 </div>
 {% endblock content %}
