@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="signup">
+        <h1>Sign Up</h1>
+        <h2>{{ error }}</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    <div class="sidebar">
+        <h2>Popular Blog Topics</h2>
+        <div class="trending">
+            <div>
+                <a href="#">Health tips</a>
+            </div>
+            <div>
+                <a href="#">Bike DIY maintenance</a>
+            </div>
+            <div>
+                <a href="#">Professional biking</a>
+            </div>
+            <div>
+                <a href="#">Green advices</a>
+            </div>
+            <hr>
+        </div>
+        <h2>Latest Pre-owned</h2>
+        <div class="preowned">
+            <div class="image-text-container">
+                <a href="#"><img src="{% static 'images/bike1.jpg' %}"></a>
+                <p>$1,600.00</p>
+            </div>
+            <div class="image-text-container">
+                <a href="#"><img src="{% static 'images/bike2.jpg' %}"></a>
+                <p>$3,200.00</p>
+            </div>
+            <div class="image-text-container">
+                <a href="#"><img src="{% static 'images/bike3.jpg' %}"></a>
+                <p>$100.00</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    

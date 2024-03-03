@@ -111,9 +111,18 @@ nav .fa-bars{
 .hero{
     min-height: 100vh;
     padding: 20px;
+    padding-left: 280px;
     background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.7)), url(../images/banner.png);
     background-size: cover;
     background-position: left 220px center;
+}
+
+.hero h1{
+    padding-top: 80px;
+    color: #fff;
+    font-size: 48px;
+    margin-left: 50px;
+    margin-bottom: 30px;
 }
 
 .hero li{
@@ -354,14 +363,6 @@ flex-grow: 1;
     margin-bottom: 50px;
 }
 
-/* .blogs a{
-    font-size: 32px;
-    color: #ddd;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 48px;
-} */
-
 .detail .date{
     font-size: 15px;
     margin-left: 60px;
@@ -415,6 +416,84 @@ flex-grow: 1;
     width: 85%;
 }
 
+/* ------- signup.html/main section ------- */
+
+.signup{
+    min-height: 100vh;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/image-6.png);
+    background-size: cover;
+    background-position: center;
+    color: #eee;
+}
+
+.signup h1{
+    font-size: 48px;
+    font-weight: 500;
+    color: #bbb;
+    margin-left: 50px;
+    padding-top: 7%;
+    margin-bottom: 50px;
+}
+
+.signup h2{
+    font-size: 32px;
+    font-weight: 500;
+    color: #bbb;
+    margin-left: 50px;
+    padding-top: 7%;
+    margin-bottom: 50px;
+}
+
+
+.detail p{
+    font-size: 25px;
+    font-weight: 200;
+    margin-left: 56px;
+    margin-right: 56px;
+    margin-top: 12px;
+    margin-bottom: 50px;
+}
+
+/* ------- signup.html/side bar ------- */
+
+.sidebar{
+    background: #fff;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    padding-right: 2%;
+    margin-bottom: 50px;
+    margin-top: 106px;
+    min-height: 100vh;
+    padding-left: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar h2{
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.sidebar .trending a{
+    font-size: .8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 85%;
+}
 
 
 
