@@ -5,7 +5,7 @@
     font-family: 'poppins', sans-serif;
 }
 
-/* ------- base.html/navigation bar ------- */
+/* ------- base.html/navigation bar --------------------------------------------- */
 nav{
     display: flex;
     align-items: center;
@@ -99,6 +99,24 @@ nav .fa-bars{
     margin-bottom: 15px;
 }
 
+
+/* ------- base.html/smaller display ------- */
+
+@media only screen and (max-width: 768px){
+    nav-links{
+        display: none; /* hide navigation links */ 
+    }
+    .nav-links.active{
+        display: block;  /* show links when menu is clicked */
+    }
+    .fa-bars{
+        display: block;  /* show hamburger menu icon */
+    }
+    .signin-button,
+    .register-btn{
+        margin-right: 10px; /* reduce button margins */
+    }
+}
 
 /* ------- index.html/main section ------- */
 
