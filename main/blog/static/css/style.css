@@ -1,5 +1,5 @@
 *{
-    margin: o;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
@@ -10,83 +10,84 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 2%;
+    background: #ffff;
+    padding: 5px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.logo{
+.nav-left .logo{
     width: 150px;
+    margin-left: -25px;
+    margin-right: 50px;
     cursor: pointer;
 }
 
-.nav-links li{
+.nav-left, .nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.nav-left .nav-links li{
     list-style: none;
     display: inline-block;
-    margin: 5px 30px;
 }
 
-.active{
-    position: relative;
-}
-
-.active::after{
-    content: "";
-    background: #323232;
-    width: 25px;
-    height: 2px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: -12px;
-    border-radius: 2px;
-}
-
-.nav-links li a{
+.nav-left .nav-links a{
     text-decoration: none;
-    color: #172D13;
+    margin-left: 50px;
 }
 
-.signin-btn{
+.nav-right .select-btn{
+    display: inline-block;
+}
+
+.nav-right .select-btn .signin-btn{
     background: rgb(255, 125, 0);
-    color: #fff;
-    padding: 8px 42px;
-    border-radius: 20px;
-    margin-right: -200px;
-    text-decoration: none;
     font-size: 18px;
-}
-
-.register-btn{
-    background: rgb(255, 125, 0);
     color: #fff;
-    padding: 8px 22px;
+    padding: 5px 30px;
     border-radius: 20px;
     margin-right: 50px;
     text-decoration: none;
+}
+
+.nav-right .select-btn .register-btn{
+    background: rgb(255, 125, 0);
     font-size: 18px;
+    color: #fff;
+    padding: 5px 40px;
+    border-radius: 20px;
+    text-decoration: none;
 }
 
 nav .fa-bars{
     display: none;
+    cursor: pointer;
+}
+
+.nav-left .dropdown-container {
+    position: relative;
+    display: inline-block;
 }
 
 /* ------- base.html/footer ------- */
 
 .foot-container{
-    padding: 0 7%;
+    padding: 5px 5%;
 }
 
 .footer{
-    margin: 80px 0 10px;
+    margin: 80px 10px;
     text-align: center;
 }
 
 .footer a{
     text-decoration: none;
     color: #999;
-    font-size: 22px;
-    margin: 0 10px;
+    margin: 10px;
 }
-
 .footer hr{
     background: #999;
     height: 1px;
@@ -96,25 +97,77 @@ nav .fa-bars{
 }
 
 .footer p{
-    margin-bottom: 15px;
+    color: #777;
 }
 
 
 /* ------- base.html/smaller display ------- */
 
 @media only screen and (max-width: 768px){
-    nav-links{
-        display: none; /* hide navigation links */ 
+    /* Adjust logo size for small screens */
+    .nav-left .logo{
+        width: 100px;
+        margin-left: -5px;
+        margin-right: 30px;
+        cursor: pointer;
     }
-    .nav-links.active{
-        display: block;  /* show links when menu is clicked */
+    /* Hide navigation links by default */
+    .nav-left .nav-links{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #4b4b4b;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
     }
-    .fa-bars{
-        display: block;  /* show hamburger menu icon */
+
+    /* Show navigation links when menu is active (toggled) */
+    .nav-left .nav-links.active{
+        display: flex;
     }
-    .signin-button,
-    .register-btn{
-        margin-right: 10px; /* reduce button margins */
+    /* Show hamburger menu icon on smaller screens */
+    .nav-right .fa-bars{
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        font-size: 20px;
+    }
+    /* Reduce button margins for better layout on smaller screens */
+    .nav-right .select-btn .signin-btn,
+    .nav-right .select-btn .register-btn{
+        margin-right: 10px;
+    }
+    /* Adjust button styles for smaller screens */
+    .nav-right .select-btn{
+        display: flex;
+        align-items: center;
+    }
+    .nav-right .select-btn .signin-btn{
+        background: rgb(255, 125, 0);
+        font-size: 15px;
+        color: #fff;
+        margin-right: 20px;
+        padding: 2px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+    .nav-right .select-btn .register-btn{
+        background: rgb(255, 125, 0);
+        font-size: 15px;
+        color: #fff;
+        margin-right: 20px;
+        padding: 2px 25px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+    .active::after{
+        left: -40px;
+        transform: translate(0, 50%);
+        bottom: 50%;
     }
 }
 
@@ -429,102 +482,4 @@ width: 100px;
 flex-grow: 1;
 }
 
-
-/* ------- for small screen devices ------- */
-
-/* @media screen and (max-width: 700px) {
-    .logo{
-        position: fixed;
-        top: 4%;
-        left: 7%;
-    }
-    nav{
-        position: fixed;
-        top: 0;
-        z-index: 100;
-        display: inline-block;width: 100%;
-        padding: 100px 7% 0;
-        background: #333;
-        text-align: right;
-        max-height: 100px;
-        overflow: hidden;
-        transition: max-height 0.5s;
-    }
-    nav .nav-links li{
-        margin: 10px 0;
-        display: block;
-    }
-    .register-btn{
-        margin: 15px 0 30px;
-        display: inline-block;
-    }
-    nav .fa-bars{
-        display: block;
-        position: fixed;
-        top: 4%;
-        right: 7%;
-        color: #fff;
-        font-size: 28px;
-    }
-    .active::after{
-        left: -40px;
-        transform: translate(0, 50%);
-        bottom: 50%;
-    }
-    .hidemenu{
-        max-height: 300px;
-    }
-    .hero h1{
-        padding-top: 200px;
-        font-size: 7vw;
-    }
-    .search-bar{
-        width: 90%;
-        margin: 30px auto;
-        padding: 20px 10px 30px;
-        border-radius: 5px;
-        position: relative;
-    }
-    .search-bar form{
-        display: block;
-    }
-    .search-bar form input{
-        border-bottom: 1px solid#ddd;
-        width: 100%;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        padding-bottom: 10px;
-    }
-    .search-bar form button{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-    }
-    .sub-title{
-        font-size: 6vw;
-    }
-    .cta{
-        padding: 15% 5%;
-    }
-    .cta h3{
-        font-size: 7vw;
-        line-height: 8vw;
-    }
-    .cta p{
-        font-size: 14px;
-    }
-    .cta-btn{
-        padding: 6px 15px;
-        border-radius: 4px;
-        margin-top: 10px;
-        font-size: 14px;
-    }
-    .stories p{
-        font-size: 22px;
-    }
-    .about-msg{
-        font-size: 15px;
-    }
-} */
 
