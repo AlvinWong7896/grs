@@ -6,54 +6,57 @@
 }
 
 /* ------- base.html/navigation bar --------------------------------------------- */
+
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffff;
-    padding: 5px 5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 20px 7%;
 }
 
-.nav-left .logo{
-    width: 150px;
-    margin-left: -25px;
-    margin-right: 50px;
+.logo{
+    width: 140px;
     cursor: pointer;
 }
 
-.nav-left, .nav-right{
-    display: flex;
-    align-items: center;
-}
-
-.nav-left .nav-links li{
+.nav-links li{
     list-style: none;
     display: inline-block;
+    margin: 10px 30px;
 }
 
-.nav-left .nav-links a{
+.active{
+    position: relative;
+}
+
+.active::after{
+    content: "";
+    background: #fff;
+    width: 25px;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -12px;
+    border-radius: 2px;
+}
+
+.nav-links li a{
     text-decoration: none;
-    margin-left: 50px;
+    color: #323232;
 }
 
-.nav-right .select-btn{
-    display: inline-block;
-}
-
-.nav-right .select-btn .signin-btn{
+.login-btn{
     background: rgb(255, 125, 0);
     font-size: 18px;
     color: #fff;
     padding: 5px 30px;
     border-radius: 20px;
-    margin-right: 50px;
     text-decoration: none;
 }
 
-.nav-right .select-btn .register-btn{
+.signup-btn{
     background: rgb(255, 125, 0);
     font-size: 18px;
     color: #fff;
@@ -64,13 +67,8 @@ nav{
 
 nav .fa-bars{
     display: none;
-    cursor: pointer;
 }
 
-.nav-left .dropdown-container {
-    position: relative;
-    display: inline-block;
-}
 
 /* ------- base.html/footer ------- */
 
@@ -102,72 +100,67 @@ nav .fa-bars{
 
 
 /* ------- base.html/smaller display ------- */
-
-@media only screen and (max-width: 768px){
-    /* Adjust logo size for small screens */
-    .nav-left .logo{
-        width: 100px;
-        margin-left: -5px;
-        margin-right: 30px;
-        cursor: pointer;
-    }
-    /* Hide navigation links by default */
-    .nav-left .nav-links{
+@media screen and (max-width: 1000px) {
+    .logo{
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background: #4b4b4b;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
     }
-
-    /* Show navigation links when menu is active (toggled) */
-    .nav-left .nav-links.active{
-        display: flex;
-    }
-    /* Show hamburger menu icon on smaller screens */
-    .nav-right .fa-bars{
-        display: block;
-        cursor: pointer;
+    nav{
         position: fixed;
-        top: 25px;
-        right: 25px;
-        font-size: 20px;
+        top: 0;
+        z-index: 100;
+        display: inline-block;
+        width: 100%;
+        padding: 100px 7% 0;
+        background: white;
+        text-align: center;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.5s;
     }
-    /* Reduce button margins for better layout on smaller screens */
-    .nav-right .select-btn .signin-btn,
-    .nav-right .select-btn .register-btn{
-        margin-right: 10px;
+    .login-btn, .signup-btn{
+        display: none;
     }
-    /* Adjust button styles for smaller screens */
-    .nav-right .select-btn{
+    nav .nav-links{
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    .nav-right .select-btn .signin-btn{
-        background: rgb(255, 125, 0);
-        font-size: 15px;
-        color: #fff;
-        margin-right: 20px;
-        padding: 2px 20px;
-        border-radius: 10px;
-        text-decoration: none;
+    nav .nav-links li{
+        margin: 10px 0;
+        width: calc(33.33% - 20px);
+        text-align: center;
     }
-    .nav-right .select-btn .register-btn{
-        background: rgb(255, 125, 0);
-        font-size: 15px;
-        color: #fff;
-        margin-right: 20px;
-        padding: 2px 25px;
-        border-radius: 10px;
+    nav .nav-links li:nth-child(3n+1){
+        margin-left: 0;
+    }
+    .nav-links .login-btn, 
+    .nav-links .signup-btn{
+        display: block;
+        background: none;
+        padding: 0;
+        border-radius: 0;
         text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    nav .fa-bars{
+        display: block;
+        position: fixed;
+        top: 4%;
+        right: 7%;
+        color: #323232;
+        font-size: 28px;
     }
     .active::after{
         left: -40px;
         transform: translate(0, 50%);
         bottom: 50%;
+    }
+    .hidemenu{
+        max-height: 300px;
     }
 }
 

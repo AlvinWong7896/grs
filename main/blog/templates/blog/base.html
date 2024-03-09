@@ -11,27 +11,19 @@
 
 <body>
     <!--------- navigation bar --------->
-    <nav>
-        <div class="nav-left" id="navBar">
-            <a href="{% url 'home' %}">
-            <img src="{% static 'images/logo.png' %}" class="logo">
-            </a>
-            <div class="dropdown-container">
-                <ul class="nav-links">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="/blog/" class="active">Blogs</a></li>
-                    <li><a href="#">Marketplace</a></li>
-                    <li><a href="#">Bike Servicing</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="nav-right">
-            <div class="select-btn">
-                <a href="#" class="signin-btn">Sign Up</a>
-                <a href="#" class="register-btn">Log In</a>
-                <i id="menuToggle" class="fa-solid fa-bars"></i>
-            </div>
-        </div>
+    <nav id="navBar">
+        <a href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" class="logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="/blog/" class="active">Blogs</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Bike Servicing</a></li>
+            <li><a href="#" class="login-btn">Sign Up</a></li>
+            <li><a href="#" class="signup-btn">Log In</a></li>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
     </nav>
 
     {% block content %}
@@ -48,41 +40,11 @@
             <p>Copyright @ 2024, GreenBikeSG.</p>
         </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script>
     var navBar = document.getElementById("navBar");
-    var navLinks = navBar.querySelector('.nav-links'); // Corrected selector
-
-    function togglebtn() {
-        console.log("Toggle button clicked");
-        navLinks.classList.toggle("show-menu"); // Toggle 'show-menu' class
+    function togglebtn(){
+        navBar.classList.toggle("hidemenu");
     }
-
-    // Add event listener to menuToggle for click
-    const menuToggle = document.getElementById('menuToggle');
-    menuToggle.addEventListener('click', function(){
-        if (window.innerWidth <= 768){
-            togglebtn()
-        }
-    });
-});
-    </script>
+</script>
 </body>
 </html>
-
-
-
-// var navBar = document.getElementById("navBar");
-// var navLinks = navBar.querySelector('.nav-links'); // Corrected selector
-
-// function togglebtn() {
-//     console.log("Toggle button clicked")
-//     if (window.innerWidth <= 768){
-//         navLinks.classList.toggle("show-menu"); // Toggle 'show-menu' class
-//     }
-// }
-
-// // Add event listener to menuToggle for click
-// const menuToggle = document.getElementById('menuToggle');
-// menuToggle.removeEventListener('click', togglebtn);
-// menuToggle.addEventListener('click', togglebtn);
