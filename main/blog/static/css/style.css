@@ -17,6 +17,7 @@ nav{
 
 .logo{
     width: 140px;
+    margin-left: -80px;
     cursor: pointer;
 }
 
@@ -100,68 +101,109 @@ nav .fa-bars{
 
 
 /* ------- base.html/smaller display ------- */
-@media screen and (max-width: 1000px) {
-    .logo{
-        display: none;
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 70px;
+        margin-left: 0px;
     }
-    nav{
+
+    nav .fa-bars {
+        display: block;
         position: fixed;
-        top: 0;
-        z-index: 100;
-        display: inline-block;
+        top: 3%;
+        right: 8%;
+        color: #323232;
+        font-size: 28px;
+        cursor: pointer;
+        transition: color 0.5s ease;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
-        padding: 100px 7% 0;
-        background: white;
-        text-align: center;
-        max-height: 100px;
-        overflow: hidden;
-        transition: max-height 0.5s;
     }
-    .login-btn, .signup-btn{
-        display: none;
-    }
-    nav .nav-links{
+
+    .nav-links {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    }
-    nav .nav-links li{
-        margin: 10px 0;
-        width: calc(33.33% - 20px);
+        align-items: center;
+        width: 100%;
         text-align: center;
+        background: linear-gradient(to right, #ff7e00, #ff5361);
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        box-shadow: 0 4px 8px rgba(0,0,0,.3);
+        border-radius: 10px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease;
     }
-    nav .nav-links li:nth-child(3n+1){
-        margin-left: 0;
+    .nav-links.show{
+        max-height: 300px;
     }
-    .nav-links .login-btn, 
-    .nav-links .signup-btn{
-        display: block;
-        background: none;
-        padding: 0;
-        border-radius: 0;
+    .nav-links li {
+        margin: 10px;
+        width: calc(33.33% - 20px);
+        box-sizing: border-box;
+    }
+    .nav-link-box{
+        background: #3e793a;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .nav-links a{
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
         text-decoration: none;
-        font-size: 20px;
+        display: block;
+        position: relative;
+        /* transition: color 0.5s ease; */
+    }
+    .nav-links a::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: #333;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.5s ease, opacity 0.5s ease;
+    }
+    .nav-links a:hover{
+        color: #66aa66;
+    }
+    .nav-links a:hover::after{
+        /* background: #66ff66; */
+        width: 100%;
+    }
+    .nav-links .login-btn,
+    .nav-links .signup-btn {
+        display: block;
+        background: #f3f3f3;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
         color: #333;
         width: 100%;
         text-align: center;
         margin-top: 10px;
     }
-    nav .fa-bars{
-        display: block;
-        position: fixed;
-        top: 4%;
-        right: 7%;
-        color: #323232;
-        font-size: 28px;
-    }
-    .active::after{
-        left: -40px;
-        transform: translate(0, 50%);
-        bottom: 50%;
-    }
-    .hidemenu{
-        max-height: 300px;
-    }
+    .nav-links .login-btn:hover,
+    .nav-links .signup-btn:hover {
+    background: #333; /* Change to your preferred dark color */
+    color: #66ff66; /* Change to a brighter green color */
+}
+
 }
 
 /* ------- index.html/main section ------- */
