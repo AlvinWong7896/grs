@@ -1,0 +1,65 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>{% block title %}{{ item.name }}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="left-col">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" alt="" class='rounded-xl'>
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+        </div>
+        <div class="right-col">
+            <h1 class="mb-6 text-3xl">{{ item.name }}</h1>
+            <p class="text-gray"><strong>Price: </strong>{{ item.formatted_price }}</p>
+            <p class="text-gray"><strong>Seller: </strong>{{ item.created_by }}</p>
+
+            {% if item.description %}
+            <p class="text-dark">
+                <strong>Description: </strong><br>
+                {{ item.description }}
+            </p>
+            {% endif %}
+
+            {% if request.user == item.created_by %}
+            <div class="owner-info">
+                <p>This is your item!</p>
+                <a href="{% url 'item:edit' item.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'item:delete' item.id %}" class="delete-btn">Delete</a>
+            </div>
+            {% else %}
+            <a href="{% url 'conversation:new' item.id %}" class="contact-btn">Contact seller</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="related-items">
+        <h2 class="mb-12 text-2xl text-center">Related items</h2>
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in related_items %}
+            <div class="related-item">
+                <a href="{% url 'item:detail' item.id %}">
+                    <div>
+                        <img src="{{ item.image.url }}" class="rounded-xl">
+                    </div>
+                    <div class="related-item-info">
+                        <h2 class="text-2xl">{{ item.name }}</h2>
+                        <p class="text-gray">Price: {{ item.formatted_price }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
