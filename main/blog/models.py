@@ -21,8 +21,8 @@ class Post(models.Model):
     )
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
     class Meta:

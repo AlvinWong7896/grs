@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 
 def home(request):
-    return render(request, "blog/index.html")
+    return render(request, "core/index.html")
 
 
 class PostListView(ListView):

@@ -13,15 +13,15 @@
     <!--------- navigation bar --------->
     <nav>
         <div class="nav-left">
-            <a href="{% url 'index' %}">
+            <a href="{% url 'core:home' %}">
             <img src="{% static 'images/logo.png' %}" class="logo">
             </a>
         </div>
         <div class="nav-right" id="navBar">
             <ul class="nav-links">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="/blog/" class="active">Blogs</a></li>
-                <li><a href="#">Marketplace</a></li>
+                <li><a href="{% url 'core:home' %}">Home</a></li>
+                <li><a href="{% url 'blog:post_list' %}" class="active">Blogs</a></li>
+                <li><a href="{% url 'item:items' %}">Marketplace</a></li>
                 <li><a href="#">Bike Servicing</a></li>
                 <li><a href="#" class="login-btn">Sign Up</a></li>
                 <li><a href="#" class="signup-btn">Log In</a></li>
