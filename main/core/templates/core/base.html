@@ -27,11 +27,11 @@
                 {% if request.user.is_authenticated %}
                 <li><a href="#" class="signup-btn">Dashboard</a></li>
                 <li><a href="#" class="signup-btn">Message</a></li>
-                <li><a href="{% url 'core:logoutuser' %}" class="signup-btn">Log Out</a></li>
+                <li><a href="{% url 'core:logoutuser' %}" class="logout-btn">Log Out</a></li>
 
                 {% else %}
-                <li><a href="{% url 'core:signupuser' %}" class="login-btn">Sign Up</a></li>
-                <li><a href="{% url 'core:loginuser' %}" class="signup-btn">Log In</a></li>
+                <li><a href="{% url 'core:signupuser' %}" class="signup-btn">Sign Up</a></li>
+                <li><a href="{% url 'core:loginuser' %}" class="login-btn">Log In</a></li>
             </ul>
             {% endif %}
             <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
