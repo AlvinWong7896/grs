@@ -7,6 +7,20 @@ from .forms import NewItemForm, EditItemForm
 from .models import Category, Item
 
 
+def marketplace(request):
+    items = Item.objects.filter(is_sold=False)[0:6]
+    categories = Category.objects.all()
+
+    return render(
+        request,
+        "item/marketplace.html",
+        {
+            "categories": categories,
+            "items": items,
+        },
+    )
+
+
 def items(request):
     query = request.GET.get("query", "")
     category_id = request.GET.get("category", 0)

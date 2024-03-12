@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="sidebar">
+        <h2 class="sub-title">Popular Blog Topics</h2>
+        <div class="trending">
+            <a href="#">Health tips</a>
+            <a href="#">Bike DIY maintenance</a>
+            <a href="#">Professional biking</a>
+            <a href="#">Green advices</a>
+        </div>
+        <hr>
+        <h2 class="sub-title">Latest Pre-owned</h2>
+        <div class="preowned">
+            <a href="#"><span> $500.00</span></a>
+            <a href="#"><span> $2,200.00</span></a>
+            <a href="#"><span> $80.00</span></a>
+        </div>
+    </div>
+    <div class="main-container">
+        <h2 class="section-title">Newest items</h2>
+        <div class="item-container">
+            {% for item in items %}
+                <div class="item">
+                    <a href="{% url 'item:detail' item.id %}">
+                        <img src="{{ item.image.url }}" alt="Item Image" class="item-image">
+                        <div class="item-details">
+                            <h2 class="item-name">{{ item.name }}</h2>
+                            <p class="item-price"><Span>Price: {{ item.formatted_price }}</Span></p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <h2 class="section-title">Categories</h2>
+        <div class="category-container">
+            {% for category in categories %}
+                <div class="category">
+                    <a href="#">
+                        <div class="category-details">
+                            <h2 class="category-name">{{ category.name }}</h2>
+                            <p class="category-items">{{ category.items.count }} items</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -456,6 +456,111 @@ label::after{
     }
 }
 
+/***********************************************************************
+*************************   css for marketplace.html   ************************
+***********************************************************************/
+
+.main-container {
+    flex-basis: 80%;
+    min-height: 100vh;
+    /* padding-left: 17%; */
+    padding: 2%;
+    background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
+    background-size: cover;
+}
+
+.main-container .item{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+.main-container .item-container .item{
+    text-decoration: none;
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    /* flex-basis: 250px; */
+    /* margin-bottom: 50px;
+    width: fit-content;
+    text-decoration: none; */
+}
+
+.main-container .item-container .item span{
+    font-weight: bold;
+}
+
+.main-container .item-container .item-image{
+    height: 150px;
+    width: auto;
+    padding: 5%;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 10%;
+}
+
+.main-container .section-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color:  #ddd;
+    text-align: center;
+}
+
+.item-container,
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.item,
+.category {
+    background-color:#fbe2c7;
+    ;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.item a,
+.category a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* .item-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+} */
+
+.item-details,
+.category-details {
+    padding: 10px;
+}
+
+.item-name,
+.category-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.item-price,
+.category-items {
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* ------- navigation bar ----------- */
 
 /* ------- about-msg ------- */
 
