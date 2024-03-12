@@ -55,7 +55,7 @@ def signupuser(request):
                 )
                 user.save()
                 login(request, user)
-                return redirect("home")
+                return redirect("core:home")
 
             except IntegrityError:
                 return render(
@@ -100,7 +100,7 @@ def loginuser(request):
 
 @login_required
 def logoutuser(request):
-    if request.method == "POST":
+    if request.method in ("POST", "GET"):
         logout(request)
         return redirect("core:home")
     else:
