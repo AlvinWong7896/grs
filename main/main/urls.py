@@ -22,10 +22,10 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path("", include("core.urls")),
-    # path("inbox/", include("conversation.urls")),
+    path("", include("core.urls", namespace="core")),
+    # path("inbox/", include("conversation.urls", namespace='conversations')),
     # path("dashboard/", include("dashboard.urls")),
-    path("items/", include("item.urls")),
+    path("items/", include("item.urls", namespace="items")),
     path("admin/", admin.site.urls),
     path("blog/", include("blog.urls", namespace="blog")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
