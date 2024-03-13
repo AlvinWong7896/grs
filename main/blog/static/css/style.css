@@ -135,8 +135,24 @@ nav .fa-bars{
 
 @media screen and (max-width: 768px) {
     .logo {
+        position: fixed;
         width: 80px;
-        margin-left: 0px;
+        top: 4%;
+        left: 7%;
+        /* margin-left: 0px; */
+    }
+    nav{
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        display: inline-block;
+        width: 100%;
+        padding: 100px 7% 0;
+        background: #fff;
+        text-align: right;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.5s;
     }
 
     nav .fa-bars {
@@ -162,32 +178,28 @@ nav .fa-bars{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        text-align: center;
-        background: linear-gradient(to right, #ff7e00, #ff5361);
+        width: 25%;
+        text-align: left;
+        background: linear-gradient(to right, rgb(226, 216, 216), gray);
         position: fixed;
         top: 80px;
-        left: 0;
-        right: 0;
+        right: 5%;
+        /* left: calc(50% -15%);
+        right: calc(50% -15%); */
         z-index: 99;
         box-shadow: 0 4px 8px rgba(0,0,0,.3);
         border-radius: 10px;
         overflow: hidden;
         max-height: 0;
         transition: max-height 0.5s ease;
+        float: right;
     }
     .nav-links.show{
         max-height: 300px;
     }
     .nav-links li {
         margin: 10px;
-        width: calc(25% - 20px);
-        box-sizing: border-box;
-    }
-    .nav-link-box{
-        background: #3e793a;
-        padding: 8px;
-        border-radius: 8px;
+        width: 100%;
     }
     .nav-links a{
         font-size: 14px;
@@ -203,7 +215,7 @@ nav .fa-bars{
         position: absolute;
         width: 0;
         height: 2px;
-        background: #333;
+        background: #66ff66;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
@@ -214,29 +226,12 @@ nav .fa-bars{
     }
     .nav-links a:hover::after{
         /* background: #66ff66; */
-        width: 100%;
-    }
-    .nav-links .dashboard-btn,
-    .nav-links .message-btn,
-    .nav-links .login-btn,
-    .nav-links .logout-btn,
-    .nav-links .signup-btn {
-        display: block;
-        background: yellowgreen;
-        padding: 10px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        color: #333;
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
+        width: 80%;
     }
     .nav-links .login-btn:hover,
     .nav-links .signup-btn:hover {
-    background: #333; /* Change to your preferred dark color */
-    color: #66ff66; /* Change to a brighter green color */
+    background: #333; 
+    color: #66ff66;
     }
     .footer a{
         margin: 2px;
@@ -434,7 +429,7 @@ label::after{
     .hero h1{
         font-size: 22px;
         margin-left: 3%;
-        margin-top: 50px;
+        margin-top: 150px;
     }
     .hero li{
         /* list-style: none; */
@@ -622,9 +617,10 @@ label::after{
 .login-container .alert-danger{
     font-size: 28px;
     font-weight: 500;
-    color: #721c24;;
+    color: #f7dcde;
     margin-left: 25%;
     margin-top: -2%;
+    margin-bottom: 2%;
 }
 
 .login-container .form-group {
@@ -665,7 +661,7 @@ label::after{
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-  
+
 .login-container .btn-primary:hover {
     background-color: #063b75;
 }
@@ -711,31 +707,32 @@ label::after{
         grid-column: 1 / span 12;
         flex-basis: 100%;
         background-position: left -80px center;
-        margin-bottom: -50px;
     }
     .login-container h2{
         font-size: 22px;
         margin-left:15%;
-        margin-top: 50px;
+        margin-top: 150px;
         margin-bottom: 30px;
     }
     .login-container .alert-danger{
         font-size: 14px;
         font-weight: 500;
-        color: #721c24;;
+        color: #f7dcde;
+        ;
         margin-left: 15%;
-        margin-top: -5%;
-        margin-bottom: 5%;
+        margin-top: 3%;
+        margin-bottom: 3%;
     }
     .login-container .form-group label {
         font-size: 14px;
-        margin-left: -20px;
+        margin-left: -25%;
         margin-bottom:2px;
     }
     .login-container .form-group input[type='text'],
     .login-container .form-group input[type='password']{
         font-size: 14px;
-        margin-left: -20px;
+        margin-left: -25%;
+        padding: 10px;
         height: 20px;
         width: 60%;
         margin-bottom: -10px;
@@ -744,11 +741,11 @@ label::after{
         border: none;
         font-size: 14px;
         font-weight: 500;
-        width: 20%;
+        width: 12%;
         margin-top: 2%;
         margin-bottom: 2%;
-        margin-left: 60%;
-        padding: 8px 12px;
+        margin-left: 45%;
+        padding: 2px;
         border-radius: 4px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
@@ -840,21 +837,38 @@ form{
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .signup-container .submit-button:hover {
     background-color: #063b75;
 }
 
-/* Error message styles (optional) */
-.error-message {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+.signup-container .error-message {
+    color: #f7dcde;
     padding: 10px;
-    margin-top: 10px;
+    margin-left: 25%;
+    margin-top: -30px;
+    margin-bottom: 10px;
 }
 
+.signup-container hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-left: 20%;
+    width: 50%;
+}
+
+.signup-container .text-center{
+    color: rgb(234, 234, 154);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-container .text-center a{
+    text-decoration: none;
+}
 
 /* ------- smaller display ------- */
 
@@ -883,11 +897,9 @@ form{
     }
     .signup-container h1{
         font-size: 22px;
-        font-weight: 500;
-        color: #fff;
-        margin-left: 15%;
-        padding-top: 50px;
-        margin-bottom: 50px;
+        margin-left:15%;
+        margin-top: 150px;
+        margin-bottom: 10px;
     }
     form{
         display: flex;
@@ -924,11 +936,11 @@ form{
         border: none;
         font-size: 14px;
         font-weight: 500;
-        width: 20%;
+        width: 12%;
         margin-top: 2%;
         margin-bottom: 2%;
-        margin-left: 60%;
-        padding: 8px 12px;
+        margin-left: 52%;
+        padding: 2px;
         border-radius: 4px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
@@ -937,16 +949,22 @@ form{
     .signup-container .submit-button:hover {
         background-color: #063b75;
     }
-    
-    /* Error message styles (optional) */
-    .error-message {
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
+    .signup-container .error-message {
+        color: #f7dcde;
+        font-size: 14px;
+        font-weight: 500;
+        /* background-color: #f8d7da;
+        border-color: #f5c6cb; */
         padding: 10px;
         margin-top: 10px;
+        margin-left: 15%;
     }
-
+    .signup-container .text-center{
+        color: rgb(234, 234, 154);
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
 
 

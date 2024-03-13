@@ -31,48 +31,48 @@ def contact(request):
     return render(request, "core/contact.html")
 
 
-# def signup(request):
-#     if request.method == "POST":
-#         form = SignupForm(request.POST)
-
-#         if form.is_valid():
-#             form.save()
-#             return redirect("/login/")  # Redirect only if the form is valid
-#     else:
-#         form = SignupForm()
-#     return render(request, "core/signup.html", {"form": form})
-
-
 def signupuser(request):
-    if request.method == "GET":
-        return render(request, "core/signupuser.html", {"form": UserCreationForm()})
-    else:
-        # Create a new user
-        if request.POST["password1"] == request.POST["password2"]:
-            try:
-                user = User.objects.create_user(
-                    request.POST["username"], password=request.POST["password1"]
-                )
-                user.save()
-                login(request, user)
-                return redirect("core:home")
+    if request.method == "POST":
+        form = SignupForm(request.POST)
 
-            except IntegrityError:
-                return render(
-                    request,
-                    "core/signupuser.html",
-                    {
-                        "form": UserCreationForm(),
-                        "error": "The username has already been taken, please choose a new username",
-                    },
-                )
-        else:
-            # Tell the user the passwords didn't match
-            return render(
-                request,
-                "core/signupuser.html",
-                {"form": UserCreationForm(), "error": "Passwords did not match"},
-            )
+        if form.is_valid():
+            form.save()
+            return redirect("/login/")  # Redirect only if the form is valid
+    else:
+        form = SignupForm()
+    return render(request, "core/signupuser.html", {"form": form})
+
+
+# def signupuser(request):
+#     if request.method == "GET":
+#         return render(request, "core/signupuser.html", {"form": UserCreationForm()})
+#     else:
+#         # Create a new user
+#         if request.POST["password1"] == request.POST["password2"]:
+#             try:
+#                 user = User.objects.create_user(
+#                     request.POST["username"], password=request.POST["password1"]
+#                 )
+#                 user.save()
+#                 login(request, user)
+#                 return redirect("core:home")
+
+#             except IntegrityError:
+#                 return render(
+#                     request,
+#                     "core/signupuser.html",
+#                     {
+#                         "form": UserCreationForm(),
+#                         "error": "The username has already been taken, please choose a new username",
+#                     },
+#                 )
+#         else:
+#             # Tell the user the passwords didn't match
+#             return render(
+#                 request,
+#                 "core/signupuser.html",
+#                 {"form": UserCreationForm(), "error": "Passwords did not match"},
+#             )
 
 
 def loginuser(request):
