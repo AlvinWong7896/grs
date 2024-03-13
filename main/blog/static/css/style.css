@@ -15,19 +15,20 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 7%;
+    padding: 20px 5%;
+    z-index: 1000;
 }
 
 .logo{
     width: 150px;
-    margin-left: 10px;
+    margin-left: 0px;
     cursor: pointer;
 }
 
 .nav-links li{
     list-style: none;
     display: inline-block;
-    margin: 10px 30px;
+    margin: 10px 18px;
 }
 
 .active{
@@ -73,16 +74,16 @@ nav{
     background: rgb(255, 125, 0);
     font-size: 18px;
     color: #fff;
-    padding: 5px 5px;
+    padding: 5px 15px;
     border-radius: 20px;
     text-decoration: none;
 }
 
 .message-btn{
     background: rgb(255, 125, 0);
-    font-size: 12px;
+    font-size: 18px;
     color: #fff;
-    padding: 5px 18px;
+    padding: 5px 25px;
     border-radius: 20px;
     text-decoration: none;
 }
@@ -134,14 +135,14 @@ nav .fa-bars{
 
 @media screen and (max-width: 768px) {
     .logo {
-        width: 70px;
+        width: 80px;
         margin-left: 0px;
     }
 
     nav .fa-bars {
         display: block;
         position: fixed;
-        top: 3%;
+        top: 5%;
         right: 8%;
         color: #323232;
         font-size: 28px;
@@ -180,7 +181,7 @@ nav .fa-bars{
     }
     .nav-links li {
         margin: 10px;
-        width: calc(33.33% - 20px);
+        width: calc(25% - 20px);
         box-sizing: border-box;
     }
     .nav-link-box{
@@ -215,6 +216,8 @@ nav .fa-bars{
         /* background: #66ff66; */
         width: 100%;
     }
+    .nav-links .dashboard-btn,
+    .nav-links .message-btn,
     .nav-links .login-btn,
     .nav-links .logout-btn,
     .nav-links .signup-btn {
@@ -429,13 +432,13 @@ label::after{
         margin-bottom: -50px;
     }
     .hero h1{
-        font-size: 25px;
+        font-size: 22px;
         margin-left: 3%;
         margin-top: 50px;
     }
     .hero li{
         /* list-style: none; */
-        width: 75%;
+        width: 80%;
         /* padding: 5px; */
     }
     
@@ -616,45 +619,58 @@ label::after{
     margin-bottom: 50px;
 }
 
-.login-container .form-group {
+.login-container .alert-danger{
+    font-size: 28px;
+    font-weight: 500;
+    color: #721c24;;
     margin-left: 25%;
+    margin-top: -2%;
+}
+
+.login-container .form-group {
+    margin-left: 35%;
     margin-bottom: 20px;
-  }
-  
-  .login-container .form-group label {
+}
+
+.login-container .form-group label {
     display: block;
     font-size: 23px;
     font-weight: 500;
     color: rgb(234, 234, 154);
     margin-bottom:10px;
-  }
+}
 
-  .login-container .form-group input[type='text'],
-  .login-container .form-group input[type='password']{
+.login-container .form-group .form-label::after{
+    content: none;
+}
+
+.login-container .form-group input[type='text'],
+.login-container .form-group input[type='password']{
     font-size: 20px;
     padding-left: 2%;
     width: 300px;
     height: 40px;
-  }
-  
-  .login-container .btn-primary {
+}
+
+.login-container .btn-primary {
     background-color: #007bff;
     color: #fff;
     border: none;
-    margin-top: 5%;
+    width: 8%;
+    margin-top: 2%;
     margin-bottom: 2%;
-    margin-left: 25%;
+    margin-left: 52%;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-  }
+}
   
-  .login-container .btn-primary:hover {
+.login-container .btn-primary:hover {
     background-color: #063b75;
-  }
-  
-  .login-container hr{
+}
+
+.login-container hr{
     border: 0;
     height: 1px;
     background: #ccc;
@@ -698,25 +714,241 @@ label::after{
         margin-bottom: -50px;
     }
     .login-container h2{
-        font-size: 32px;
+        font-size: 22px;
+        margin-left:15%;
         margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    .login-container .alert-danger{
+        font-size: 14px;
+        font-weight: 500;
+        color: #721c24;;
+        margin-left: 15%;
+        margin-top: -5%;
+        margin-bottom: 5%;
     }
     .login-container .form-group label {
-        font-size: 18px;
-        margin-bottom:8px;
-      }
-    
-      .login-container .form-group input[type='text'],
-      .login-container .form-group input[type='password']{
-        font-size: 16px;
-        height: 25px;
-      }
-      .login-container .text-center{
+        font-size: 14px;
+        margin-left: -20px;
+        margin-bottom:2px;
+    }
+    .login-container .form-group input[type='text'],
+    .login-container .form-group input[type='password']{
+        font-size: 14px;
+        margin-left: -20px;
+        height: 20px;
+        width: 60%;
+        margin-bottom: -10px;
+    }
+    .login-container .btn-primary {
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+        width: 20%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 60%;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .login-container .text-center{
         color: rgb(234, 234, 154);
-        font-size: 15px;
+        font-size: 12px;
         text-align: center;
         margin-top: 20px;
+    }
 }
+
+/***********************************************************************
+************************   css for signupuser.html   ************************
+***********************************************************************/
+
+
+/* ------- signup section ------- */
+
+.signup-container{
+    flex-basis: 80%;
+    min-height: 100vh;
+    /* padding-left: 17%; */
+    padding-right: 2%;
+    padding-top: 20px;
+    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+    background-size: cover;
+    background-position: left 200px center;
+}
+
+.signup-container h1{
+    font-size: 48px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 25%;
+    padding-top: 7%;
+    margin-bottom: 50px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.signup-container .form-group {
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+    margin-bottom: 10px;
+}
+
+.signup-container .form-group .form-label {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: 500;
+    color: rgb(234, 234, 154);
+    margin-right: 90px;
+    margin-bottom: 5px;
+}
+
+.signup-container .form-group .form-label::after{
+    content: none;
+}
+
+.signup-container .form-group input[type='text'],
+.signup-container .form-group input[type='password']{
+    font-size: 20px;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid#ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* padding-left: 2%;
+    width: 300px;
+    height: 40px; */
+}
+
+.signup-container .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 8%;
+    margin-top: 5%;
+    margin-left: 55%;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.signup-container .submit-button:hover {
+    background-color: #063b75;
+}
+
+/* Error message styles (optional) */
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+/* ------- smaller display ------- */
+
+@media screen and (max-width: 768px) {
+    .container{
+        grid-template-columns: auto 1fr;
+        justify-content: space-between;
+        padding: 12px;
+        margin: 0 2%;
+    }
+    .sidebar{
+        display: none;
+    }
+    .signup-container{
+        /* min-height: 100vh;
+        padding-left: 17%;
+        padding-right: 2%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+        background-size: cover; */
+        grid-column: 1 / span 12;
+        flex-basis: 100%;
+        background-position: left -80px center;
+        margin-bottom: -50px;
+    }
+    .signup-container h1{
+        font-size: 22px;
+        font-weight: 500;
+        color: #fff;
+        margin-left: 15%;
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .signup-container .form-group {
+        display: flex;
+        align-items: center;
+        margin-left: 15%;
+        margin-bottom: 5px;
+    }
+    .signup-container .form-group .form-label {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(234, 234, 154);
+        margin-right: 35px;
+        margin-bottom: 5px;
+    }
+    .signup-container .form-group input[type='text'],
+    .signup-container .form-group input[type='password']{
+        font-size: 14px;
+        width: 40%;
+        padding: 2px;
+        border: 1px solid#ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        /* padding-left: 2%;
+        width: 300px;
+        height: 40px; */
+    }
+    .signup-container .submit-button {
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+        width: 20%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 60%;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .signup-container .submit-button:hover {
+        background-color: #063b75;
+    }
+    
+    /* Error message styles (optional) */
+    .error-message {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+}
+
 
 /* ------- navigation bar ----------- */
 
@@ -763,5 +995,4 @@ width: 100px;
 .pagination .step-links .flexible {
 flex-grow: 1;
 }
-
 

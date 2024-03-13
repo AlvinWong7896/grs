@@ -1,8 +1,26 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}Sign up{% endblock  %}
 
 {% block content %}
+<div class="container">
+    <div class="sidebar">
+        <h2 class="sub-title">Popular Blog Topics</h2>
+        <div class="trending">
+            <a href="#">Health tips</a>
+            <a href="#">Bike DIY maintenance</a>
+            <a href="#">Professional biking</a>
+            <a href="#">Green advices</a>
+        </div>
+        <hr>
+        <h2 class="sub-title">Latest Pre-owned</h2>
+        <div class="preowned">
+            <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+            <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+            <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
+        </div>
+    </div>
     <div class="signup-container">
         <h1 class="signup-title">Sign up</h1>
 
@@ -15,17 +33,12 @@
             </div>
 
             <div class="form-group">
-                <label for="id_email" class="form-label">Email</label><br>
-                {{ form.email }}
-            </div>
-
-            <div class="form-group">
                 <label for="id_password1" class="form-label">Password</label><br>
                 {{ form.password1 }}
             </div>
 
             <div class="form-group">
-                <label for="id_password2" class="form-label">Repeat password</label><br>
+                <label for="id_password2" class="form-label">Repeat....</label><br>
                 {{ form.password2 }}
             </div>
 
@@ -41,4 +54,5 @@
             <button class="submit-button">Submit</button>
         </form>
     </div>
+</div>
 {% endblock %}
