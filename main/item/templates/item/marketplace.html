@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}Welcome{% endblock %}
 
@@ -15,9 +16,9 @@
         <hr>
         <h2 class="sub-title">Latest Pre-owned</h2>
         <div class="preowned">
-            <a href="#"><span> $500.00</span></a>
-            <a href="#"><span> $2,200.00</span></a>
-            <a href="#"><span> $80.00</span></a>
+            <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+            <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+            <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
         </div>
     </div>
     <div class="main-container">
@@ -34,6 +35,7 @@
                     </a>
                 </div>
             {% endfor %}
+            <hr>
         </div>
         <h2 class="section-title">Categories</h2>
         <div class="category-container">
