@@ -24,7 +24,7 @@ from django.urls import path, include
 urlpatterns = [
     path("", include("core.urls", namespace="core")),
     # path("inbox/", include("conversation.urls", namespace='conversations')),
-    # path("dashboard/", include("dashboard.urls")),
+    path("dashboard/", include("dashboard.urls")),
     path("items/", include("item.urls", namespace="items")),
     path("admin/", admin.site.urls),
     path("blog/", include("blog.urls", namespace="blog")),

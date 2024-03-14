@@ -29,8 +29,7 @@
                     <a href="{% url 'item:detail' item.id %}">
                         <img src="{{ item.image.url }}" alt="Item Image" class="item-image">
                         <div class="item-details">
-                            <h2 class="item-name">{{ item.name }}</h2>
-                            <p class="item-price"><Span>Price: {{ item.formatted_price }}</Span></p>
+                            <p><Span>Price: {{ item.formatted_price }}</Span></p>
                         </div>
                     </a>
                 </div>

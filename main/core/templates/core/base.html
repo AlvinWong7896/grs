@@ -25,7 +25,7 @@
                 <li><a href="#">Servicing</a></li>
                 
                 {% if request.user.is_authenticated %}
-                <li><a href="#" class="dashboard-btn">Dashboard</a></li>
+                <li><a href="{% url 'dashboard:index' %}" class="dashboard-btn">Dashboard</a></li>
                 <li><a href="#" class="message-btn">Message</a></li>
                 <li><a href="{% url 'core:logoutuser' %}" class="logout-btn">Log Out</a></li>
 
