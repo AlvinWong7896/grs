@@ -850,8 +850,6 @@ label::after{
 }
 
 .dash-container h2{
-    display: block;
-    position: relative;
     color: #ddd;
     font-size: 24px;
     font-weight: 500;
