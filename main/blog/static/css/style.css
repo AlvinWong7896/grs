@@ -57,7 +57,7 @@ nav{
     font-size: 18px;
     color: #fff;
     padding: 5px 40px;
-    border-radius: 20px;
+    border-radius: 20%;
     text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ nav{
     font-size: 18px;
     color: #fff;
     padding: 5px 32px;
-    border-radius: 20px;
+    border-radius: 20%;
     text-decoration: none;
 }
 
@@ -74,8 +74,8 @@ nav{
     background: rgb(255, 125, 0);
     font-size: 18px;
     color: #fff;
-    padding: 5px 15px;
-    border-radius: 20px;
+    padding: 5px 18px;
+    border-radius: 20%;
     text-decoration: none;
 }
 
@@ -84,7 +84,7 @@ nav{
     font-size: 18px;
     color: #fff;
     padding: 5px 25px;
-    border-radius: 20px;
+    border-radius: 20%;
     text-decoration: none;
 }
 
@@ -93,7 +93,7 @@ nav{
     font-size: 18px;
     color: #fff;
     padding: 5px 32px;
-    border-radius: 20px;
+    border-radius: 20%;
     text-decoration: none;
 }
 
@@ -202,7 +202,7 @@ nav .fa-bars{
         width: 100%;
     }
     .nav-links a{
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 500;
         color: #333;
         text-decoration: none;
@@ -237,7 +237,7 @@ nav .fa-bars{
         margin: 2px;
     }
     .footer p{
-        font-size: 12px;
+        font-size: 8px;
     }
 }
 
@@ -760,7 +760,7 @@ label::after{
 
 .container{
     display: flex;
-    /* grid-template-rows: auto 1fr;   Inherits narbar height from base.html */
+    grid-template-rows: auto 1fr;  
     background: #fff;
     justify-content: space-between;
     padding: 12px;
@@ -850,11 +850,14 @@ label::after{
 }
 
 .dash-container h2{
+    display: block;
+    position: relative;
     color: #ddd;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom:20px;
 }
 
 .dash-container .items-grid{
@@ -884,17 +887,11 @@ label::after{
     border-radius: 8%;
 }
 
-/* .dash-container .items-grid .item-details h3{
-    font-size: 14px;
-    margin-left: 5%;
-} */
-
 .dash-container .items-grid .item-details p{
     font-size: 12px;
     margin-left: 5%;
     margin-bottom: 5%;
 }
-
 
 /* ------- smaller display ------- */
 
@@ -926,6 +923,7 @@ label::after{
     font-weight: 500;
     text-align: center;
     padding: 5%;
+    margin-top: 25px;
     margin-bottom: -10px;
     }
 
@@ -967,7 +965,6 @@ label::after{
         margin-left: 5%;
         margin-bottom: 5%;
     }
-
 }
 
 /***********************************************************************
