@@ -580,8 +580,8 @@ label::after{
     justify-content: space-between;
 }
 
-.main-container .item-container .item-details,
-.main-container .category-container .category-details {
+.main-container .item-container .item-details p,
+.main-container .category-container .category-details{
     padding-left: 10px;
     padding-bottom: 10px;
 }
@@ -593,10 +593,14 @@ label::after{
     margin-bottom: 5px;
 }
 
-.main-container .item-container .item-details,
+.main-container .item-container .item-details p,
 .main-container .category-container .category-items {
     color: #888;
     font-size: 14px;
+}
+
+.main-container .item-container .item-details h3{
+    display: none;
 }
 
 .main-container .item-container .item{
@@ -632,6 +636,14 @@ label::after{
     text-align: center;
 }
 
+.main-container hr{
+    border: 0;
+    height: 1px;
+    margin-top: 50px;
+    background: #ccc;
+    width: 90%;
+}
+
 .main-container .category-container .category{
     background-color:#fbe2c7;
     width: 180px;
@@ -641,15 +653,6 @@ label::after{
     border-radius: 10px;
     overflow: hidden;
 }
-
-.main-container hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-    margin-top: 8%;
-}
-
 
 /* ------- smaller display ------- */
 
@@ -662,16 +665,13 @@ label::after{
     .sidebar{
         display: none;
     }
-    
     .main-container {
         flex-basis: 100%;
         min-height: 100vh;
-        grid-column: 1 / span 12;
-        flex-basis: 100%;
-        padding: 2%;
+        padding: 3%;
         background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
         background-size: cover;
-        margin-top: 80px;
+        margin-top: 100px;
     }
     
     .main-container .item-container,
@@ -680,39 +680,42 @@ label::after{
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    .main-container .item-container a,
-    .main-container .category-container a {
-        text-decoration: none;
+    
+    .main-container .item-container .item-details p,
+    .main-container .category-container .category-details{
+        padding-left: 5px;
+        padding-bottom: 5px;
     }
     
-    .main-container .item-container .item-details,
-    .main-container .category-container .category-details {
-        padding: 2px;
+    .main-container .category-container .category-name {
+        text-decoration: none;
+        font-size: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .main-container .item-container .item-details p,
+    .main-container .category-container .category-items {
+        color: #888;
+        font-size: 10px;
     }
     
     .main-container .item-container .item-details h3{
         display: none;
     }
-    .main-container .category-container .category-details h2{
-        font-size: 10px;
-    }
-    .main-container .category-container .category-details p{
-        color: #888;
-        font-size: 8px;
-    }
     
-    .main-container .item-container .item-name{
-        display: none;
-    }
-    
-    .main-container .item-container .item {
-        text-decoration: none;
+    .main-container .item-container .item{
         background-color:#fbe2c7;
         width: 90px;
-        margin: 2px;
+        margin: 5px;
         border: 2px solid #ccc;
-        border-radius: 8px;
+        border-radius: 10px;
         overflow: hidden;
+    }
+    
+    .main-container .item-container a,
+    .main-container .category-container a {
+        text-decoration: none;
     }
     
     .main-container .item-container .item span{
@@ -727,32 +730,30 @@ label::after{
     }
     
     .main-container .section-title {
-        font-size: 16px;
+        font-size: 15px;
         color:  #ddd;
         margin-top: 8%;
         margin-bottom: 3%;
         text-align: center;
     }
-    
+    .main-container hr{
+        border: 0;
+        height: 1px;
+        margin-top: 25px;
+        margin-bottom: -5px;
+        background: #ccc;
+        width: 90%;
+    }
     .main-container .category-container .category{
         background-color:#fbe2c7;
-        width: 100px;
-        margin: 3px;
+        width: 90px;
+        margin: 5px;
         text-align: center;
         border: 2px solid #ccc;
         border-radius: 8px;
         overflow: hidden;
     }
-    
-    .main-container hr{
-        border: 0;
-        height: 1px;
-        background: #ccc;
-        width: 90%;
-        margin-top: 8%;
-    }
 }
-
 /***********************************************************************
 *************************   css for dashboard/index.html  ************************
 ***********************************************************************/
