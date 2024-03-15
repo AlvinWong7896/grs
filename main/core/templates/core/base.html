@@ -26,6 +26,7 @@
                 
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'dashboard:index' %}" class="dashboard-btn">Dashboard</a></li>
+                <li><a href="{% url 'item:new' %}" class="dashboard-btn">Add item</a></li>
                 <li><a href="#" class="message-btn">Message</a></li>
                 <li><a href="{% url 'core:logoutuser' %}" class="logout-btn">Logout</a></li>
 
