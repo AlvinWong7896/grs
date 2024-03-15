@@ -19,6 +19,25 @@ nav{
     z-index: 1000;
 }
 
+.nav-left a{
+    display: inline-block;  /* Allow text to flow next to logo */
+}
+
+.nav-left a .logo-text{
+    display: none;  /* Hide text initially */
+    opacity: 0; /* Ensure text is transparent */
+    color: #4b4b4b;
+    font-size: 18px;
+    vertical-align: 180%; /* Align text vertically with logo */
+    margin: -10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.nav-left a:hover .logo-text{
+    display: inline-block;
+    opacity: 1; /* Show text on hover */
+}
+
 .logo{
     width: 150px;
     margin-left: 0px;
@@ -28,13 +47,32 @@ nav{
 .nav-links li{
     list-style: none;
     display: inline-block;
-    margin: 10px 20px;
+    margin: 10px 25px;
 }
 
 .nav-links li a{
     text-decoration: none;
     color: #323232;
+    position: relative;
 }
+
+.nav-links a span {
+    display: none; /* Hide text initially */
+    opacity: 0; /* Ensure text is transparent */
+    position: relative; /* Position absolutely relative to anchor */
+    bottom: 100%; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    color: #4b4b4b; /* Replace with your desired color */
+    font-size: 18px; /* Adjust font size as needed */
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .nav-links a:hover span {
+    display: block;
+    margin-bottom: 2px;
+    opacity: 1; /* Show content on hover */
+  }
 
 .fa-heart,
 .fa-square-plus,
