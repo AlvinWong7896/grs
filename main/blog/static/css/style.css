@@ -28,23 +28,7 @@ nav{
 .nav-links li{
     list-style: none;
     display: inline-block;
-    margin: 10px 18px;
-}
-
-.active{
-    position: relative;
-}
-
-.active::after{
-    content: "";
-    background: #fff;
-    width: 25px;
-    height: 2px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: -12px;
-    border-radius: 2px;
+    margin: 10px 20px;
 }
 
 .nav-links li a{
@@ -52,55 +36,27 @@ nav{
     color: #323232;
 }
 
-.login-btn{
-    background: rgb(255, 125, 0);
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 40px;
-    border-radius: 20%;
-    text-decoration: none;
+.fa-heart,
+.fa-square-plus,
+.fa-message,
+.fa-lock,
+.fa-user-plus,
+.fa-lock-open{
+    color: rgb(5, 112, 5);
 }
 
-.logout-btn{
-    background: rgb(255, 125, 0);
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 32px;
-    border-radius: 20%;
-    text-decoration: none;
+/* .fa-house, */
+.fa-blog,
+.fa-bicycle,
+/* .fa-screwdriver-wrench, */
+.fa-heart,
+.fa-square-plus,
+.fa-message,
+.fa-lock,
+.fa-user-plus,
+.fa-lock-open{
+    font-size: 30px;
 }
-
-.dashboard-btn{
-    background: rgb(255, 125, 0);
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 18px;
-    border-radius: 20%;
-    text-decoration: none;
-}
-
-.message-btn{
-    background: rgb(255, 125, 0);
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 25px;
-    border-radius: 20%;
-    text-decoration: none;
-}
-
-.signup-btn{
-    background: rgb(255, 125, 0);
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 32px;
-    border-radius: 20%;
-    text-decoration: none;
-}
-
-nav .fa-bars{
-    display: none;
-}
-
 
 /* ------- footer ------- */
 
@@ -143,103 +99,33 @@ nav .fa-bars{
     }
     .logo {
         position: fixed;
-        width: 80px;
-        top: 4%;
-        left: 7%;
+        width: 60px;
+        top: 2%;
+        left: 5%;
         /* margin-left: 0px; */
     }
-    nav{
-        position: fixed;
-        top: 0;
-        z-index: 100;
+    .nav-links li{
+        list-style: none;
         display: inline-block;
-        width: 100%;
-        padding: 100px 7% 0;
-        background: #fff;
-        text-align: right;
-        max-height: 100px;
-        overflow: hidden;
-        transition: max-height 0.5s;
+        margin: 10px 8px;
     }
-
-    nav .fa-bars {
-        display: block;
-        position: fixed;
-        top: 5%;
-        right: 8%;
-        color: #323232;
-        font-size: 28px;
-        cursor: pointer;
-        transition: color 0.5s ease;
-    }
-
-    .nav-right {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        width: 25%;
-        text-align: left;
-        background: linear-gradient(to right, rgb(226, 216, 216), gray);
-        position: fixed;
-        top: 80px;
-        right: 5%;
-        /* left: calc(50% -15%);
-        right: calc(50% -15%); */
-        z-index: 99;
-        box-shadow: 0 4px 8px rgba(0,0,0,.3);
-        border-radius: 10px;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.5s ease;
-        float: right;
-    }
-    .nav-links.show{
-        max-height: 300px;
-    }
-    .nav-links li {
-        margin: 10px;
-        width: 100%;
-    }
-    .nav-links a{
-        font-size: 11px;
-        font-weight: 500;
-        color: #333;
+    .nav-links li a{
         text-decoration: none;
-        display: block;
-        position: relative;
-        /* transition: color 0.5s ease; */
+        color: #323232;
     }
-    .nav-links a::after{
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        background: #66ff66;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.5s ease, opacity 0.5s ease;
+    /* .fa-house, */
+    .fa-blog,
+    .fa-bicycle,
+    /* .fa-screwdriver-wrench, */
+    .fa-heart,
+    .fa-square-plus,
+    .fa-message,
+    .fa-lock,
+    .fa-user-plus,
+    .fa-lock-open{
+        font-size: 12px;
     }
-    .nav-links a:hover{
-        color: #66aa66;
-    }
-    .nav-links a:hover::after{
-        /* background: #66ff66; */
-        width: 80%;
-    }
-    .nav-links .login-btn:hover,
-    .nav-links .signup-btn:hover {
-    background: #333; 
-    color: #66ff66;
-    }
+    
     .footer a{
         margin: 2px;
     }

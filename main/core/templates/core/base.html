@@ -19,23 +19,21 @@
         </div>
         <div class="nav-right" id="navBar">
             <ul class="nav-links">
-                <li><a href="{% url 'core:home' %}">Home</a></li>
-                <li><a href="{% url 'blog:post_list' %}" class="active">Blogs</a></li>
-                <li><a href="{% url 'item:marketplace' %}">Marketplace</a></li>
-                <li><a href="#">Servicing</a></li>
+                <li><a href="{% url 'blog:post_list' %}" class="active"><i class="fa-solid fa-blog"></i></a></li>
+                <li><a href="{% url 'item:marketplace' %}"><i class="fa-solid fa-bicycle"></i></i></i></a></li>
                 
                 {% if request.user.is_authenticated %}
-                <li><a href="{% url 'dashboard:index' %}" class="dashboard-btn">Dashboard</a></li>
-                <li><a href="{% url 'item:new' %}" class="dashboard-btn">Add item</a></li>
-                <li><a href="#" class="message-btn">Message</a></li>
-                <li><a href="{% url 'core:logoutuser' %}" class="logout-btn">Logout</a></li>
+                <li><a href="{% url 'dashboard:index' %}" class="dashboard-btn"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="{% url 'item:new' %}" class="dashboard-btn"><i class="fa-solid fa-square-plus"></i></a></li>
+                <li><a href="#" class="message-btn"><i class="fa-solid fa-message"></i></a></li>
+                <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock"></i></a></li>
 
                 {% else %}
-                <li><a href="{% url 'core:signupuser' %}" class="signup-btn">Signup</a></li>
-                <li><a href="{% url 'core:loginuser' %}" class="login-btn">Login</a></li>
+                <li><a href="{% url 'core:signupuser' %}"><i class="fa-solid fa-user-plus"></i></a></li>
+                <li><a href="{% url 'core:loginuser' %}"><i class="fa-solid fa-lock-open"></i></a></li>
             </ul>
             {% endif %}
-            <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
+            <!-- <i class="fa-solid fa-bars" onclick="togglebtn()"></i> -->
         </div>
     </nav>
 
@@ -53,13 +51,6 @@
             <p>Copyright @ 2024, GreenBikeSG.</p>
         </div>
     </div>
-<script>
-    var navBar = document.getElementById("navBar");
-    var navLinks = document.querySelector(".nav-links");
-        function togglebtn(){
-        navBar.classList.toggle("hidemenu");
-        navLinks.classList.toggle("show");
-    }
-</script>
+
 </body>
 </html>
