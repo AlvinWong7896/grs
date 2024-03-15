@@ -20,11 +20,14 @@ nav{
 }
 
 .nav-left a{
-    display: inline-block;  /* Allow text to flow next to logo */
+    display: flex;  /* Enable flexbox layout */
+    align-items: center;    /* Align content vertically */
+    text-decoration: none;
+    color: #323232;
 }
 
 .nav-left a .logo-text{
-    display: none;  /* Hide text initially */
+    display: inline-block;  /* Allow text to flow next to icon */
     opacity: 0; /* Ensure text is transparent */
     color: #4b4b4b;
     font-size: 18px;
@@ -44,57 +47,58 @@ nav{
     cursor: pointer;
 }
 
-.nav-links li{
-    list-style: none;
-    display: inline-block;
-    margin: 10px 25px;
-}
+.nav-links li{ 
+    list-style: none; 
+    display: inline-block; 
+    margin: 10px 25px; 
+    position: relative; /* Enable positioning of pseudo-element */ 
+} 
 
-.nav-links li a{
-    text-decoration: none;
-    color: #323232;
-    position: relative;
-}
+.nav-links li a{ 
+    text-decoration: none; 
+    color: #323232; 
+} 
 
-.nav-links a span {
-    display: none; /* Hide text initially */
-    opacity: 0; /* Ensure text is transparent */
-    position: relative; /* Position absolutely relative to anchor */
-    bottom: 100%; /* Position below the icon */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    color: #4b4b4b; /* Replace with your desired color */
-    font-size: 18px; /* Adjust font size as needed */
-    transition: opacity 0.5s ease-in;
-  }
-  
-  .nav-links a:hover span {
-    display: block;
-    margin-bottom: 2px;
-    opacity: 1; /* Show content on hover */
-  }
+.nav-links a span { 
+    display: none; /* Hide text initially */ 
+    opacity: 0; /* Ensure text is transparent */ 
+    position: absolute; /* Position absolutely relative to anchor */ 
+    bottom: 100%; /* Position above the icon */ 
+    left: 50%; 
+    margin-bottom: 20px;
+    transform: translateX(-50%); /* Center horizontally */ 
+    color: #4b4b4b; /* Replace with your desired color */ 
+    font-size: 18px; /* Adjust font size as needed */ 
+    transition: opacity 0.5s ease-in-out; 
+} 
 
-.fa-heart,
-.fa-square-plus,
-.fa-message,
-.fa-lock,
-.fa-user-plus,
-.fa-lock-open{
-    color: rgb(5, 112, 5);
-}
+.nav-links a:hover span { 
+display: inline-block; 
+margin-bottom: 2px; 
+opacity: 1; /* Show content on hover */ 
+} 
 
-/* .fa-house, */
-.fa-blog,
-.fa-bicycle,
-/* .fa-screwdriver-wrench, */
-.fa-heart,
-.fa-square-plus,
-.fa-message,
-.fa-lock,
-.fa-user-plus,
-.fa-lock-open{
-    font-size: 30px;
-}
+.fa-heart, 
+.fa-square-plus, 
+.fa-message, 
+.fa-lock, 
+.fa-user-plus, 
+.fa-lock-open{ 
+    color: rgb(5, 112, 5); 
+} 
+
+/* .fa-house, */ 
+.fa-blog, 
+.fa-bicycle, 
+/* .fa-screwdriver-wrench, */ 
+.fa-heart, 
+.fa-square-plus, 
+.fa-message, 
+.fa-lock, 
+.fa-user-plus, 
+.fa-lock-open{ 
+    font-size: 30px; 
+} 
 
 /* ------- footer ------- */
 
@@ -135,35 +139,77 @@ nav{
         padding: 8px 5%;
         z-index: 1000;
     }
-    .logo {
-        position: fixed;
-        width: 60px;
-        top: 2%;
-        left: 5%;
-        /* margin-left: 0px; */
-    }
-    .nav-links li{
-        list-style: none;
-        display: inline-block;
-        margin: 10px 8px;
-    }
-    .nav-links li a{
+    .nav-left a{
+        display: flex;  /* Enable flexbox layout */
+        align-items: center;    /* Align content vertically */
         text-decoration: none;
         color: #323232;
     }
-    /* .fa-house, */
-    .fa-blog,
-    .fa-bicycle,
-    /* .fa-screwdriver-wrench, */
-    .fa-heart,
-    .fa-square-plus,
-    .fa-message,
-    .fa-lock,
-    .fa-user-plus,
-    .fa-lock-open{
-        font-size: 12px;
+    .nav-left a .logo-text{
+        display: inline-block;  /* Allow text to flow next to icon */
+        opacity: 0; /* Ensure text is transparent */
+        color: #4b4b4b;
+        font-size: 10px;
+        vertical-align: 180%; /* Align text vertically with logo */
+        margin: -5px;
+        transition: opacity 0.5s ease-in-out;
     }
-    
+    .nav-left a:hover .logo-text{
+        display: inline-block;
+        opacity: 1; /* Show text on hover */
+    }
+    .logo{
+        width: 60px;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+    .nav-links li{ 
+        list-style: none; 
+        display: inline-block; 
+        margin: 10px 10px; 
+        position: relative; /* Enable positioning of pseudo-element */ 
+    } 
+    .nav-links li a{ 
+        text-decoration: none; 
+        color: #323232; 
+    } 
+    .nav-links a span { 
+        display: none; /* Hide text initially */ 
+        opacity: 0; /* Ensure text is transparent */ 
+        position: absolute; /* Position absolutely relative to anchor */ 
+        bottom: 100%; /* Position above the icon */ 
+        left: 50%; 
+        margin-bottom: 20px;
+        transform: translateX(-50%); /* Center horizontally */ 
+        color: #4b4b4b; /* Replace with your desired color */ 
+        font-size: 10px; /* Adjust font size as needed */ 
+        transition: opacity 0.5s ease-in-out; 
+    } 
+    .nav-links a:hover span { 
+    display: inline-block; 
+    margin-bottom: 2px; 
+    opacity: 1; /* Show content on hover */ 
+    } 
+    .fa-heart, 
+    .fa-square-plus, 
+    .fa-message, 
+    .fa-lock, 
+    .fa-user-plus, 
+    .fa-lock-open{ 
+        color: rgb(5, 112, 5); 
+    } 
+    /* .fa-house, */ 
+    .fa-blog, 
+    .fa-bicycle, 
+    /* .fa-screwdriver-wrench, */ 
+    .fa-heart, 
+    .fa-square-plus, 
+    .fa-message, 
+    .fa-lock, 
+    .fa-user-plus, 
+    .fa-lock-open{ 
+        font-size: 15px;
+    } 
     .footer a{
         margin: 2px;
     }
@@ -354,12 +400,11 @@ label::after{
         grid-column: 1 / span 12;
         flex-basis: 100%;
         background-position: left -80px center;
-        margin-bottom: -50px;
     }
     .hero h1{
         font-size: 22px;
         margin-left: 3%;
-        margin-top: 150px;
+        margin-top: 20%;
     }
     .hero li{
         /* list-style: none; */
@@ -601,7 +646,7 @@ label::after{
         padding: 3%;
         background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
         background-size: cover;
-        margin-top: 80px;
+        /* margin-top: 80px; */
     }
     
     .main-container .item-container,
@@ -649,6 +694,7 @@ label::after{
     }
     
     .main-container .item-container .item span{
+        font-size: 8px;
         font-weight: 600;
     }
     
@@ -845,7 +891,6 @@ label::after{
         padding: 2%;
         background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
         background-size: cover;
-        margin-top: 80px;
     }
     .dash-container h2{
     color: #ddd;
@@ -1020,7 +1065,7 @@ label::after{
     .login-container h2{
         font-size: 22px;
         margin-left:15%;
-        margin-top: 150px;
+        margin-top: 20%;
         margin-bottom: 30px;
     }
     .login-container .alert-danger{
@@ -1202,12 +1247,11 @@ form{
         grid-column: 1 / span 12;
         flex-basis: 100%;
         background-position: left -80px center;
-        margin-bottom: -50px;
     }
     .signup-container h1{
         font-size: 22px;
         margin-left:15%;
-        margin-top: 150px;
+        margin-top: 10%;
         margin-bottom: 10px;
     }
     form{
