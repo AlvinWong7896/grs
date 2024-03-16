@@ -15,23 +15,24 @@
         <div class="nav-left">
             <a href="{% url 'core:home' %}">
             <img src="{% static 'images/logo.png' %}" class="logo">
-            <span class="logo-text">Home</span>
+            <span class="logo-text"></span>
             </a>
         </div>
         <div class="nav-right" id="navBar">
             <ul class="nav-links">
-                <li><a href="{% url 'blog:post_list' %}" class="active"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li>
-                <li><a href="{% url 'item:marketplace' %}"><i class="fa-solid fa-bicycle"></i><span>Marketplace</span></a></li>
+                <li><a href="{% url 'core:home' %}" class="active"><i class="fa-solid fa-shop"></i><span>Home</span></a></li>
+                <!-- <li><a href="{% url 'blog:post_list' %}" class="active"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li> -->
+                <li><a href="{% url 'item:marketplace' %}"><i class="fa-solid fa-handshake"></i></i><span>Marketplace</span></a></li>
                 
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'dashboard:index' %}"><i class="fa-solid fa-heart"></i><span>Dashboard</span></a></li>
                 <li><a href="{% url 'item:new' %}"><i class="fa-solid fa-square-plus"></i><span>AddItem</span></a></li>
-                <li><a href="#" class="message-btn"><i class="fa-solid fa-message"></i><span>Message</span></a></li>
-                <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock"></i><span>Logout</span></a></li>
+                <li><a href="#" class="message-btn"><i class="fa-solid fa-envelope-circle-check"></i></i><span>Message</span></a></li>
+                <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock-open"></i><span>Logout</span></a></li>
 
                 {% else %}
                 <li><a href="{% url 'core:signupuser' %}"><i class="fa-solid fa-user-plus"></i><span>Signup</span></a></li>
-                <li><a href="{% url 'core:loginuser' %}"><i class="fa-solid fa-lock-open"></i><span>Login</span></a></li>
+                <li><a href="{% url 'core:loginuser' %}"><i class="fa-solid fa-lock"></i><span>Login</span></a></li>
             </ul>
             {% endif %}
             <!-- <i class="fa-solid fa-bars" onclick="togglebtn()"></i> -->
