@@ -26,25 +26,27 @@
         <div class="item-container">
             {% for item in items %}
                 <div class="item">
-                    <a href="{% url 'item:detail' item.id %}">
-                        <img src="{{ item.image.url }}" alt="Item Image" class="item-image">
-                        <div class="item-details">
-                            <!-- <h3>{{ item.name }}</h3> -->
-                            <p><Span>Price: {{ item.formatted_price }}</Span></p>
-                        </div>
+                    <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url }}" alt="Item Image">
+                    <span>
+                        <!-- <h3>{{ item.name }}</h3> -->
+                        <p>Price: {{ item.formatted_price }}</p>
+                    </span>
                     </a>
                 </div>
             {% endfor %}
-            <hr>
         </div>
+        <br>
+        <hr>
         <h2 class="section-title">Categories</h2>
         <div class="category-container">
             {% for category in categories %}
                 <div class="category">
                     <a href="#">
                         <div class="category-details">
-                            <h2 class="category-name">{{ category.name }}</h2>
-                            <p class="category-items">{{ category.items.count }} items</p>
+                            <span>
+                                <h3>{{ category.name }}</h3>
+                                <p>{{ category.items.count }} items</p>
+                        </span>
                         </div>
                     </a>
                 </div>
