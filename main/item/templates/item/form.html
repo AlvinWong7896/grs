@@ -1,27 +1,49 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1 class="mb-6 text-3xl">{{ title }}</h1>
+<div class="container">
+    <div class="sidebar">
+        <h2 class="sub-title">Popular Blog Topics</h2>
+        <div class="trending">
+            <a href="#">Health tips</a>
+            <a href="#">Bike DIY maintenance</a>
+            <a href="#">Professional biking</a>
+            <a href="#">Green advices</a>
+        </div>
+        <hr>
+        <h2 class="sub-title">Latest Pre-owned</h2>
+        <div class="preowned">
+            <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+            <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+            <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
+        </div>
+    </div>
+    <div class="add_item">
+        <h1>{{ title }}</h1>
 
-    <form method="post" action="." enctype="multipart/form-data">
+        <form method="post" action="." enctype="multipart/form-data">
         {% csrf_token %}
 
-        <div class="space-y-4">
+        <div class="form-group">
             {{ form.as_p }}
         </div>
 
         {% if form.errors or form.non_field_errors %}
-            <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                {% for field in form %}
-                    {{ field.errors }}
-                {% endfor %}
-
-                {{ form.non_field_errors }}
+            <div class="error-messages">
+            {% for field in form %}
+                <div class="error">{{ field.errors }}</div>
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
             </div>
         {% endif %}
 
-        <button class="mt-6 px-8 py-4 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

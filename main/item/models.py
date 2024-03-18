@@ -16,15 +16,83 @@ class Category(models.Model):
 
 class Item(models.Model):
     category = models.ForeignKey(
-        Category, related_name="items", on_delete=models.CASCADE
+        Category, related_name="items", on_delete=models.CASCADE, default="Bike"
     )
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=30)  # Updated max-length from 255
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="item_images", blank=True, null=True)
     is_sold = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name="items", on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now=True)
+
+    # New fields added
+    type = models.CharField(
+        max_length=20,
+        choices=[
+            ("Children Bike", "Children Bike"),
+            ("Foldable Bike", "Foldable Bike"),
+            ("City Bike", "City Bike"),
+            ("Mountain Bike", "Mountain Bike"),
+            ("Touring Bike", "Touring Bike"),
+        ],
+        blank=True,
+        null=True,
+    )
+
+    material = models.CharField(
+        max_length=22,
+        choices=[
+            ("Steel", "Steel"),
+            ("Aluminum/Foldable Bike", "Aluminum/Alloy"),
+            ("Carbon City Bike", "Carbon Fiber"),
+            ("Titanium", "Titanium"),
+        ],
+        blank=True,
+        null=True,
+    )
+
+    frame_size = models.CharField(
+        max_length=5,
+        choices=[
+            ("XS", "17in"),
+            ("S", "17-19in"),
+            ("M", "19-22in"),
+            ("L", "21-23in"),
+            ("XL", ">23in"),
+        ],
+        blank=True,
+        null=True,
+    )
+
+    tire_size = models.CharField(
+        max_length=8,
+        choices=[
+            ("10in", "10in"),
+            ("12in", "12in"),
+            ("14in", "14in"),
+            ("16in", "16in"),
+            ("20in", "20in"),
+            ("24in", "24in"),
+            ("26in", "26in"),
+            ("27.5in", "27.5in"),
+        ],
+        blank=True,
+        null=True,
+    )
+
+    brake_type = models.CharField(
+        max_length=25,
+        choices=[
+            ("Caliper", "Caliper"),
+            ("V-Brake", "V-Brake"),
+            ("Cantilever", "Cantilever"),
+            ("Mechanical Disc", "Mechanical Disc"),
+            ("Hydraulic Disc", "Hydraulic Disc"),
+        ],
+        blank=True,
+        null=True,
+    )
 
     def __str__(self):
         return self.name
