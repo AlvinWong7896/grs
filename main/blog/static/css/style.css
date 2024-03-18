@@ -673,8 +673,8 @@ label::after{
     
     .main-container .item-container{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        grid-gap: 10px;
     }
     
     .main-container .item-container .item{
@@ -710,7 +710,7 @@ label::after{
     .main-container .category-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        grid-gap: 20px;
+        grid-gap: 10px;
     }
     
     .main-container .category-container .category-details{
