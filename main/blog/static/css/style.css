@@ -585,7 +585,8 @@ label::after{
 }
 
 .main-container .item-container .item img{
-    width: 100%;
+    width: 200px;
+    height: 150px;
     border-radius: 4px;
 }
 
@@ -680,7 +681,8 @@ label::after{
         text-decoration: none;
     }
     .main-container .item-container .item img{
-        width: 100%;
+        width: 200px;
+        height: 150px;
         border-radius: 4px;
     }
     .main-container .item-container .item span{
@@ -788,7 +790,7 @@ label::after{
 
 .sidebar .preowned img{
     width: 100px;
-    height: auto;
+    height: 75px;
     border-radius: 8%;
     text-decoration: none;
     margin-left: 20px;
@@ -847,8 +849,8 @@ label::after{
 }
 
 .dash-container .item-card .item-image{
-    height: auto;
-    width: 90%;
+    height: 150px;
+    width: 200px;
     padding-bottom: 2%;
     border-radius: 8%;
 }
@@ -902,8 +904,8 @@ label::after{
         position: relative;
     }
     .dash-container .item-card .item-image{
-        height: auto;
-        width: 90%;
+        height: 150px;
+        width: 200px;
         padding-bottom: 2%;
         border-radius: 8%;
     }
@@ -1389,7 +1391,7 @@ form{
 
 .sidebar .preowned img{
     width: 100px;
-    height: auto;
+    height: 75px;
     border-radius: 8%;
     text-decoration: none;
     margin-left: 20px;
@@ -1532,6 +1534,7 @@ form{
 
 .related-items .items-grid .related-item img{
     width: 200px;
+    height: 150px;
     border-radius: 4px;
     margin-left: 3%;
 }
@@ -1581,7 +1584,8 @@ form{
     }
     
     .grid-container .left-col .item-image{
-        width: 90%;
+        width: 200px;
+        height: 150px;
     }
     
     .grid-container .right-col .item-name{
