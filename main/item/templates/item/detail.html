@@ -61,16 +61,14 @@
               </div>
             </div>
             <div class="related-items">
-              <h2 class="related-items-title">Similar items</h2>
+              <h2>Similar items</h2>
               <div class="items-grid">
                 {% for item in related_items %}
                   <div class="related-item">
                     <a href="{% url 'item:detail' item.id %}">
-                      <img src="{{ item.image.url }}" alt="Related item image" class="related-item-image">
-                      <div class="related-item-info">
-                        <h2 class="related-item-name">{{ item.name }}</h2>
-                        <p class="related-item-price">Price: {{ item.formatted_price }}</p>
-                      </div>
+                      <img src="{{ item.image.url }}" alt="Related item image">
+                        <h3>{{ item.name }}</h3>
+                        <p>Price: {{ item.formatted_price }}</p>
                     </a>
                   </div>
                 {% endfor %}

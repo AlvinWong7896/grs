@@ -633,7 +633,6 @@ label::after{
     text-decoration: none;
 }
 
-
 .main-container .category-container .category{
     background-color:#fbe2c7;
     width: 180px;
@@ -662,7 +661,6 @@ label::after{
         background: linear-gradient(to right, black,rgb(34, 34, 110));
         background-size: cover;
     }
-    
     .main-container .section-title {
         font-size: 16px;
         color:  #ddd;
@@ -670,33 +668,27 @@ label::after{
         margin-bottom: 3%;
         text-align: center;
     }
-    
     .main-container .item-container{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         grid-gap: 10px;
     }
-    
     .main-container .item-container .item{
         position: relative;
     }
-    
     .main-container .item-container .item a{
         text-decoration: none;
     }
-    
     .main-container .item-container .item img{
         width: 100%;
         border-radius: 4px;
     }
-    
     .main-container .item-container .item span{
         position: relative;
         text-decoration: none;
         color: #dddd;
         font-size: 8px;
     }
-    
     .main-container hr{
         border: 0;
         height: 1px;
@@ -706,35 +698,28 @@ label::after{
         background: #ccc;
         width: 88%;
     }
-    
     .main-container .category-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        grid-gap: 10px;
+        grid-gap: 5px;
     }
-    
     .main-container .category-container .category-details{
         position: relative;
         width: 100%;
     }
-    
     .main-container .category-container .category-details{
         text-decoration: none;
         font-size: 6px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
-    
     .main-container .category-container .category-details p{
         color: #888;
         font-size: 8px;
     }
-    
     .main-container .category-container a {
         text-decoration: none;
     }
-    
-    
     .main-container .category-container .category{
         background-color:#fbe2c7;
         width: 60px;
@@ -748,14 +733,14 @@ label::after{
 
 
 /***********************************************************************
-*************************   css for dashboard/index.html  ************************
+*************************   dashboard/index.html  ************************
 ***********************************************************************/
 
 .container{
     display: flex;
     grid-template-rows: auto 1fr;  
     background: #fff;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 12px;
     margin: 0 2%;
 }
@@ -838,7 +823,7 @@ label::after{
     min-height: 100vh;
     /* padding-left: 17%; */
     padding: 2%;
-    background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
+    background: linear-gradient(to right, black,rgb(34, 34, 110));
     background-size: cover;
 }
 
@@ -852,34 +837,31 @@ label::after{
 }
 
 .dash-container .items-grid{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.dash-container .items-grid{
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
 }
 
 .dash-container .items-grid .item-card{
-    text-decoration: none;
-    background-color:#fbe2c7;
-    width: 180px;
-    margin: 5px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
+    position: relative;
 }
 
 .dash-container .item-card .item-image{
     height: auto;
     width: 90%;
-    padding: 5%;
+    padding-bottom: 2%;
     border-radius: 8%;
+}
+
+.dash-container .items-grid .item-details h3{
+    font-size: 14px;
+    color: #ddd;
+    margin-left: 5%;
 }
 
 .dash-container .items-grid .item-details p{
     font-size: 12px;
+    color: #ddd;
     margin-left: 5%;
     margin-bottom: 5%;
 }
@@ -895,69 +877,50 @@ label::after{
     .sidebar{
         display: none;
     }
-    
     .dash-container {
         flex-basis: 100%;
         min-height: 100vh;
-        grid-column: 1 / span 12;
-        flex-basis: 100%;
-        /* margin-bottom: -50px; */
         /* padding-left: 17%; */
         padding: 2%;
-        background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
+        background: linear-gradient(to right, black,rgb(34, 34, 110));
         background-size: cover;
     }
     .dash-container h2{
-    color: #ddd;
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    padding: 5%;
-    margin-top: 25px;
-    margin-bottom: -10px;
+        color: #ddd;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom:20px;
     }
-
     .dash-container .items-grid{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        grid-gap: 5px;
     }
-
-    .dash-container .items-grid{
-        padding: 10px;
-    }
-
     .dash-container .items-grid .item-card{
-        text-decoration: none;
-        background-color:#fbe2c7;
-        width: 90px;
-        margin: 5px;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        overflow: hidden;
+        position: relative;
     }
-
     .dash-container .item-card .item-image{
         height: auto;
         width: 90%;
-        padding: 5%;
+        padding-bottom: 2%;
         border-radius: 8%;
     }
-
     .dash-container .items-grid .item-details h3{
-        display: none;
-        font-size: 10px;
+        font-size: 12px;
+        color: #ddd;
         margin-left: 5%;
     }
-
     .dash-container .items-grid .item-details p{
-        font-size: 8px;
+        font-size: 10px;
+        color: #ddd;
         margin-left: 5%;
         margin-bottom: 5%;
     }
 }
 
-/***********************************************************************
+    /***********************************************************************
 ************************   css for loginuser.html   ************************
 ***********************************************************************/
 
@@ -1168,7 +1131,7 @@ form{
 
 
 /***********************************************************************
-************************   css for signupuser.html   ************************
+************************   signupuser.html   ************************
 ***********************************************************************/
 
 /* ------- signup section ------- */
@@ -1381,14 +1344,7 @@ form{
 *************************   item/details.html  ************************
 ***********************************************************************/
 
-.container{
-    display: flex;
-    grid-template-rows: auto 1fr;  
-    background: #fff;
-    justify-content: space-between;
-    padding: 12px;
-    margin: 0 2%;
-}
+
 
 /* ------- index.html/side bar ------- */
 
@@ -1468,7 +1424,7 @@ form{
     min-height: 100vh;
     /* padding-left: 17%; */
     padding: 2%;
-    background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
+    background: linear-gradient(to right, black,rgb(34, 34, 110));
     background-size: cover;
 }
 
@@ -1551,15 +1507,41 @@ form{
     text-decoration: none;
 }
 
-.related-items .related-items-title{
-    color: #063b75;
+.related-items h2{
+    color: #fff;
     font-size: 25px;
     font-weight: 500;
     margin-top: 5%;
+    margin-bottom: 2%;
     margin-left: 5%;
 }
 
+.related-items .items-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
 
+.related-items .items-grid .related-item{
+    position: relative;
+}
+
+.related-items .items-grid .related-item a{
+    text-decoration: none;
+}
+
+.related-items .items-grid .related-item img{
+    width: 200px;
+    border-radius: 4px;
+    margin-left: 3%;
+}
+
+.related-items .items-grid .related-item h3,
+.related-items .items-grid .related-item p{
+    font-size: 15px;
+    color: #ddd;
+    margin-left: 5%;
+}
 
 /* ------- smaller display ------- */
 
@@ -1787,37 +1769,4 @@ select {
 .add_item .text-center a{
     text-decoration: none;
     color: #fff;
-}
-
-.detail-container .related-grid{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.detail-container .related-grid{
-    padding: 10px;
-}
-
-.detail-container .related-grid .item-item{
-    text-decoration: none;
-    background-color:#fbe2c7;
-    width: 180px;
-    margin: 5px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.detail-container .item-gird .item-item img{
-    height: auto;
-    width: 90%;
-    padding: 5%;
-    border-radius: 8%;
-}
-
-.detail-container .related-items .item-item p{
-    font-size: 12px;
-    margin-left: 5%;
-    margin-bottom: 5%;
 }
