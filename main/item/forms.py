@@ -7,16 +7,15 @@ class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = (
-            # "category",
+            "category",
             "name",
             # "is_sold",
-            "type",
             "material",
             "frame_size",
             "tire_size",
             "brake_type",
-            "price",
             "description",
+            "price",
             "image",
         )
 
@@ -25,15 +24,14 @@ class EditItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = (
-            # "category",
+            "category",
             "name",
             "is_sold",
-            "type",
             "material",
             "frame_size",
             "tire_size",
             "brake_type",
-            "price",
             "description",
+            "price",
             "image",
         )

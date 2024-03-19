@@ -27,17 +27,8 @@ class Item(models.Model):
     created_on = models.DateTimeField(auto_now=True)
 
     # New fields added
-    type = models.CharField(
-        max_length=20,
-        choices=[
-            ("Children Bike", "Children Bike"),
-            ("Foldable Bike", "Foldable Bike"),
-            ("City Bike", "City Bike"),
-            ("Mountain Bike", "Mountain Bike"),
-            ("Touring Bike", "Touring Bike"),
-        ],
-        blank=True,
-        null=True,
+    category = models.ForeignKey(
+        Category, related_name="items", on_delete=models.CASCADE
     )
 
     material = models.CharField(
@@ -73,6 +64,7 @@ class Item(models.Model):
             ("14in", "14in"),
             ("16in", "16in"),
             ("20in", "20in"),
+            ("22in", "22in"),
             ("24in", "24in"),
             ("26in", "26in"),
             ("27.5in", "27.5in"),

@@ -23,27 +23,47 @@
     </div>
     <div class="add_item">
         <h1>{{ title }}</h1>
+        {% if form.errors or form.non_field_errors %}
+        <div class="error-messages">
+        {% for field in form %}
+            <div class="error">{{ field.errors }}</div>
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+        </div>
+        {% endif %}
 
         <form method="post" action="." enctype="multipart/form-data">
         {% csrf_token %}
 
-        <div class="form-group">
-            {{ form.as_p }}
-        </div>
-
-        {% if form.errors or form.non_field_errors %}
-            <div class="error-messages">
-            {% for field in form %}
-                <div class="error">{{ field.errors }}</div>
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-                <div class="error">{{ error }}</div>
-            {% endfor %}
+        <div class="form-container">
+            <div class="left-column">
+                <label for="name" class="form-label">Name</label>
+                {{ form.name }}
+                <br><label for="description" class="form-label">Description</label><br>
+                {{ form.description }}
+                <br><label for="price" class="form-label">Price</label>
+                {{ form.price }}
+                <br><label for="image" class="form-label">Upload Photo</label>
+                {{ form.image }}
             </div>
-        {% endif %}
-
-        <button type="submit">Submit</button>
-        </form>
+            <div class="right-column">
+                <label for="category" class="form-label">Bike Type</label>
+                {{ form.category }}
+                <br><label for="material" class="form-label">Main Material</label>
+                {{ form.material }}
+                <br><label for="frame_size" class="form-label">Frame Size</label>
+                {{ form.frame_size }}
+                <br><label for="tire_size" class="form-label">Tire Size</label>
+                {{ form.tire_size }}
+                <br><label for="brake_type" class="form-label">Brake Type</label>
+                {{ form.brake_type }}
+            </div>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+        
+    </form>
     </div>
 </div>
 {% endblock %}
