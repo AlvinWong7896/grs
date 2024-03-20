@@ -471,9 +471,9 @@ label::after{
     }
 }
 
-/***********************************************************************
-*************************   css for marketplace.html   ************************
-***********************************************************************/
+/************************************
+***** css for marketplace.html *****
+************************************/
 
 .container{
     display: flex;
@@ -484,7 +484,7 @@ label::after{
     /* margin: 0 2%; */
 }
 
-/* ------- marketplace/side bar ------- */
+/* marketplace/sidebar */
 
 .sidebar{
     background: #eee;
@@ -553,7 +553,8 @@ label::after{
     width: 90%;
 }
 
-/* ------- marketplace / main container ------- */
+/* marketplace/main-container */
+
 .main-container {
     flex-basis: 80%;
     min-height: 100vh;
@@ -573,7 +574,8 @@ label::after{
 .main-container .item-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 30px;
+    grid-gap: 10px;
+    margin: 8px;
 }
 
 .main-container .item-container .item{
@@ -587,14 +589,12 @@ label::after{
 .main-container .item-container .item img{
     width: 200px;
     height: 150px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .main-container .item-container .item span{
-    position: relative;
-    text-decoration: none;
     color: #dddd;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .main-container hr{
@@ -609,32 +609,13 @@ label::after{
 
 .main-container .category-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 30px;
-}
-
-.main-container .category-container .category-details{
-    position: relative;
-    width: 100%;
-}
-
-.main-container .category-container .category-details{
-    text-decoration: none;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.main-container .category-container .category-details p{
-    color: #888;
-    font-size: 12px;
-}
-
-.main-container .category-container a {
-    text-decoration: none;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-gap: 10px;
+    margin: 8px;
 }
 
 .main-container .category-container .category{
+    position: relative;
     background-color:#fbe2c7;
     width: 180px;
     margin: 5px;
@@ -644,7 +625,19 @@ label::after{
     overflow: hidden;
 }
 
-/* ------- smaller display ------- */
+.main-container .category-container .category a{
+    text-decoration: none;
+}
+
+.main-container .category-container .category-details span{
+    color: #063b75;
+    font-size: 13px;
+}
+
+
+/*******************************
+***** SD marketplace.html *****
+*******************************/
 
 @media screen and (max-width: 768px) {
     .container{
@@ -663,7 +656,7 @@ label::after{
         background-size: cover;
     }
     .main-container .section-title {
-        font-size: 16px;
+        font-size: 13px;
         color:  #ddd;
         margin-top: 5%;
         margin-bottom: 3%;
@@ -671,8 +664,9 @@ label::after{
     }
     .main-container .item-container{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 5px;
+        margin: 5px;
     }
     .main-container .item-container .item{
         position: relative;
@@ -681,20 +675,18 @@ label::after{
         text-decoration: none;
     }
     .main-container .item-container .item img{
-        width: 200px;
-        height: 150px;
-        border-radius: 4px;
+        width: 100px;
+        height: 75px;
+        border-radius: 8px;
     }
     .main-container .item-container .item span{
-        position: relative;
-        text-decoration: none;
         color: #dddd;
         font-size: 8px;
     }
     .main-container hr{
         border: 0;
         height: 1px;
-        margin-top: 25px;
+        margin-top: -5px;
         margin-bottom: -5px;
         margin-left: 5%;
         background: #ccc;
@@ -702,34 +694,26 @@ label::after{
     }
     .main-container .category-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
         grid-gap: 5px;
-    }
-    .main-container .category-container .category-details{
-        position: relative;
-        width: 100%;
-    }
-    .main-container .category-container .category-details{
-        text-decoration: none;
-        font-size: 6px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-    .main-container .category-container .category-details p{
-        color: #888;
-        font-size: 8px;
-    }
-    .main-container .category-container a {
-        text-decoration: none;
+        margin: 5px;
     }
     .main-container .category-container .category{
+        position: relative;
         background-color:#fbe2c7;
-        width: 60px;
-        margin: 3px;
+        width: 90px;
+        margin: 5px;
         text-align: center;
         border: 2px solid #ccc;
-        border-radius: 4px;
+        border-radius: 8px;
         overflow: hidden;
+    }
+    .main-container .category-container .category a{
+        text-decoration: none;
+    }
+    .main-container .category-container .category-details span{
+        color: #063b75;
+        font-size: 8px;
     }
 }
 
