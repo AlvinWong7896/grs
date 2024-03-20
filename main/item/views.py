@@ -8,7 +8,12 @@ from .models import Category, Item
 
 
 def marketplace(request):
-    items = Item.objects.filter(is_sold=False)  # [0:6]
+    if request.user.is_authenticated:
+        items = Item.objects.filter(is_sold=False).exclude(
+            created_by=request.user
+        )  # [0:6]
+    else:
+        items = Item.objects.filter(is_sold=False)  # [0:6]
     categories = Category.objects.all()
 
     return render(
