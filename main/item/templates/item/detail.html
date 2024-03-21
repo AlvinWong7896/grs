@@ -46,6 +46,18 @@
                 <p class="item-details">
                   <strong>Posted on: </strong>{{ item.created_on }}
                 </p>
+                <p class="item-details">
+                  <strong>Material: </strong>{{ item.material }}
+                </p>
+                <p class="item-details">
+                  <strong>Frame size: </strong>{{ item.frame_size }}
+                </p>
+                <p class="item-details">
+                  <strong>Tire size: </strong>{{ item.tire_size }}
+                </p>
+                <p class="item-details">
+                  <strong>Brake type: </strong>{{ item.brake_type }}
+                </p>
                 {% if item.description %}
                   <p class="item-description">
                     <strong>Description: </strong><br>
@@ -54,7 +66,7 @@
                 {% endif %}
                 {% if request.user == item.created_by %}
                   <div class="owner-info">
-                    <p>This is your item!</p>
+                    <!-- <p>This is your item!</p> -->
                     <a href="{% url 'item:edit' item.id %}" class="edit-btn">Edit</a>
                     <a href="{% url 'item:delete' item.id %}" class="delete-btn">Delete</a>
                   </div>

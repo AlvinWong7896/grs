@@ -908,12 +908,83 @@ label::after{
     }
 }
 
-    /***********************************************************************
-************************   css for loginuser.html   ************************
-***********************************************************************/
+/******************************
+***** css loginuser.html *****
+******************************/
 
+/* loginuser-sidebar */
+.sidebar{
+    background: #eee;
+    flex-basis: 20%;
+    min-height: 100vh;
+    padding-right: 2%;
+}
+.sidebar h2{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
 
-/* ------- login section ------- */
+.sidebar .trending{
+    padding: 10%;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar .trending a {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.sidebar .preowned{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
+.sidebar .preowned img{
+    width: 100px;
+    height: 75px;
+    border-radius: 8%;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar .preowned a{
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    flex-basis: 250px;
+    align-items: center;
+}
+
+.sidebar /.preowned a span{
+    font-weight: bold;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+}
+
+/* loginuser-login */
 
 .login-container{
     flex-basis: 80%;
@@ -1021,7 +1092,9 @@ form{
     color: #fff;
 }
 
-/* ------- smaller display ------- */
+/************************
+***** SD loginuser *****
+************************/
 
 @media screen and (max-width: 768px) {
     .container{
@@ -1029,9 +1102,11 @@ form{
         justify-content: space-between;
         margin: 0 2%;
     }
+    /* loginuser-sidebar */
     .sidebar{
         display: none;
     }
+    /* loginuser-login */
     .login-container{
         flex-basis: 100%;
         min-height: 100vh;
@@ -1118,11 +1193,84 @@ form{
 }
 
 
-/***********************************************************************
-************************   signupuser.html   ************************
-***********************************************************************/
+/***************************
+***** signupuser.html *****
+***************************/
 
-/* ------- signup section ------- */
+/* signupuser-sidebar */
+
+.sidebar{
+    background: #eee;
+    flex-basis: 20%;
+    min-height: 100vh;
+    padding-right: 2%;
+}
+.sidebar h2{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar .trending{
+    padding: 10%;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar .trending a {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.sidebar .preowned{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
+.sidebar .preowned img{
+    width: 100px;
+    height: 75px;
+    border-radius: 8%;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar .preowned a{
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    flex-basis: 250px;
+    align-items: center;
+}
+
+.sidebar /.preowned a span{
+    font-weight: bold;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+}
+
+/* signupuser-signup */
 
 .signup-container{
     flex-basis: 80%;
@@ -1230,7 +1378,9 @@ form{
     color: #fff;
 }
 
-/* ------- smaller display ------- */
+/******************************
+***** SD signupuser.html *****
+******************************/
 
 @media screen and (max-width: 768px) {
     .container{
@@ -1239,9 +1389,11 @@ form{
         padding: 12px;
         margin: 0 2%;
     }
+    /* signupuser-sidebar */
     .sidebar{
         display: none;
     }
+    /* signupuser-signup */
     .signup-container{
         flex-basis: 100%;
         min-height: 100vh;
@@ -1328,13 +1480,11 @@ form{
 }
 
 
-/***********************************************************************
-*************************   item/details.html  ************************
-***********************************************************************/
+/*********************************
+***** css item:detail.html *****
+*********************************/
 
-
-
-/* ------- index.html/side bar ------- */
+/* item:detail-sidebar */
 
 .sidebar{
     background: #eee;
@@ -1407,6 +1557,8 @@ form{
     width: 90%;
 }
 
+/* item:detail-details */
+
 .details-container {
     flex-basis: 80%;
     min-height: 100vh;
@@ -1425,20 +1577,21 @@ form{
 }
 
 .grid-container .left-col{
-    flex-basis: 40%;
-}
-
-.grid-container .right-col{
-    flex-basis: 60%;
+    flex-basis: 50%;
 }
 
 .grid-container .left-col .item-image{
-    width: 90%;
+    width: 100%;
+}
+
+.grid-container .right-col{
+    flex-basis: 50%;
+    padding-left: 3%;
 }
 
 .grid-container .right-col .item-name{
     color: #ddd;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 500;
     margin-top: 2%;
     margin-bottom: 5%;
@@ -1446,7 +1599,7 @@ form{
 
 .grid-container .right-col .item-details{
     color: #ddd;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 2%;
 }
@@ -1461,14 +1614,14 @@ form{
 
 .grid-container .right-col .owner-info p{
     color: lightsalmon;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
     margin-bottom:5%;
 }
 
 .grid-container .owner-info .edit-btn{
     background: rgb(255, 125, 0);
-    font-size: 15px;
+    font-size: 20px;
     color: #fff;
     margin-right: 5%;
     margin-top: 20%;
@@ -1479,7 +1632,7 @@ form{
 
 .grid-container .owner-info .delete-btn{
     background: rgb(255, 125, 0);
-    font-size: 15px;
+    font-size: 20px;
     color: #fff;
     padding: 5px 20px;
     border-radius: 20%;
@@ -1488,7 +1641,7 @@ form{
 
 .grid-container .contact-btn{
     background: rgb(255, 125, 0);
-    font-size: 15px;
+    font-size: 20px;
     color: #fff;
     padding: 5px 20px;
     border-radius: 20%;
@@ -1501,12 +1654,12 @@ form{
     font-weight: 500;
     margin-top: 5%;
     margin-bottom: 2%;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 .related-items .items-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     grid-gap: 10px;
 }
 
@@ -1519,116 +1672,139 @@ form{
 }
 
 .related-items .items-grid .related-item img{
-    width: 200px;
-    height: 150px;
+    width: 160px;
+    height: 120px;
     border-radius: 4px;
     margin-left: 3%;
 }
 
 .related-items .items-grid .related-item h3,
 .related-items .items-grid .related-item p{
-    font-size: 15px;
+    font-size: 12px;
     color: #ddd;
     margin-left: 5%;
 }
 
-/* ------- smaller display ------- */
+/**************************
+***** SD item:detail *****
+**************************/
 
 @media screen and (max-width: 768px) {
     .container{
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
+        /* grid-template-columns: auto 1fr; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
         /* padding: 12px; */
     }
+    /* item:detail-sidebar */
     .sidebar{
         display: none;
     }
+    /* item:detail-details */
     .details-container {
         flex-basis: 100%;
-        min-height: 100vh;
+        /* min-height: 100vh; */
         /* padding-left: 17%; */
         padding: 2%;
-        background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
+        background: linear-gradient(to right, black,rgb(34, 34, 110));
         background-size: cover;
-        margin-top: 90px;
+        text-align: center;
     }
-
     .details-container .grid-container{
-        display: flex;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 12px;
-        margin: 0 2%;
+        display: inline-block;
     }
-    
-    .grid-container .left-col{
-        flex-basis: 40%;
-    }
-    
-    .grid-container .right-col{
-        flex-basis: 60%;
-    }
-    
     .grid-container .left-col .item-image{
-        width: 200px;
-        height: 150px;
+        width: 280px;
+        height: 210px;
+        margin: 0 auto;
     }
-    
+    .grid-container .right-col{
+        padding-left: 5%;
+        text-align: left;
+    }
     .grid-container .right-col .item-name{
         color: #ddd;
         font-size: 16px;
-        font-weight: 500;
-        margin-top: 2%;
-        margin-bottom: 5%;
+        font-weight: 600;
+        margin-top: 12px;
+        margin-bottom: 8px;
     }
-    
     .grid-container .right-col .item-details{
         color: #ddd;
         font-size: 10px;
         font-weight: 500;
-        margin-bottom: 2%;
+        margin-bottom: 5px;
     }
-    
     .grid-container .right-col .item-description{
         color: #ddd;
-        font-size: 12px;
-        font-weight: 500;
-        margin-top: 5%;
-        margin-bottom: 5%;
-    }
-    
-    .grid-container .right-col .owner-info p{
-        color: lightsalmon;
         font-size: 10px;
         font-weight: 500;
-        margin-bottom:5%;
+        margin-bottom: 8px;
     }
-    
+    .grid-container .right-col .owner-info p{
+        color: lightsalmon;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
     .grid-container .owner-info .edit-btn{
         background: rgb(255, 125, 0);
         font-size: 8px;
         color: #fff;
         margin-right: 5%;
         margin-top: 20%;
-        padding: 5px 20px;
+        padding: 5px 22px;
         border-radius: 20%;
         text-decoration: none;
     }
-    
     .grid-container .owner-info .delete-btn{
         background: rgb(255, 125, 0);
         font-size: 8px;
         color: #fff;
-        padding: 5px 12px;
+        padding: 5px 16px;
         border-radius: 20%;
         text-decoration: none;
     }
-    
-    .related-items .related-items-title{
-        color: #063b75;
-        font-size: 16px;
+    .grid-container .contact-btn{
+        background: rgb(255, 125, 0);
+        font-size: 8px;
+        color: #fff;
+        padding: 5px 16px;
+        border-radius: 20%;
+        text-decoration: none;
+    }
+    .related-items h2{
+        color: #fff;
+        font-size: 14px;
         font-weight: 500;
+        text-align: left;
         margin-top: 5%;
+        margin-bottom: 2%;
+        margin-left: 5%;
+    }
+    .related-items .items-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+        grid-gap: 5px;
+    }
+    .related-items .items-grid .related-item{
+        position: relative;
+    }
+    .related-items .items-grid .related-item a{
+        text-decoration: none;
+    }
+    .related-items .items-grid .related-item img{
+        width: 64px;
+        height: 48px;
+        border-radius: 4px;
+        margin-left: 3%;
+    }
+    .related-items .items-grid .related-item h3,
+    .related-items .items-grid .related-item p{
+        font-size: 7px;
+        color: #ddd;
         margin-left: 5%;
     }
 }
