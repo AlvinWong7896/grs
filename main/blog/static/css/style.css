@@ -5,17 +5,16 @@
     font-family: 'poppins', sans-serif;
 }
 
-/***********************************************************************
-*************************   css for base.html   ************************
-***********************************************************************/
+/*****************************
+***** css base.html *****
+*****************************/
 
-/* ------- navigation bar ----------- */
-
+/* base-navbar */
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 5%;
+    padding: 1% 5%;
     z-index: 1000;
 }
 
@@ -83,8 +82,6 @@ opacity: 1; /* Show content on hover */
 .fa-heart,
 .fa-square-plus, 
 .fa-envelope-circle-check, 
-/* .fa-lock, 
-.fa-user-plus,  */
 .fa-lock-open{ 
     color: rgb(5, 112, 5); 
 } 
@@ -113,7 +110,7 @@ opacity: 1; /* Show content on hover */
     font-size: 30px; 
 } 
 
-/* ------- footer ------- */
+/* base-footer */
 
 .foot-container{
     padding: 5px 5%;
@@ -142,14 +139,16 @@ opacity: 1; /* Show content on hover */
 }
 
 
-/* ------- smaller display ------- */
+/**********************
+**** SD base.html ****
+**********************/
 
 @media screen and (max-width: 768px) {
     nav{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 8px 5%;
+        padding: 1% 5%;
         z-index: 1000;
     }
     .nav-left a{
@@ -179,7 +178,7 @@ opacity: 1; /* Show content on hover */
     .nav-links li{ 
         list-style: none; 
         display: inline-block; 
-        margin: 10px 10px; 
+        margin: 6px 6px; 
         position: relative; /* Enable positioning of pseudo-element */ 
     } 
     .nav-links li a{ 
@@ -231,9 +230,10 @@ opacity: 1; /* Show content on hover */
     }
 }
 
-/***********************************************************************
-************************   css for index.html   ************************
-***********************************************************************/
+
+/**************************
+***** css index.html *****
+**************************/
 
 .container{
     display: flex;
@@ -244,8 +244,7 @@ opacity: 1; /* Show content on hover */
     margin: 0 2%;
 }
 
-/* ------- index.html/side bar ------- */
-
+/* index-sidebar */
 .sidebar{
     background: #eee;
     flex-basis: 20%;
@@ -318,8 +317,7 @@ opacity: 1; /* Show content on hover */
     width: 90%;
 }
 
-/* ------- main section ------- */
-
+/* index-hero */
 .hero{
     flex-basis: 80%;
     min-height: 100vh;
@@ -393,7 +391,9 @@ label::after{
     transform: rotate(90deg);
 }
 
-/* ------- smaller display ------- */
+/*************************
+***** SD index.html *****
+*************************/
 
 @media screen and (max-width: 768px) {
     .container{
@@ -402,9 +402,11 @@ label::after{
         /* padding: 12px; */
         margin: 0 2%;
     }
+/* SD index-sidebar */
     .sidebar{
         display: none;
     }
+/* SD index-hero */
     .hero{
         /* min-height: 100vh;
         padding-left: 17%;
@@ -485,7 +487,6 @@ label::after{
 }
 
 /* marketplace/sidebar */
-
 .sidebar{
     background: #eee;
     flex-basis: 20%;
@@ -554,7 +555,6 @@ label::after{
 }
 
 /* marketplace/main-container */
-
 .main-container {
     flex-basis: 80%;
     min-height: 100vh;
@@ -718,9 +718,9 @@ label::after{
 }
 
 
-/***********************************************************************
-*************************   dashboard/index.html  ************************
-***********************************************************************/
+/******************************
+***** CSS dashboard.html *****
+******************************/
 
 .container{
     display: flex;
@@ -731,8 +731,7 @@ label::after{
     margin: 0 2%;
 }
 
-/* ------- index.html/side bar ------- */
-
+/* dashboard-sidebar */
 .sidebar{
     background: #eee;
     flex-basis: 20%;
@@ -804,6 +803,7 @@ label::after{
     width: 90%;
 }
 
+/* dashboard-dash */
 .dash-container {
     flex-basis: 80%;
     min-height: 100vh;
@@ -852,7 +852,9 @@ label::after{
     margin-bottom: 5%;
 }
 
-/* ------- smaller display ------- */
+/*****************************
+***** SD dashboard.html *****
+*****************************/
 
 @media screen and (max-width: 768px) {
     .container{
@@ -876,30 +878,30 @@ label::after{
         font-size: 15px;
         font-weight: 500;
         text-align: center;
-        margin-top: 30px;
-        margin-bottom:20px;
+        margin-top: 20px;
+        margin-bottom:15px;
     }
     .dash-container .items-grid{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-gap: 5px;
     }
     .dash-container .items-grid .item-card{
         position: relative;
     }
     .dash-container .item-card .item-image{
-        height: 150px;
-        width: 200px;
+        width: 100px;
+        height: 75px;
         padding-bottom: 2%;
         border-radius: 8%;
     }
     .dash-container .items-grid .item-details h3{
-        font-size: 12px;
+        font-size: 8px;
         color: #ddd;
         margin-left: 5%;
     }
     .dash-container .items-grid .item-details p{
-        font-size: 10px;
+        font-size: 8px;
         color: #ddd;
         margin-left: 5%;
         margin-bottom: 5%;
