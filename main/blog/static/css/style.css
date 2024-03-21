@@ -1330,8 +1330,6 @@ form{
 *************************   item/details.html  ************************
 ***********************************************************************/
 
-
-
 /* ------- index.html/side bar ------- */
 
 .sidebar{
@@ -1548,14 +1546,14 @@ form{
         padding: 2%;
         background: linear-gradient(to right, lightgreen,rgb(34, 34, 110));
         background-size: cover;
-        margin-top: 90px;
+        margin-top: 0px;
     }
 
     .details-container .grid-container{
         display: flex;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 12px;
+        gap: 10px;
+        padding: 5px;
         margin: 0 2%;
     }
     
@@ -1568,13 +1566,13 @@ form{
     }
     
     .grid-container .left-col .item-image{
-        width: 200px;
-        height: 150px;
+        width: 120px;
+        height: 90px;
     }
     
     .grid-container .right-col .item-name{
         color: #ddd;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 500;
         margin-top: 2%;
         margin-bottom: 5%;
@@ -1582,14 +1580,14 @@ form{
     
     .grid-container .right-col .item-details{
         color: #ddd;
-        font-size: 10px;
+        font-size: 8px;
         font-weight: 500;
         margin-bottom: 2%;
     }
     
     .grid-container .right-col .item-description{
         color: #ddd;
-        font-size: 12px;
+        font-size: 8px;
         font-weight: 500;
         margin-top: 5%;
         margin-bottom: 5%;
@@ -1597,7 +1595,7 @@ form{
     
     .grid-container .right-col .owner-info p{
         color: lightsalmon;
-        font-size: 10px;
+        font-size: 8px;
         font-weight: 500;
         margin-bottom:5%;
     }
@@ -1608,7 +1606,7 @@ form{
         color: #fff;
         margin-right: 5%;
         margin-top: 20%;
-        padding: 5px 20px;
+        padding: 3px 10px;
         border-radius: 20%;
         text-decoration: none;
     }
@@ -1617,16 +1615,55 @@ form{
         background: rgb(255, 125, 0);
         font-size: 8px;
         color: #fff;
-        padding: 5px 12px;
+        padding: 3px 10px;
         border-radius: 20%;
         text-decoration: none;
     }
     
-    .related-items .related-items-title{
-        color: #063b75;
-        font-size: 16px;
+    
+    .grid-container .contact-btn{
+        background: rgb(255, 125, 0);
+        font-size: 8px;
+        color: #fff;
+        padding: 3px 10px;
+        border-radius: 20%;
+        text-decoration: none;
+    }
+
+    .related-items h2{
+        color: #fff;
+        font-size: 12px;
         font-weight: 500;
         margin-top: 5%;
+        margin-bottom: 2%;
+        margin-left: 5%;
+    }
+
+    .related-items .items-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-gap: 5px;
+    }
+
+    .related-items .items-grid .related-item{
+        position: relative;
+    }
+
+    .related-items .items-grid .related-item a{
+        text-decoration: none;
+    }
+
+    .related-items .items-grid .related-item img{
+        width: 80px;
+        height: 60px;
+        border-radius: 4px;
+        margin-left: 3%;
+    }
+
+    .related-items .items-grid .related-item h3,
+    .related-items .items-grid .related-item p{
+        font-size: 8px;
+        color: #ddd;
         margin-left: 5%;
     }
 }
