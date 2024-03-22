@@ -364,7 +364,7 @@ input[type='radio']{
     cursor: pointer;
 }
 
-label::after{
+.hero .statement ::after{
     content: '  >>';
     font-size: 20px;
     position: absolute;
@@ -448,7 +448,7 @@ label::after{
         position: relative;
         cursor: pointer;
     }
-    label::after{
+    .hero .statement li label::after{
         content: '  >>';
         font-size: 10px;
         position: absolute;
@@ -1811,9 +1811,9 @@ form{
 
 
 
-/***********************************************************************
-************************   item app form.html   ************************
-***********************************************************************/
+/**************************
+***** item:form.html *****
+**************************/
 
 
 .add_item{
@@ -1879,17 +1879,7 @@ select {
     padding: 5px; /* Adjust padding if needed */
     margin-right: 2px;
     appearance: none;
-  }
-  
-  input[type="file"]::-webkit-file-upload-button {
-    /* Styles for Chrome, Safari, etc. */
-    color: #ccc; /* Set desired color */
-  }
-  
-  input[type="file"]::file-upload-button {
-    /* Styles for Firefox */
-    color: #ccc; /* Set desired color */
-  }
+}
 
 .add_item .submit-button {
     font-size: 20px;
