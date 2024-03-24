@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "conversation",
     "core",
     "dashboard",
+    "location",
     "item",
     "blog.apps.BlogConfig",
 ]

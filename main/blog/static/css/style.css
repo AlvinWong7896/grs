@@ -80,6 +80,7 @@ opacity: 1; /* Show content on hover */
 } 
 
 .fa-heart,
+.fa-location-dot,
 .fa-square-plus, 
 .fa-envelope-circle-check, 
 .fa-lock-open{ 
@@ -92,16 +93,18 @@ opacity: 1; /* Show content on hover */
 } 
 
 .fa-shop, 
-/* .fa-blog,  */
+/* .fa-blog,  */ 
+.fa-location-dot,
 .fa-handshake{
     color: #4b4b4b;
 } 
 
 .fa-shop, 
-/* .fa-blog,  */
+/* .fa-blog,  */ 
+.fa-location-dot,
 .fa-handshake, 
 /* .fa-screwdriver-wrench, */ 
-.fa-heart, 
+.fa-heart,
 .fa-square-plus, 
 .fa-envelope-circle-check,
 .fa-lock, 
@@ -1832,7 +1835,7 @@ form{
     font-size: 48px;
     font-weight: 500;
     color: #fff;
-    margin-left: 20%;
+    margin-left: 10%;
     padding-top:10%;
     margin-bottom: 50px;
 }
@@ -1853,32 +1856,83 @@ form{
 }
 
 .add_item .form-container .left-column{
-    margin-left: 20%;
+    flex: 0 0 auto;
+    width: calc(40%);
+    margin-left: 10%;
 }
 
-/* .add_item .form-container .left-column input[type='file'], */
-/* .add_item .form-container .left-column input[type='decimal'], */
-.add_item .form-container .left-column input[type='text']{
+.add_item .form-container .left-column input[type='file']{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(234, 234, 154);
+    width: 48%;
+    padding: 4px;
+    margin: 20px 4px;
+    border: 1px solid#ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+.add_item .form-container .left-column input[type='number']{
     font-size: 18px;
-    width: 50%;
-    padding: 2px;
+    width: 40%;
+    padding: 2%;
+    margin: 20px 4px;
     border: 1px solid#ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
+.add_item .form-container .left-column input[type='text']{
+    font-size: 18px;
+    width: 50%;
+    padding: 2%;
+    margin: 20px 4px;
+    border: 1px solid#ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container .left-column #form-desc{
+    width: 500px;
+    height: 150px;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.add_item .form-container .right-column{
+    flex: 0 0 auto;
+    width: calc(40%);
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
 .add_item .form-container .right-column label{
-    margin-left: 0%;
     margin-bottom: 30px;
 }
 
 select {
-    /* Styles for all select elements */
-    width: 200px; /* Adjust width as needed */
-    height: 30px; /* Adjust height as needed */
-    padding: 5px; /* Adjust padding if needed */
-    margin-right: 2px;
+    width: 120px;
+    height: 38px;
+    padding: 2%;
+    border-radius: 4px;
     appearance: none;
+}
+
+.add_item .right-column label[for='category']{
+    margin-right: 68px;
+}
+.add_item .right-column label[for='material']{
+    margin-right: 84px;
+}
+.add_item .right-column label[for='frame_size']{
+    margin-right: 50px;
+}
+.add_item .right-column label[for='tire_size']{
+    margin-right: 75px;
+}
+.add_item .right-column label[for='brake_type']{
+    margin-right: 50px;
 }
 
 .add_item .submit-button {
@@ -1887,8 +1941,8 @@ select {
     color: #fff;
     border: none;
     width: 10%;
-    margin-top: -5%;
-    margin-left: 70%;
+    margin-top: -7%;
+    margin-left: 75%;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
@@ -1925,4 +1979,52 @@ select {
 .add_item .text-center a{
     text-decoration: none;
     color: #fff;
+}
+
+/* For screens smaller than 1000px */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+
+    .add_item {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+
+    .add_item h1 {
+        margin-left: 5%;
+        font-size: 32px;
+    }
+
+    .add_item .form-container {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .add_item .form-container .left-column,
+    .add_item .form-container .right-column {
+        width: calc(50% - 10px); /* Adjust width to accommodate margin */
+        margin-right: 20px; /* Add margin to the right of the left column */
+    }
+
+    .add_item .form-container .left-column input[type='text'],
+    .add_item .form-container .left-column textarea {
+        font-size: 16px;
+    }
+
+    .add_item select {
+        width: 150px;
+    }
+
+    .add_item .submit-button {
+        margin-left: 5%;
+        width: 90%;
+        font-size: 18px;
+    }
 }

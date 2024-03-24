@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+
+<style>
+  ul{
+    margin-left: 550px;
+  }
+
+  li{
+    text-decoration: none;
+  }
+</style>
+<div class="container">
+  <div class="sidebar">
+    <h2 class="sub-title">Popular Blog Topics</h2>
+    <div class="trending">
+        <a href="#">Health tips</a>
+        <a href="#">Bike DIY maintenance</a>
+        <a href="#">Professional biking</a>
+        <a href="#">Green advices</a>
+    </div>
+    <hr>
+    <h2 class="sub-title">Latest Pre-owned</h2>
+    <div class="preowned">
+        <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+        <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+        <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
+    </div>
+</div>
+  <div class="location-container">
+    <h1>Your Location - {{ data.query }}</h1>
+    <p align="center">{{ data }}</p>
+    <br>
+    <hr>
+    {% if error %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+    <br>
+      <h3 align="center">More Details</h3>
+      <br>
+      <p>
+        <ul margin-left:50px>
+          <li>Country: {{ data.country }}</li>
+          <li>City: {{ data.city }}</li>
+          <li>Region: {{ data.regionName }}</li>
+          <li>Postal Code: {{ data.zip }}</li>
+          <li>Latitude: {{ data.lat }}</li>
+          <li>Longitude: {{ data.lon }}</li>
+          <li>Name: {{ data.as }}</li>
+        </ul>
+      </p>
+  </div>
+</div>
+{% endblock %}
+
