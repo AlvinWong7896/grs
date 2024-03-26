@@ -19,25 +19,25 @@ nav{
 }
 
 .nav-left a{
-    display: flex;  /* Enable flexbox layout */
-    align-items: center;    /* Align content vertically */
+    display: flex; 
+    align-items: center;  
     text-decoration: none;
     color: #323232;
 }
 
 .nav-left a .logo-text{
-    display: inline-block;  /* Allow text to flow next to icon */
-    opacity: 0; /* Ensure text is transparent */
+    display: inline-block; 
+    opacity: 0; 
     color: #4b4b4b;
     font-size: 18px;
-    vertical-align: 180%; /* Align text vertically with logo */
+    vertical-align: 180%;
     margin: -10px;
     transition: opacity 0.5s ease-in-out;
 }
 
 .nav-left a:hover .logo-text{
     display: inline-block;
-    opacity: 1; /* Show text on hover */
+    opacity: 1; 
 }
 
 .logo{
@@ -50,7 +50,7 @@ nav{
     list-style: none; 
     display: inline-block; 
     margin: 10px 25px; 
-    position: relative; /* Enable positioning of pseudo-element */ 
+    position: relative; 
 } 
 
 .nav-links li a{ 
@@ -59,15 +59,15 @@ nav{
 } 
 
 .nav-links a span { 
-    display: none; /* Hide text initially */ 
-    opacity: 0; /* Ensure text is transparent */ 
-    position: absolute; /* Position absolutely relative to anchor */ 
-    bottom: 100%; /* Position above the icon */ 
+    display: none; 
+    opacity: 0; 
+    position: absolute; 
+    bottom: 100%; 
     left: 50%; 
     margin-bottom: 20px;
-    transform: translateX(-50%); /* Center horizontally */ 
-    color: #4b4b4b; /* Replace with your desired color */ 
-    font-size: 18px; /* Adjust font size as needed */ 
+    transform: translateX(-50%); 
+    color: #4b4b4b;
+    font-size: 18px; 
     transition: opacity 0.5s ease-in-out; 
 } 
 
@@ -76,7 +76,7 @@ display: inline-block;
 color: #4b4b4b;
 font-style: italic;
 margin-bottom: 2px; 
-opacity: 1; /* Show content on hover */ 
+opacity: 1;
 } 
 
 .fa-heart,
@@ -93,14 +93,14 @@ opacity: 1; /* Show content on hover */
 } 
 
 .fa-shop, 
-/* .fa-blog,  */ 
+.fa-blog,  
 .fa-location-dot,
 .fa-handshake{
     color: #4b4b4b;
 } 
 
 .fa-shop, 
-/* .fa-blog,  */ 
+.fa-blog,  
 .fa-location-dot,
 .fa-handshake, 
 /* .fa-screwdriver-wrench, */ 
@@ -155,23 +155,23 @@ opacity: 1; /* Show content on hover */
         z-index: 1000;
     }
     .nav-left a{
-        display: flex;  /* Enable flexbox layout */
-        align-items: center;    /* Align content vertically */
+        display: flex; 
+        align-items: center; 
         text-decoration: none;
         color: #323232;
     }
     .nav-left a .logo-text{
-        display: inline-block;  /* Allow text to flow next to icon */
-        opacity: 0; /* Ensure text is transparent */
+        display: inline-block;  
+        opacity: 0; 
         color: #4b4b4b;
         font-size: 10px;
-        vertical-align: 180%; /* Align text vertically with logo */
+        vertical-align: 180%; 
         margin: -5px;
         transition: opacity 0.5s ease-in-out;
     }
     .nav-left a:hover .logo-text{
         display: inline-block;
-        opacity: 1; /* Show text on hover */
+        opacity: 1;
     }
     .logo{
         width: 60px;
@@ -182,28 +182,28 @@ opacity: 1; /* Show content on hover */
         list-style: none; 
         display: inline-block; 
         margin: 6px 6px; 
-        position: relative; /* Enable positioning of pseudo-element */ 
+        position: relative; 
     } 
     .nav-links li a{ 
         text-decoration: none; 
         color: #323232; 
     } 
     .nav-links a span { 
-        display: none; /* Hide text initially */ 
-        opacity: 0; /* Ensure text is transparent */ 
-        position: absolute; /* Position absolutely relative to anchor */ 
-        bottom: 100%; /* Position above the icon */ 
+        display: none; 
+        opacity: 0; 
+        position: absolute; 
+        bottom: 100%; 
         left: 50%; 
         margin-bottom: 20px;
-        transform: translateX(-50%); /* Center horizontally */ 
-        color: #4b4b4b; /* Replace with your desired color */ 
-        font-size: 10px; /* Adjust font size as needed */ 
+        transform: translateX(-50%); 
+        color: #4b4b4b;
+        font-size: 10px; 
         transition: opacity 0.5s ease-in-out; 
     } 
     .nav-links a:hover span { 
     display: inline-block; 
     margin-bottom: 2px; 
-    opacity: 1; /* Show content on hover */ 
+    opacity: 1;
     } 
     .fa-heart, 
     .fa-square-plus, 
@@ -214,7 +214,7 @@ opacity: 1; /* Show content on hover */
         color: rgb(5, 112, 5); 
     } 
     .fa-shop, 
-    /* .fa-blog,  */
+    .fa-blog, 
     .fa-location-dot,
     .fa-handshake, 
     /* .fa-screwdriver-wrench, */ 
@@ -241,14 +241,11 @@ opacity: 1; /* Show content on hover */
 
 .container{
     display: flex;
-    /* grid-template-rows: auto 1fr;   Inherits narbar height from base.html */
     background: #fff;
     justify-content: space-between;
-    /* padding: 12px; */
     margin: 0 2%;
 }
 
-/* index-sidebar */
 .sidebar{
     background: #eee;
     flex-basis: 20%;
@@ -368,7 +365,7 @@ input[type='radio']{
     cursor: pointer;
 }
 
-.hero .statement ::after{
+.hero .statement li label::after{
     content: '  >>';
     font-size: 20px;
     position: absolute;
