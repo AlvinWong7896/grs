@@ -15,6 +15,9 @@ class Conversation(models.Model):
     class Meta:
         ordering = ("-modified_at",)
 
+    def __str__(self):
+        return self.item
+
 
 class ConversationMessage(models.Model):
     conversation = models.ForeignKey(

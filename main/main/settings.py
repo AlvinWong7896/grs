@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "dashboard",
     "location",
     "item",
-    "blog.apps.BlogConfig",
+    "blog",
 ]
 
 MIDDLEWARE = [

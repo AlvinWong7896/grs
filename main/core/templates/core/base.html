@@ -28,7 +28,7 @@
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'dashboard:index' %}"><i class="fa-solid fa-heart"></i><span>Dashboard</span></a></li>
                 <li><a href="{% url 'item:new' %}"><i class="fa-solid fa-square-plus"></i><span>AddItem</span></a></li>
-                <li><a href="#" class="message-btn"><i class="fa-solid fa-envelope-circle-check"></i></i><span>Message</span></a></li>
+                <li><a href="{% url 'conversation:inbox' %}" class="message-btn"><i class="fa-solid fa-envelope-circle-check"></i></i><span>Message</span></a></li>
                 <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock-open"></i><span>Logout</span></a></li>
 
                 {% else %}

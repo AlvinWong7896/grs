@@ -18,7 +18,7 @@ class Item(models.Model):
     category = models.ForeignKey(
         Category, related_name="items", on_delete=models.CASCADE, default="Bike"
     )
-    name = models.CharField(max_length=30)  # Updated max-length from 255
+    name = models.CharField(max_length=30)
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="item_images", blank=True, null=True)

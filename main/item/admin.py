@@ -24,13 +24,6 @@ class ItemAdminForm(forms.ModelForm):
         model = Item
         fields = "__all__"
 
-        widgets = {
-            "material": CustomSelect(attrs={"class": "your-custom-class"}),
-            "frame_size": CustomSelect(attrs={"class": "your-custom-class"}),
-            "tire_size": CustomSelect(attrs={"class": "your-custom-class"}),
-            "brake_type": CustomSelect(attrs={"class": "your-custom-class"}),
-        }
-
 
 class ItemAdmin(admin.ModelAdmin):
     form = ItemAdminForm
