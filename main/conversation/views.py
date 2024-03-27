@@ -44,14 +44,19 @@ def new_conversation(request, item_pk):
 @login_required
 def inbox(request):
     conversations = Conversation.objects.filter(members__in=[request.user.id])
-
+    for conversation in conversations:
+        conversation.item_name = conversation.item.name
+        member_names = [member.username for member in conversation.members.all()]
+        conversation.member_names = ", ".join(member_names)
     return render(request, "conversation/inbox.html", {"conversations": conversations})
 
 
 @login_required
 def detail(request, pk):
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
-
+    conversation.item_name = conversation.item.name
+    member_names = [member.username for member in conversation.members.all()]
+    conversation.member_names = ", ".join(member_names)
     if request.method == "POST":
         form = ConversationMessageForm(request.POST)
 
