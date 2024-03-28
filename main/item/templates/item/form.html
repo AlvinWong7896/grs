@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="add_item">
-        <h1>{{ title }}</h1>
+        <h1>New Item</h1>
         {% if form.errors or form.non_field_errors %}
         <div class="error-messages">
         {% for field in form %}
@@ -41,24 +41,30 @@
             <div class="left-column">
                 <label for="name" class="form-label">Name</label>
                 {{ form.name }}
-                <br><label for="description" id="form-desc">Description</label><br>
-                {{ form.description }}
+                <br>
+                <label for="description" class="form-label">Description</label><br>
+                <textarea name="description" class="form-textarea"></textarea>
                 <br><label for="price" class="form-label">Price</label>
                 {{ form.price }}
                 <br><label for="image" class="form-label">Upload Photo</label>
                 {{ form.image }}
             </div>
+            <hr>
             <div class="right-column">
-                <label for="category" class="form-label">Bike Type</label>
-                {{ form.category }}
-                <br><label for="material" class="form-label">Material</label>
-                {{ form.material }}
-                <br><label for="frame_size" class="form-label">Frame Size</label>
-                {{ form.frame_size }}
-                <br><label for="tire_size" class="form-label">Tire Size</label>
-                {{ form.tire_size }}
-                <br><label for="brake_type" class="form-label">Brake Type</label>
-                {{ form.brake_type }}
+                <div class="right-left">
+                    <label for="category" class="form-label">Bike Type</label>
+                    {{ form.category }}
+                    <br><label for="material" class="form-label">Material</label>
+                    {{ form.material }}
+                    <br><label for="frame_size" class="form-label">Frame Size</label>
+                    {{ form.frame_size }}
+                </div>
+                <div class="right-right">
+                    <label for="tire_size" class="form-label">Tire Size</label>
+                    {{ form.tire_size }}
+                    <br><label for="brake_type" class="form-label">Brake Type</label>
+                    {{ form.brake_type }}
+                </div>
             </div>
         </div>
         <button type="submit" class="submit-button">Submit</button>

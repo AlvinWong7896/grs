@@ -18,6 +18,9 @@ class NewItemForm(forms.ModelForm):
             "price",
             "image",
         )
+        widgets = {
+            "description": forms.Textarea(),
+        }
 
 
 class EditItemForm(forms.ModelForm):
@@ -35,3 +38,6 @@ class EditItemForm(forms.ModelForm):
             "price",
             "image",
         )
+        widgets = {
+            "description": forms.Textarea(),
+        }
