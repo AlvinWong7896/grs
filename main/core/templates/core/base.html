@@ -7,6 +7,9 @@
     <title>GreenBikeSG</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://kit.fontawesome.com/b550cc9444.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLA5UMywSpQoQxvxLFq1sbwOLcNCzT4mYe1iKzR1kQ=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwz6oatxgQ6zxbWYAq7SCHP1CgUOw=" crossorigin=""></script>
+
 </head>
 
 <body>
@@ -22,7 +25,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'core:home' %}" class="active"><i class="fa-solid fa-shop"></i><span>Home</span></a></li>
                 <li><a href="{% url 'blog:post_list' %}" class="active"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li>
-                <li><a href="{% url 'location:location' %}" class="active"><i class="fa-solid fa-location-dot"></i></i><span>Locator</span></a></li>
+                <li><a href="{% url 'location:repair_shops' %}" class="active"><i class="fa-solid fa-location-dot"></i></i><span>Locator</span></a></li>
                 <li><a href="{% url 'item:marketplace' %}"><i class="fa-solid fa-handshake"></i></i><span>Marketplace</span></a></li>
                 
                 {% if request.user.is_authenticated %}

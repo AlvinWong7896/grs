@@ -1,0 +1,95 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Repair Shops{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="sidebar">
+    <h2 class="sub-title">Popular Blog Topics</h2>
+    <div class="trending">
+        <a href="#">Health tips</a>
+        <a href="#">Bike DIY maintenance</a>
+        <a href="#">Professional biking</a>
+        <a href="#">Green advices</a>
+    </div>
+    <hr>
+    <h2 class="sub-title">Latest Pre-owned</h2>
+    <div class="preowned">
+        <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+        <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+        <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
+    </div>
+</div>
+  <div class="location-container">
+    <h1>Bicycle Repair Shops</h1>
+    <div id="map" style="height: 400px;"></div>
+    <h2>Nearest Shops (Placeholder)</h2>
+    <ul id="nearest-shops">
+      </ul>
+    <br>
+    <h2>Existing Shops</h2>
+    <ul>
+      {% for shop in shops %}
+        <li>{{ shop.name }} - {{ shop.address }}</li>
+      {% endfor %}
+    </ul>
+  
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwz6oatxgQ6zxbWYAq7SCHP1CgUOw=" crossorigin=""></script>
+    <script>
+      var map = L.map('map').setView([51.505, -0.09], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+  
+      // Get user location (example using geolocation)
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+              var user_latitude = position.coords.latitude;
+              var user_longitude = position.coords.longitude;
+  
+              var user_marker = L.marker([user_latitude, user_longitude]).addTo(map);
+              map.setView([user_latitude, user_longitude], 15);  // Center map on user
+  
+              // Placeholder for shops (assuming you have shop coordinates)
+              var shops = [
+                  { lat: 51.509, lng: -0.118, name: "Shop 1" },
+                  { lat: 51.502, lng: -0.089, name: "Shop 2" },
+                  { lat: 51.515, lng: -0.098, name: "Shop 3" },
+              ];
+  
+              // Loop through shops and display markers
+              shops.forEach(function(shop) {
+                  var shop_marker = L.marker([shop.lat, shop.lng]).addTo(map);
+                  shop_marker.bindPopup(shop.name).openPopup();
+  
+                  // Calculate distance between user and shop
+                  var distance = user_marker.getDistanceTo(shop_marker);
+  
+                  // Update shop data with calculated distance
+                  shop.distance = distance;
+              });
+  
+              // Sort shops by distance (ascending)
+              shops.sort(function(a, b) {
+                  return a.distance - b.distance;
+              });
+  
+              // Display nearest shops (limit 3)
+              var nearestShopsList = document.getElementById("nearest-shops");
+              for (var i = 0; i < 3 && i < shops.length; i++) {
+                  var shop = shops[i];
+                  var listItem = document.createElement("li");
+                  listItem.textContent = shop.name + " (" + shop.distance.toFixed(2) + " meters)";
+                  nearestShopsList.appendChild(listItem);
+              }
+  
+          });
+      } else {
+          console.error("Geolocation is not supported by this browser.");
+      }
+    </script>
+  </div>
+</div>
+{% endblock %}
