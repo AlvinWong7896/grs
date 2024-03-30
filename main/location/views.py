@@ -5,6 +5,7 @@ from .models import RepairShop
 import json
 import requests
 import csv
+import os
 
 
 def index(request):
@@ -17,22 +18,20 @@ def download_csv(modeladmin, request, queryset):
     if not request.user.is_staff:
         raise PermissionDenied
     opts = queryset.model._meta
-    model = queryset.model
-    response = HttpResponse(content_type="text/csv")
-    # force download
-    response["Content-Disposition"] = "attachment;filename=export.csv"
-    # the csv writer
-    writer = csv.writer(response)
-    field_names = [field.name for field in opts.fields]
-    # Write a first row with header information
-    writer.writerow(field_names)
-    # Write data rows
-    for obj in queryset:
-        writer.writerow([getattr(obj, field) for field in field_names])
-    return response
+    relative_path = "data"
+    base_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    file_path = os.path.join(base_directory, relative_path, "Repair_Shops.csv")
+    with open(file_path, "w", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        field_names = [field.name for field in opts.fields]
+        writer.writerow(field_names)
+        for obj in queryset:
+            writer.writerow([getattr(obj, field) for field in field_names])
+    # Optionally return a response
+    return HttpResponse("CSV file has been saved to the directory.")
 
 
-download_csv.shortdescription = "Download selected as csv"
+download_csv.short_description = "Download selected as csv"
 
 
 def my_view(request):
