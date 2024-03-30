@@ -22,74 +22,39 @@
         <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
     </div>
 </div>
-  <div class="location-container">
-    <h1>Bicycle Repair Shops</h1>
-    <div id="map" style="height: 400px;"></div>
-    <h2>Nearest Shops (Placeholder)</h2>
-    <ul id="nearest-shops">
-      </ul>
-    <br>
-    <h2>Existing Shops</h2>
-    <ul>
-      {% for shop in shops %}
-        <li>{{ shop.name }} - {{ shop.address }}</li>
-      {% endfor %}
-    </ul>
-  
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwT8AN9zwUwz6oatxgQ6zxbWYAq7SCHP1CgUOw=" crossorigin=""></script>
-    <script>
-      var map = L.map('map').setView([51.505, -0.09], 13);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-  
-      // Get user location (example using geolocation)
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-              var user_latitude = position.coords.latitude;
-              var user_longitude = position.coords.longitude;
-  
-              var user_marker = L.marker([user_latitude, user_longitude]).addTo(map);
-              map.setView([user_latitude, user_longitude], 15);  // Center map on user
-  
-              // Placeholder for shops (assuming you have shop coordinates)
-              var shops = [
-                  { lat: 51.509, lng: -0.118, name: "Shop 1" },
-                  { lat: 51.502, lng: -0.089, name: "Shop 2" },
-                  { lat: 51.515, lng: -0.098, name: "Shop 3" },
-              ];
-  
-              // Loop through shops and display markers
-              shops.forEach(function(shop) {
-                  var shop_marker = L.marker([shop.lat, shop.lng]).addTo(map);
-                  shop_marker.bindPopup(shop.name).openPopup();
-  
-                  // Calculate distance between user and shop
-                  var distance = user_marker.getDistanceTo(shop_marker);
-  
-                  // Update shop data with calculated distance
-                  shop.distance = distance;
-              });
-  
-              // Sort shops by distance (ascending)
-              shops.sort(function(a, b) {
-                  return a.distance - b.distance;
-              });
-  
-              // Display nearest shops (limit 3)
-              var nearestShopsList = document.getElementById("nearest-shops");
-              for (var i = 0; i < 3 && i < shops.length; i++) {
-                  var shop = shops[i];
-                  var listItem = document.createElement("li");
-                  listItem.textContent = shop.name + " (" + shop.distance.toFixed(2) + " meters)";
-                  nearestShopsList.appendChild(listItem);
-              }
-  
-          });
-      } else {
-          console.error("Geolocation is not supported by this browser.");
-      }
-    </script>
-  </div>
+<div class="location-container">
+  <h1>Bicycle Repair Shops</h1>
+  <div id="map" style="height: 600px; width: 600px;"></div>
+  {{ shops|json_script:'sh ops_json'}}
+
+  <h2>Nearest Shops</h2>
+  <ul id="nearest-shops">
+  </ul>
+
+  <form id="address-form">
+    <label for="address">Enter your address or postal code:</label>
+    <input type="text" id="address" name="address">
+    <button type="submit">Find Nearest Shops</button>
+  </form>
+  <h2>Download RepairShop Data</h2>
+  <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
 </div>
+
+<script>
+  // Base layer and center on Singapore
+  var map = L.map('map').setView([1.3521, 103.8198], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  let shops = JSON.parse(document.getElementById('shops_json').textContent)
+
+  // for each repair shop, add a Marker
+  shops.forEach(shop => {
+    L.marker([shop.latitude, shop.longitude]).addTo(map)
+  });
+
+
+</script>
 {% endblock %}
