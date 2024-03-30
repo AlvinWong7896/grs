@@ -23,30 +23,25 @@ def nearest_shops(request):
     print(location)
     if location:
         user_location = location.latitude, location.longitude
-        nearest_shop_id = None
-        min_distance = float("inf")
+        nearest_shops = []
+        shop_distances = {}
+
+        # calculate distances for all shops
         for shop in RepairShop.objects.all():
             shop_location = shop.latitude, shop.longitude
-
-            #  calculate the distance between the user location and the shop
             distance = geodesic(user_location, shop_location).km
+            shop_distances[shop] = distance
 
-            if distance < min_distance:
-                min_distance = distance
-                nearest_shop_id = shop.id
+        sorted_shops = sorted(shop_distances.items(), key=lambda x: x[1])
+        for shop, distance in sorted_shops[:3]:
+            nearest_shops.append({"shop": shop, "distance": round(distance, 2)})
 
-        min_distance = round(min_distance, 2)
-        nearest_shop = RepairShop.objects.get(id=nearest_shop_id)
-        print(nearest_shop.name)
-        print(nearest_shop.address)
-        print(min_distance)
         return render(
             request,
             "location/index.html",
             {
                 "location": location,
-                "nearest_shop": nearest_shop,
-                "distance": min_distance,
+                "nearest_shops": nearest_shops,
             },
         )
     else:
