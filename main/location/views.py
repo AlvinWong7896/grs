@@ -12,6 +12,7 @@ import os
 
 def index(request):
     shops = list(RepairShop.objects.values("latitude", "longitude"))
+    # print(shops[:2])
     return render(request, "location/index.html", {"shops": shops})
 
 
@@ -19,24 +20,34 @@ def nearest_shops(request):
     address = request.GET.get("address")
     geolocator = Nominatim(user_agent="main")
     location = geolocator.geocode(address)
+    print(location)
     if location:
         user_location = location.latitude, location.longitude
-        shop_distances = {}
+        nearest_shop_id = None
+        min_distance = float("inf")
         for shop in RepairShop.objects.all():
             shop_location = shop.latitude, shop.longitude
 
             #  calculate the distance between the user location and the shop
             distance = geodesic(user_location, shop_location).km
-            shop_distances[distance] = shop_location
 
-        min_distance = min(shop_distances)
-        shop_coords = shop_distances[min_distance]
-        return JsonResponse(
+            if distance < min_distance:
+                min_distance = distance
+                nearest_shop_id = shop.id
+
+        min_distance = round(min_distance, 2)
+        nearest_shop = RepairShop.objects.get(id=nearest_shop_id)
+        print(nearest_shop.name)
+        print(nearest_shop.address)
+        print(min_distance)
+        return render(
+            request,
+            "location/index.html",
             {
-                "My location": user_location,
-                "coordinate": shop_coords,
+                "location": location,
+                "nearest_shop": nearest_shop,
                 "distance": min_distance,
-            }
+            },
         )
     else:
         return JsonResponse({"Error": "Location not found"})

@@ -26,29 +26,25 @@
     <h1>Bicycle Repair Shops</h1>
     <div id="map" style="height: 600px; width: 600px;"></div>
 
-    <h3>Search nearest Bicycle Repair Shops</h3>
-    <ul id="nearest-shops">
+    <h3>My Location</h3>
+    <ul>
+      <li>{{ location }}</li>
     </ul>
 
-    <form id="address-form" action="{% url 'location:nearest_shops' %}" method="GET">
-      <label for="address">Enter your address or postal code:</label>
-      <input type="text" id="address" name="address">
-      <button type="submit"></a>Find Nearest Shops</button>
-    </form>
-    <br>
-    <h3>The nearest Repair Shops</h3>
-    <p>Your location: {{ location }}</p>
-    <p>Shop name: {{ nearest_shop.name }}</p>
-    <p>Shop address: {{ nearest_shop.address }}</p>
-    <p>Contact person: {{ nearest_shop.contactName }}</p>
-    <p>Contact number: {{ nearest_shop.phoneNumber }}</p>
-    <p>Approx distance: {{ distance }} km</p>
-    <br>
-    <h3>Download RepairShop Data</h3>
-    <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
+    <h3>Nearest Shop</h3>
+    <ul id="nearest-shop">
+      <li>{{ nearest_shop.name }}</li>
+      <li>{{ nearest_shop.address }}</li>
+      <li>{{ nearest_shop.contactName }}</li>
+      <li>{{ nearest_shop.phoneNumber }}</li>
+    </ul>
+
+    <h3>Distance</h3>
+    <ul>
+      <li>{{ distance }} km</li>
+    </ul>
   </div>
 </div>
-
 <script>
   var shops = {{ shops|safe }};
   // Base layer and center on Singapore
@@ -62,7 +58,7 @@
   shops.forEach(shop => {
     L.marker([shop.latitude, shop.longitude]).addTo(map)
   });
+
+
 </script>
-
-
 {% endblock %}
