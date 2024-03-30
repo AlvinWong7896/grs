@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from geopy.distance import geodesic
+from geopy.geocoders import Nominatim
 from .models import RepairShop
 import json
 import requests
@@ -10,8 +12,34 @@ import os
 
 def index(request):
     shops = list(RepairShop.objects.values("latitude", "longitude"))
-    print(shops[:2])
     return render(request, "location/index.html", {"shops": shops})
+
+
+def nearest_shops(request):
+    address = request.GET.get("address")
+    geolocator = Nominatim(user_agent="main")
+    location = geolocator.geocode(address)
+    if location:
+        user_location = location.latitude, location.longitude
+        shop_distances = {}
+        for shop in RepairShop.objects.all():
+            shop_location = shop.latitude, shop.longitude
+
+            #  calculate the distance between the user location and the shop
+            distance = geodesic(user_location, shop_location).km
+            shop_distances[distance] = shop_location
+
+        min_distance = min(shop_distances)
+        shop_coords = shop_distances[min_distance]
+        return JsonResponse(
+            {
+                "My location": user_location,
+                "coordinate": shop_coords,
+                "distance": min_distance,
+            }
+        )
+    else:
+        return JsonResponse({"Error": "Location not found"})
 
 
 def download_csv(modeladmin, request, queryset):

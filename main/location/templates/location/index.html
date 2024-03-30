@@ -30,17 +30,16 @@
     <ul id="nearest-shops">
     </ul>
 
-    <form id="address-form">
+    <form id="address-form" action="{% url 'location:nearest_shops' %}" method="GET">
       <label for="address">Enter your address or postal code:</label>
       <input type="text" id="address" name="address">
-      <button type="submit">Find Nearest Shops</button>
+      <button type="submit"></a>Find Nearest Shops</button>
     </form>
     <h2>Download RepairShop Data</h2>
     <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
   </div>
 </div>
 
-<!-- Debug: Print serialized data -->
 <script>
   var shops = {{ shops|safe }};
   // Base layer and center on Singapore
@@ -54,5 +53,7 @@
   shops.forEach(shop => {
     L.marker([shop.latitude, shop.longitude]).addTo(map)
   });
+
+
 </script>
 {% endblock %}
