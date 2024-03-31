@@ -4,8 +4,6 @@ from django.http import HttpResponse, JsonResponse
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 from .models import RepairShop
-import json
-import requests
 import csv
 import os
 
@@ -33,7 +31,7 @@ def nearest_shops(request):
             shop_distances[shop] = distance
 
         sorted_shops = sorted(shop_distances.items(), key=lambda x: x[1])
-        for shop, distance in sorted_shops[:3]:
+        for shop, distance in sorted_shops[:5]:
             nearest_shops.append({"shop": shop, "distance": round(distance, 2)})
 
         return render(
@@ -75,17 +73,3 @@ def my_view(request):
     queryset = RepairShop.objects.all()
     response = download_csv(None, request, queryset)
     return response
-
-
-# def index(request):
-#     if request.method == "POST":
-#         pass
-#     shops = RepairShop.objects.all()
-#     return render(request, "location/index.html", {"shops": shops})
-
-
-# def location(request):
-#     res = requests.get("http://ip-api.com/json/101.127.55.205")
-#     location_data = res.text
-#     location_data_dict = json.loads(location_data)
-#     return render(request, "location/location.html", {"data": location_data_dict})

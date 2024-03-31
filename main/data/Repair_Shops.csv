@@ -1,18 +1,15 @@
-id,name,address,contactName,phoneNumber,latitude,longitude
-1,RNE Bike Shop,116 Bishan St 12 #01-32 Singapore 570116,,,1.3478,103.84932
-2,Aride Bicycle Service,Block 28 Kelantan Rd #01-129 Singapore 200028,,,1.30598,103.85728
-3,BuyCycle,658 Punggol E #01-05 Singapore 820658,,,1.40008,103.91928
-4,Ban Soon Bicycle Shop,11 Upper Boon Keng Rd Singapore 380011,,,1.31426,103.87098
-5,Chin Hong Cycle Company,"Blk 3 Joo Chiat Rd, Singapore 420003",,,1.31589,103.89916
-6,Cycle 21 Pte Ltd,"37 Defu Lane 10 #03-55, Singapore 539214",,,1.35255,103.89123
-7,Long Fa Bicycle Shop,"114 Ang Mo Kio Ave 4, Singapore 560114",,,1.37268,103.83597
-8,Unspokin,"1 Genting Link, #01-03, Singapore 349518",,,1.32854,103.87395
-9,Bike Zone Creation (Connection),"303 Anchorvale Link, Singapore 540303",,,1.38732,103.8906
-10,Bike Station Singapore - Link@AMK,"3 Ang Mo Kio Street 62, #04-15, Singapore 569139",,,1.3858,103.8454
-11,Seng Bee Bicycle Shop,"Block 5 Upper Boon Keng Rd, #01-12, Singapore 380005",,,1.31261,103.87384
-12,YM Bike Service and Coaching,"130 Clarence Ln, Singapore 140130",,,1.29272,103.81492
-13,Inkedmechanic,"3005 Ubi Ave 3, #01-58 Singapore 408861",,,1.33089,103.89242
-14,bicycle Repair Centre by 7cycleworkshop,"Blk 716 Yishun Street 71, #01-274, Singapore 760716",,,1.4263,103.82764
-15,Brompton Service Centre; Happy Owl Cycle,"65 Ubi Rd 1, #03-51 Oxley BizHub, Singapore 408729",,,1.33248,103.88989
-16,All Bicycle Shop,"Blk 620 Hougang Ave 8, #01--272, Singapore 530620",,,1.37018,103.88375
-17,BikeCraft One Pte Ltd by Mycle Castle Bikes,"11 Jln Bingka, Mayfair Park, Singapore 588908",,,1.34078,103.7798
+name,address,contactName,phoneNumber,latitude,longitude
+Eng Hua Bicycle Trading,316B Ang Mo Kio Street 31 Singapore 563316,,64526737,1.3647,103.84754
+Keng Hock Bicycle Repair (By appointment only),"Fernvale Lea, Block 469A Sengkang West Way #20-602 Singapore 791469",,88103048,1.3959,103.87808
+Emmanuel Cycles,356 Hougang Ave 7 #01-787 Singapore 530356,,92973960,1.37259,103.89881
+The Servicce Course Singapore,261 Waterloo St Singapore 180261,,89525342,1.2988,103.85211
+Khcycle ECP (Showroom),"1110 ECP, #01-08 Cyclist Park, Singapore 449880",,65094567,1.30412,103.92405
+Freedom Bicycle Repair & Service,"21 Toh Guan Rd East, Toh Guan Centre, Singapore 608609",,93826066,1.33733,103.75436
+Bangkit Bike Shop,"259 Bukit Panjang Ring Rd, #01-16, Singapore 671259",,90433565,1.37831,103.77271
+12cycle,326 Tanjong Katong Rd Singapore 437104,,63457112,1.30426,103.8963
+C.W.Lim Trading,"35 Telok Blangah Rise, #01-289, Singapore 090035",,64792968,1.2729,103.82206
+Hin Leong Cycle,"71 Lor 4 Toa Payoh, #01-377, Singapore 310071",,62535341,1.33418,103.85215
+R&M Rambo Bicycle Service,"Blk 352 Clementi Ave 2, #01-121 Singapore 120352",,90380354,1.31453,103.77141
+Life On 2 Wheels (By appointment only),"998A Buangkok Crescent, #11-703, Singapore 531998",,94591985,1.38376,103.88017
+Bike Bicycle Repair & Service (By appointment only),238 Tampines St 21 Singapore 520238,Peter,81677922,1.33701,103.88367
+Avid Cycler,"51 Circuit Rd, Singapore 370051",,96759788,1.32458,103.88553

@@ -24,7 +24,6 @@
   </div>
   <div class="location-container">
     <h1>Bicycle Repair Shops</h1>
-    <div id="map" style="height: 600px; width: 600px;"></div>
 
     <h3>Search nearest Bicycle Repair Shops</h3>
     <form id="address-form" action="{% url 'location:nearest_shops' %}" method="GET">
@@ -53,21 +52,5 @@
     <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
   </div>
 </div>
-
-<script>
-  var shops = {{ shops|safe }};
-  // Base layer and center on Singapore
-  var map = L.map('map').setView([1.3521, 103.8198], 12);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-
-  // for each repair shop, add a Marker
-  shops.forEach(shop => {
-    L.marker([shop.latitude, shop.longitude]).addTo(map)
-  });
-</script>
-
 
 {% endblock %}
