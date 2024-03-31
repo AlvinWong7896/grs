@@ -24,8 +24,12 @@
   </div>
   <div class="location-container">
     <h1>Bicycle Repair Shops</h1>
-
-    <h3>Search nearest Bicycle Repair Shops</h3>
+    
+    {% if error %}
+      <div class="bad-location">{{ error }}</div>
+    {% endif %}
+      
+    <h3>Search for nearby bicycle repair shops</h3>
     <form id="address-form" action="{% url 'location:nearest_shops' %}" method="GET">
       <label for="address">Enter your address or postal code:</label>
       <input type="text" id="address" name="address">
@@ -35,21 +39,34 @@
     <h4>Your location: {{ location }}</h4>
     <br>
     <h3>The nearest Repair Shops</h3>
-    <ul id="nearest-shops">
+   <table class="table-container"> 
+    <thead>
+      <th>Shop name</th>
+      <th>Shop address</th>
+      <th>Contact person</th>
+      <th>Contact number</th>
+      <th>Approx distance</th>
+    </thead>
+    <tbody>
       {% for shop in nearest_shops %}
-        <li>
-          <p>Shop name: {{ shop.shop.name }}</p>
-          <p>Shop address: {{ shop.shop.address }}</p>
-          <p>Contact person: {{ shop.shop.contactName }}</p>
-          <p>Contact number: {{ shop.shop.phoneNumber }}</p>
-          <p>Approx distance: {{ shop.distance }} km</p>
-          <br>
-        </li>
+        <tr>
+          <td>{{ shop.shop.name }}</td>
+          <td>{{ shop.shop.address }}</td>
+          <td>{{ shop.shop.contactName }}</td>
+          <td>{{ shop.shop.phoneNumber }}</td>
+          <td>{{ shop.distance }} km</td>
+        </tr>
         {% endfor %}
-    </ul>
+      </tbody>
+    </table>
 
     <h3>Download RepairShop Data</h3>
     <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
+    
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+      
   </div>
 </div>
 

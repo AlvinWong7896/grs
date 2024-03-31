@@ -43,7 +43,7 @@ def nearest_shops(request):
             },
         )
     else:
-        return JsonResponse({"Error": "Location not found"})
+        return render(request, "location/index.html", {"error": "Location not found"})
 
 
 def download_csv(modeladmin, request, queryset):
@@ -60,7 +60,11 @@ def download_csv(modeladmin, request, queryset):
         for obj in queryset:
             writer.writerow([getattr(obj, field) for field in field_names])
     # Optionally return a response
-    return HttpResponse("CSV file has been saved to the directory.")
+    return render(
+        request,
+        "location/index.html",
+        {"message": "CSV file has been saved to your project's data directory."},
+    )
 
 
 download_csv.short_description = "Download selected as csv"
@@ -68,8 +72,8 @@ download_csv.short_description = "Download selected as csv"
 
 def my_view(request):
     if not request.user.has_perm("You do not have access to download data"):
-        raise PermissionDenied
-
-    queryset = RepairShop.objects.all()
-    response = download_csv(None, request, queryset)
-    return response
+        return render(
+            request,
+            "location/index.html",
+            {"message": "You do not have permission to download data."},
+        )
