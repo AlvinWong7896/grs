@@ -141,7 +141,6 @@ margin-bottom: 2px;
     color: #777;
 }
 
-
 /**********************
 **** SD base.html ****
 **********************/
@@ -233,6 +232,9 @@ margin-bottom: 2px;
         font-size: 8px;
     }
 }
+
+
+
 
 
 
@@ -472,6 +474,13 @@ input[type='radio']{
         transform: rotate(90deg);
     }
 }
+
+
+
+
+
+
+
 
 
 
@@ -722,6 +731,15 @@ input[type='radio']{
 }
 
 
+
+
+
+
+
+
+
+
+
 /******************************
 ***** CSS dashboard.html *****
 ******************************/
@@ -911,6 +929,18 @@ input[type='radio']{
         margin-bottom: 5%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /******************************
 ***** css loginuser.html *****
@@ -1198,6 +1228,14 @@ form{
 }
 
 
+
+
+
+
+
+
+
+
 /***************************
 ***** signupuser.html *****
 ***************************/
@@ -1483,6 +1521,13 @@ form{
         margin-bottom: 20px;
     }
 }
+
+
+
+
+
+
+
 
 
 /*********************************
@@ -1813,6 +1858,12 @@ form{
         margin-left: 5%;
     }
 }
+
+
+
+
+
+
 
 
 /**************************
@@ -2216,6 +2267,9 @@ select {
 
 
 
+
+
+
 /********************************
 ***** location: index.html *****
 ********************************/
@@ -2482,5 +2536,327 @@ background-color: #f2f2f2;
     .table-container th {
     background-color: #f2f2f2;
     font-size: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/********************************
+***** conversation: new.html *****
+********************************/
+
+/* location:index-sidebar */
+
+.sidebar{
+    background: #eee;
+    flex-basis: 20%;
+    min-height: 100vh;
+    padding-right: 2%;
+}
+.sidebar h2{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar .trending{
+    padding: 10%;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar .trending a {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.sidebar .preowned{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
+.sidebar .preowned img{
+    width: 100px;
+    height: 75px;
+    border-radius: 8%;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar .preowned a{
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    flex-basis: 250px;
+    align-items: center;
+}
+
+.sidebar /.preowned a span{
+    font-weight: bold;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+}
+
+/* CSS for new conversation section */
+.new-conversation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.new-conversation .img-box,
+.new-conversation .message-box{
+    flex: 0 0 auto;
+    width: 45%;
+    margin: 0 2.5%;
+}
+
+.new-conversation .img-box img {
+    max-width: 100%;
+    padding: 2%;
+}
+
+
+.new-conversation .message-box {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+.new-conversation .message-box .entry-errors {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.new-conversation .message-box h1 {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.new-conversation .message-box p {
+font-size: 16px;
+margin-bottom: 20px;
+}
+
+.new-conversation .message-box button {
+background-color: #4CAF50;
+color: white;
+width: 100%;
+margin: 0 auto;
+display: block;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.new-conversation .message-box button:hover {
+background-color: #128618;
+}
+
+/**********************************
+***** SD conversation:new.html *****
+**********************************/
+
+/* CSS for location-container */
+@media screen and (max-width: 768px) {
+    .location-container{
+        margin-top: 10px;
+        margin-bottom: 8px;
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/********************************
+***** conversation: detail.html *****
+********************************/
+
+/* location:index-sidebar */
+
+.sidebar{
+    background: #eee;
+    flex-basis: 20%;
+    min-height: 100vh;
+    padding-right: 2%;
+}
+.sidebar h2{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar .trending{
+    padding: 10%;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar .trending a {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.sidebar .preowned{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
+.sidebar .preowned img{
+    width: 100px;
+    height: 75px;
+    border-radius: 8%;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar .preowned a{
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    flex-basis: 250px;
+    align-items: center;
+}
+
+.sidebar /.preowned a span{
+    font-weight: bold;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+}
+
+/* CSS for detail conversation section */
+.conversation-detail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.conversation-detail .pre-msg,
+.conversation-detail .message-box{
+    flex: 0 0 auto;
+    width: 40%;
+    margin: 5%;
+}
+
+.conversation-detail .pre-msg h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.conversation-detail .pre-msg .blue-text {
+    color: #007bff;
+    font-size: 16px;
+}
+
+.conversation-detail .pre-msg .gray-text {
+    color: gray;
+    font-size: 16px;
+}
+
+/* .conversation-detail .pre-msg img {
+    max-width: 100%;
+    padding: 2%;
+} */
+
+.conversation-detail .message-box {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+.conversation-detail .message-box .entry-errors {
+    color: red;
+    margin-bottom: 20px;
+}
+
+/* 
+.conversation-detail .message-box p {
+font-size: 16px;
+margin-bottom: 20px;
+} */
+
+.conversation-detail .message-box button {
+background-color: #4CAF50;
+color: white;
+width: 100%;
+margin: 0 auto;
+display: block;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.conversation-detail .message-box button:hover {
+background-color: #128618;
+}
+
+/**********************************
+***** SD conversation:new.html *****
+**********************************/
+
+/* CSS for location-container */
+@media screen and (max-width: 768px) {
+    .location-container{
+        margin-top: 10px;
+        margin-bottom: 8px;
+        margin-left: 10px;
     }
 }

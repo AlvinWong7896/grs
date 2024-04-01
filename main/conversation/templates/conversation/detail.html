@@ -1,26 +1,64 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}Conversation{% endblock  %}
 
 
 {% block content %}
-<h1 class="mb-6 text-3xl">Conversation</h1>
 
-<div class="space-y-6">
-    {% for message in conversation.messages.all %}
-        <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100{% else %}bg-gray-100 {% endif %} rounded-xl">
-            <div>
-                <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
-                <p>{{ message.content }}</p>
-            </div>
+<div class="container">
+    <div class="sidebar">
+      <h2 class="sub-title">Popular Blog Topics</h2>
+      <div class="trending">
+          <a href="#">Health tips</a>
+          <a href="#">Bike DIY maintenance</a>
+          <a href="#">Professional biking</a>
+          <a href="#">Green advices</a>
+      </div>
+      <hr>
+      <h2 class="sub-title">Latest Pre-owned</h2>
+      <div class="preowned">
+          <a href="#"><img src="{% static 'images/bike1.jpg' %}"><span> $500.00</span></a>
+          <a href="#"><img src="{% static 'images/bike2.jpg' %}"><span> $2,200.00</span></a>
+          <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
+      </div>
+    </div>
+    <div class="conversation-detail">
+        <div class="pre-msg">
+            <h1>Past conversations</h1>
+                <!-- {% for message in conversation.messages.all %}
+                    <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100{% else %}bg-gray-100 {% endif %} rounded-xl">
+                        <div>
+                            <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
+                            <p>{{ message.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %} -->
+                {% for message in conversation.messages.all %}
+                    {% if message.created_by == request.user %}
+                    <p class="blue-text"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
+                    <p class="blue-text">{{ message.content }}</p>
+                    <br>
+
+                {% else %} 
+                    <p class="gray-text"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
+                    <p class="gray-text">{{ message.content }}</p>
+                    <br>
+
+                    {% endif %}
+
+                {% endfor %}
+
         </div>
-    {% endfor %}
+        <div class="message-box">
+            <p>You are replying to <strong>{{ message.created_by.username }}.</strong></p>
+            <form method="post" action="." class="mt-6">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="px-8 py-4 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Send</button>
+            </form>
+        </div>
+    </div>
 </div>
-
-<form method="post" action="." class="mt-6">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <button class="px-8 py-4 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Send</button>
-</form>
 {% endblock %}

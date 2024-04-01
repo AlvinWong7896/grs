@@ -38,7 +38,7 @@ def new_conversation(request, item_pk):
     else:
         form = ConversationMessageForm()
 
-    return render(request, "conversation/new.html", {"form": form})
+    return render(request, "conversation/new.html", {"form": form, "item": item})
 
 
 @login_required
