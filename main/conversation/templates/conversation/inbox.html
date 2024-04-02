@@ -22,28 +22,30 @@
             <a href="#"><img src="{% static 'images/bike3.jpg' %}"><span> $80.00</span></a>
         </div>
     </div>
-    <h1>Inbox</h1>
-    <div class='inbox'>
-        {% for conversation in conversations %}
-            <a href="{% url 'conversation:detail' conversation.id %}">
-                <div class="p-6 flex bg-gray-100 rounded-xl">
-                    <div class="pr-6">
-                        <img src="{{ conversation.item.image.url }}" alt="" class="w-20 rounded-xl">
-                    </div>
-                    <div>
-                        
-                        {% for member in conversation.members.all %}
-                            
-                            {% if member != request.user %}
-                                <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
-                                <p>{{ conversation.item.name }}</p>
-                            {% endif %}
-                        {% endfor %}
-                            
-                    </div>
-                </div>
-            </a>
-        {% endfor %}
+    <div class="streams">
+        <table class='inbox'>
+        <h1>Conversation streams</h1>
+        <thead>
+            <th>Image</th>
+            <th>Member name</th>
+            <th>Product</th>
+            <th>Last communicated</th>
+        </thead>
+        <tbody>
+            {% for conversation in conversations %}
+                <tr>
+                
+                    <td><a href="{% url 'conversation:detail' conversation.id %}"><img src="{{ conversation.item.image.url }}" alt=""></a></td>
+                            {% for member in conversation.members.all %}
+                                {% if member != request.user %}
+                                    <td><a href="{% url 'conversation:detail' conversation.id %}">{{ member.username }}</a></td>
+                                    <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.item.name }}</a></td>
+                                    <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.modified_at }}</a></td>
+                                {% endif %}
+                            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
     </div>
 </div>
 {% endblock %}

@@ -25,7 +25,7 @@
     </div>
     <div class="conversation-detail">
         <div class="pre-msg">
-            <h1>Past conversations</h1>
+            <h1>Past communication regarding {{ conversation.item_name }}.</h1>
                 <!-- {% for message in conversation.messages.all %}
                     <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100{% else %}bg-gray-100 {% endif %} rounded-xl">
                         <div>
@@ -41,6 +41,7 @@
                     <br>
 
                 {% else %} 
+                    
                     <p class="gray-text"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
                     <p class="gray-text">{{ message.content }}</p>
                     <br>
@@ -51,12 +52,13 @@
 
         </div>
         <div class="message-box">
-            <p>You are replying to <strong>{{ message.created_by.username }}.</strong></p>
+            <p><strong>Enter your message below:</strong></p>
+            {{ message.created_by.username }}
             <form method="post" action="." class="mt-6">
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <button class="px-8 py-4 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Send</button>
+                <button>Send</button>
             </form>
         </div>
     </div>

@@ -75,5 +75,9 @@ def detail(request, pk):
     return render(
         request,
         "conversation/detail.html",
-        {"conversation": conversation, "form": form},
+        {
+            "conversation": conversation,
+            "form": form,
+            "conversation.item_name": conversation.item_name,
+        },
     )

@@ -2703,9 +2703,9 @@ background-color: #128618;
 
 
 
-/********************************
+/*************************************
 ***** conversation: detail.html *****
-********************************/
+*************************************/
 
 /* location:index-sidebar */
 
@@ -2820,16 +2820,16 @@ background-color: #128618;
     margin-bottom: 20px;
 }
 
+.conversation-detail .message-box p {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
 .conversation-detail .message-box .entry-errors {
     color: red;
     margin-bottom: 20px;
 }
-
-/* 
-.conversation-detail .message-box p {
-font-size: 16px;
-margin-bottom: 20px;
-} */
 
 .conversation-detail .message-box button {
 background-color: #4CAF50;
@@ -2859,4 +2859,135 @@ background-color: #128618;
         margin-bottom: 8px;
         margin-left: 10px;
     }
+}
+
+
+
+
+
+
+
+
+/********************************
+***** conversation: inbox.html *****
+********************************/
+
+/* conversation:inbox-sidebar */
+
+.sidebar{
+    background: #eee;
+    flex-basis: 20%;
+    min-height: 100vh;
+    padding-right: 2%;
+}
+.sidebar h2{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar .trending{
+    padding: 10%;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar .trending a {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.sidebar .preowned{
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+
+.sidebar .preowned img{
+    width: 100px;
+    height: 75px;
+    border-radius: 8%;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar .preowned a{
+    font-size: 15px;
+    color: #626262;
+    text-decoration: none;
+    padding-left: 10px;
+    display: flex;
+    width: 250px;
+    flex-basis: 250px;
+    align-items: center;
+}
+
+.sidebar /.preowned a span{
+    font-weight: bold;
+}
+
+.sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+}
+
+/* conversation-inbox */
+
+/* CSS for location-inbox */
+.streams {
+    flex-basis: 80%;
+    min-height: 100vh;
+    margin-left: 3%;
+}
+
+.streams h1{
+    font-size: 36px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+/* CSS for the table */
+.inbox {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.inbox th, .inbox td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.inbox th, .inbox td a{
+    text-decoration: none;
+}
+
+.inbox img{
+    width: 100px;
+    height: auto;
+}
+
+.inbox th {
+    background-color: #f2f2f2;
+}
+
+.inbox tr:hover {
+    background-color: #f2f2f2;
 }
