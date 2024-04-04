@@ -43,40 +43,11 @@ def signupuser(request):
     return render(request, "core/signupuser.html", {"form": form})
 
 
-# def signupuser(request):
-#     if request.method == "GET":
-#         return render(request, "core/signupuser.html", {"form": UserCreationForm()})
-#     else:
-#         # Create a new user
-#         if request.POST["password1"] == request.POST["password2"]:
-#             try:
-#                 user = User.objects.create_user(
-#                     request.POST["username"], password=request.POST["password1"]
-#                 )
-#                 user.save()
-#                 login(request, user)
-#                 return redirect("core:home")
-
-#             except IntegrityError:
-#                 return render(
-#                     request,
-#                     "core/signupuser.html",
-#                     {
-#                         "form": UserCreationForm(),
-#                         "error": "The username has already been taken, please choose a new username",
-#                     },
-#                 )
-#         else:
-#             # Tell the user the passwords didn't match
-#             return render(
-#                 request,
-#                 "core/signupuser.html",
-#                 {"form": UserCreationForm(), "error": "Passwords did not match"},
-#             )
-
-
 def loginuser(request):
     if request.method == "GET":
+        # Retrieve the 'next' parameter from the query string
+        next_url = request.GET.get("next", "")
+        print("Next_URL: ", next_url)  # Print the content of 'next' parameter
         return render(request, "core/loginuser.html", {"form": AuthenticationForm()})
     else:
         user = authenticate(
@@ -95,7 +66,11 @@ def loginuser(request):
             )
         else:
             login(request, user)
-            return redirect("core:home")
+            # Store next URL in a hidden form field
+            if "next" in request.GET:  # Ensure 'next' exists before redirecting it
+                return redirect(request.GET["next"])
+            else:
+                return redirect("core:home")
 
 
 @login_required

@@ -28,7 +28,7 @@
         {{ error }}
       </div>
     {% endif %}
-    <form method="POST" action="{% url 'core:loginuser' %}">
+    <form method="POST" action="{% url 'core:loginuser' %}?next={{ request.GET.next }}">
       {% csrf_token %}
       <div class="form-group">
         <label for="id_username" class="form-label">Username</label><br>
