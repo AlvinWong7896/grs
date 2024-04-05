@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.urls import reverse
 from django.utils import timezone
 from item.models import Category, Item
 from .forms import SignupForm
@@ -49,7 +50,13 @@ def loginuser(request):
         next_url = request.GET.get("next", "")
         print("Next_URL: ", next_url)  # Print the content of 'next' parameter
         return render(request, "core/loginuser.html", {"form": AuthenticationForm()})
-    else:
+    elif request.method == "POST":
+        # Ensure CSRF token is correct
+        if not request.POST.get("csrfmiddlewaretoken"):
+            return render(
+                request, "core/loginuser.html", {"error": "CSRF token missing"}
+            )
+
         user = authenticate(
             request,
             username=request.POST["username"],
@@ -66,11 +73,12 @@ def loginuser(request):
             )
         else:
             login(request, user)
-            # Store next URL in a hidden form field
-            if "next" in request.GET:  # Ensure 'next' exists before redirecting it
-                return redirect(request.GET["next"])
+            # Redirect to 'next' if it exists, otherwise redirect to core:home
+            next_url = request.GET.get("next")
+            if next_url:
+                return redirect(next_url)
             else:
-                return redirect("core:home")
+                return redirect(reverse("core:home"))
 
 
 @login_required
