@@ -37,7 +37,7 @@ def signupuser(request):
 
         if form.is_valid():
             form.save()
-            return redirect("/login/")  # Redirect only if the form is valid
+            return redirect("core:home")  # Redirect only if the form is valid
     else:
         form = SignupForm()
     return render(request, "core/signupuser.html", {"form": form})

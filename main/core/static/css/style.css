@@ -1364,6 +1364,7 @@ form{
 }
 
 .signup-container .form-group input[type='text'],
+.signup-container .form-group input[type='email'],
 .signup-container .form-group input[type='password']{
     font-size: 18px;
     width: 30%;
@@ -1476,6 +1477,7 @@ form{
         margin-bottom: 5px;
     }
     .signup-container .form-group input[type='text'],
+    .signup-container .form-group input[type='email'],
     .signup-container .form-group input[type='password']{
         font-size: 12px;
         width: 40%;
