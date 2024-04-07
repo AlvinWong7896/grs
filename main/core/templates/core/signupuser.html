@@ -58,6 +58,8 @@
 
             <button class="submit-button">Submit</button>
         </form>
+        <input type="hidden" id="userLoggedIn" value="{% if not request.user.is_authenticated %}True{% else %}False{% endif %}">
+
         <hr>
         <hr>
         <div class="text-center">

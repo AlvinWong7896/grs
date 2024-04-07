@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenBikeSG</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/b550cc9444.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -27,23 +28,33 @@
                 <li><a href="{% url 'blog:post_list' %}" class="active"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li>
                 <li><a href="{% url 'location:repair_shops' %}" class="active"><i class="fa-solid fa-location-dot"></i></i><span>Locator</span></a></li>
                 <li><a href="{% url 'item:marketplace' %}"><i class="fa-solid fa-handshake"></i></i><span>Marketplace</span></a></li>
-                
-                {% if request.user.is_authenticated %}
-                <li><a href="{% url 'dashboard:index' %}"><i class="fa-solid fa-heart"></i><span>Dashboard</span></a></li>
-                <li><a href="{% url 'item:new' %}"><i class="fa-solid fa-square-plus"></i><span>AddItem</span></a></li>
-                <li><a href="{% url 'conversation:inbox' %}" class="message-btn"><i class="fa-solid fa-envelope-circle-check"></i></i><span>Message</span></a></li>
-                <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock-open"></i><span>Logout</span></a></li>
 
-                {% else %}
-                <li><a href="{% url 'core:signupuser' %}"><i class="fa-solid fa-user-plus"></i><span>Signup</span></a></li>
-                <li><a href="{% url 'core:loginuser' %}"><i class="fa-solid fa-lock"></i><span>Login</span></a></li>
+                {% if request.user.is_authenticated != True %}
+                    <li><a href="{% url 'core:signupuser' %}"><i class="fa-solid fa-user-plus"></i><span>Signup</span></a></li>
+                    <li><a href="{% url 'core:loginuser' %}"><i class="fa-solid fa-lock"></i><span>Login</span></a></li>
+                {% endif %}                    
             </ul>
-            {% endif %}
         </div>
     </nav>
+                    
+{% block content %}
+{% endblock content %}
 
-    {% block content %}
-    {% endblock content %}
+<script>
+    $(document).ready(function() {
+        var isLoggedIn = $("#userLoggedIn").val() === "True"; // Check hidden element value
+        console.log("Is user logged in?", isLoggedIn);
+        if (isLoggedIn) {
+            $(".nav-links").append(`
+                <li><a href="{% url 'dashboard:index' %}"><i class="fa-solid fa-heart"></i><span>Dashboard</span></a></li>
+                <li><a href="{% url 'item:new' %}"><i class="fa-solid fa-square-plus"></i><span>AddItem</span></a></li>
+                <li><a href="{% url 'conversation:inbox' %}" class="message-btn"><i class="fa-solid fa-envelope-circle-check"></i><span>Message</span></a></li>
+                <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock-open"></i><span>Logout</span></a></li>
+            `);
+        }
+    });
+    </script>
+    
         
     <!-- <div class="foot-container">
         <div class="footer">

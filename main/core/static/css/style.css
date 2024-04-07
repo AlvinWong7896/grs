@@ -5,9 +5,10 @@
     font-family: 'poppins', sans-serif;
 }
 
-/*****************************
+
+/*************************
 ***** css base.html *****
-*****************************/
+*************************/
 
 /* base-navbar */
 nav{
@@ -41,7 +42,7 @@ nav{
 }
 
 .logo{
-    width: 150px;
+    width: 120px;
     margin-left: 0px;
     cursor: pointer;
 }
@@ -58,21 +59,16 @@ nav{
     color: #323232; 
 } 
 
-.nav-links a span { 
-    /* display: none; 
-    opacity: 0;  */
+.nav-links a span {
     position: absolute; 
     bottom: 100%; 
     left: 12%;
     margin-bottom: 3px;
-    /* transform: translateX(-50%);  */
     color: #4b4b4b;
     font-size: 12px; 
-    /* transition: opacity 0.5s ease-in-out;  */
 } 
 
-.nav-links a:hover{ 
-/* display: inline-block;  */
+.nav-links a:hover{
 color: #1a5b38;
 font-style: italic;
 font-weight: 600;
@@ -140,107 +136,6 @@ margin-bottom: 2px;
 .footer p{
     color: #777;
 }
-
-/**********************
-**** SD base.html ****
-**********************/
-
-@media screen and (max-width: 768px) {
-    nav{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1% 5%;
-        z-index: 1000;
-    }
-    .nav-left a{
-        display: flex; 
-        align-items: center; 
-        text-decoration: none;
-        color: #323232;
-    }
-    .nav-left a .logo-text{
-        display: inline-block;  
-        opacity: 0; 
-        color: #4b4b4b;
-        font-size: 10px;
-        vertical-align: 180%; 
-        margin: -5px;
-        transition: opacity 0.5s ease-in-out;
-    }
-    .nav-left a:hover .logo-text{
-        display: inline-block;
-        opacity: 1;
-    }
-    .logo{
-        width: 60px;
-        margin-left: 0px;
-        cursor: pointer;
-    }
-    .nav-links li{ 
-        list-style: none; 
-        display: inline-block; 
-        margin: 6px 6px; 
-        position: relative; 
-    } 
-    .nav-links li a{ 
-        text-decoration: none; 
-        color: #323232; 
-    } 
-    .nav-links a span { 
-        display: none; 
-        opacity: 0; 
-        position: absolute; 
-        bottom: 100%; 
-        left: 50%; 
-        margin-bottom: 20px;
-        transform: translateX(-50%); 
-        color: #4b4b4b;
-        font-size: 10px; 
-        transition: opacity 0.5s ease-in-out; 
-    } 
-    .nav-links a:hover span { 
-    display: inline-block; 
-    margin-bottom: 2px; 
-    opacity: 1;
-    } 
-    .fa-heart, 
-    .fa-square-plus, 
-    .fa-envelope-circle-check,
-    .fa-lock, 
-    .fa-user-plus,
-    .fa-lock-open{ 
-        color: rgb(5, 112, 5); 
-    } 
-    .fa-shop, 
-    .fa-blog, 
-    .fa-location-dot,
-    .fa-handshake, 
-    /* .fa-screwdriver-wrench, */ 
-    .fa-heart, 
-    .fa-square-plus, 
-    .fa-envelope-circle-check, 
-    .fa-lock, 
-    .fa-user-plus, 
-    .fa-lock-open{ 
-        font-size: 13px;
-    } 
-    .footer a{
-        margin: 2px;
-    }
-    .footer p{
-        font-size: 8px;
-    }
-}
-
-
-
-
-
-
-
-
-
 
 
 /**************************
@@ -400,172 +295,10 @@ input[type='radio']{
     transform: rotate(90deg);
 }
 
-/*************************
-***** SD index.html *****
-*************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
-        /* padding: 12px; */
-        margin: 0 2%;
-    }
-/* SD index-sidebar */
-    .sidebar{
-        display: none;
-    }
-/* SD index-hero */
-    .hero{
-        grid-column: 1 / span 12;
-        flex-basis: 100%;
-        background-size: 150% 100%;
-        background-repeat: no repeat;
-        background-position: left;
-    }
-    .hero h1{
-        font-size: 22px;
-        margin-left: 6%;
-        margin-top: 20%;
-    }
-    .hero li{
-        /* list-style: none; */
-        width: 70%;
-        padding: 5px;
-    }
-    /* input[type='radio']{
-        display: none;
-    } */
-    .hero .statement li label{
-        display: flex;
-        align-items: center;
-        font-size: 12px;
-        font-weight: 500;
-        background: #323232;
-        color: #eee;
-        padding: 3%;
-        margin-left: 5%;
-        padding-right: 5%;
-        margin-bottom: 0;
-        position: relative;
-        cursor: pointer;
-    }
-    .hero .statement li label::after{
-        content: '  >>';
-        font-size: 10px;
-        position: absolute;
-        right: 5px;
-        transition: transform 0.5s;
-    }
-    .hero .details{
-        font-size: 10px;
-        background: #4b4b4b;
-        color: #eee;
-        margin-left: 5%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s, padding 0.5s;
-    }
-    .hero input[type='radio']:checked + label + .details{
-        max-height: 600px;
-        padding: 15px 10px;
-    }
-    .hero input[type='radio']:checked + label::after{
-        transform: rotate(90deg);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 /************************************
 ***** css for marketplace.html *****
 ************************************/
-
-.container{
-    display: flex;
-    /* grid-template-rows: auto 1fr;   Inherits navbar height from base.html */
-    background: #fff;
-    justify-content: space-between;
-    /* padding: 12px; */
-    /* margin: 0 2%; */
-}
-
-/* marketplace/sidebar */
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: auto;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
 
 /* marketplace/main-container */
 .main-container {
@@ -648,188 +381,13 @@ input[type='radio']{
 }
 
 
-/*******************************
-***** SD marketplace.html *****
-*******************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        display: flex;
-        justify-content: space-between;
-        /* padding: 12px; */
-    }
-    .sidebar{
-        display: none;
-    }
-    .main-container {
-        flex-basis: 100%;
-        min-height: 100vh;
-        padding: 2%;
-        background: linear-gradient(to right, black,rgb(34, 34, 110));
-        background-size: cover;
-    }
-    .main-container .section-title {
-        font-size: 13px;
-        color:  #ddd;
-        margin-top: 5%;
-        margin-bottom: 3%;
-        text-align: center;
-    }
-    .main-container .item-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 5px;
-        margin: 5px;
-    }
-    .main-container .item-container .item{
-        position: relative;
-    }
-    .main-container .item-container .item a{
-        text-decoration: none;
-    }
-    .main-container .item-container .item img{
-        width: 100px;
-        height: 75px;
-        border-radius: 8px;
-    }
-    .main-container .item-container .item span{
-        color: #dddd;
-        font-size: 8px;
-    }
-    .main-container hr{
-        border: 0;
-        height: 1px;
-        margin-top: -5px;
-        margin-bottom: -5px;
-        margin-left: 5%;
-        background: #ccc;
-        width: 88%;
-    }
-    .main-container .category-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        grid-gap: 5px;
-        margin: 5px;
-    }
-    .main-container .category-container .category{
-        position: relative;
-        background-color:#fbe2c7;
-        width: 90px;
-        margin: 5px;
-        text-align: center;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    .main-container .category-container .category a{
-        text-decoration: none;
-    }
-    .main-container .category-container .category-details span{
-        color: #063b75;
-        font-size: 8px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
 /******************************
 ***** CSS dashboard.html *****
 ******************************/
 
-.container{
-    display: flex;
-    grid-template-rows: auto 1fr;  
-    background: #fff;
-    justify-content: flex-start;
-    padding: 12px;
-    margin: 0 2%;
-}
-
-/* dashboard-sidebar */
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* dashboard-dash */
 .dash-container {
     flex-basis: 80%;
     min-height: 100vh;
-    /* padding-left: 17%; */
     padding: 2%;
     background: linear-gradient(to right, black,rgb(34, 34, 110));
     background-size: cover;
@@ -874,157 +432,14 @@ input[type='radio']{
     margin-bottom: 5%;
 }
 
-/*****************************
-***** SD dashboard.html *****
-*****************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
-        /* padding: 12px; */
-    }
-    .sidebar{
-        display: none;
-    }
-    .dash-container {
-        flex-basis: 100%;
-        min-height: 100vh;
-        /* padding-left: 17%; */
-        padding: 2%;
-        background: linear-gradient(to right, black,rgb(34, 34, 110));
-        background-size: cover;
-    }
-    .dash-container h2{
-        color: #ddd;
-        font-size: 15px;
-        font-weight: 500;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom:15px;
-    }
-    .dash-container .items-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 5px;
-    }
-    .dash-container .items-grid .item-card{
-        position: relative;
-    }
-    .dash-container .item-card .item-image{
-        width: 100px;
-        height: 75px;
-        padding-bottom: 2%;
-        border-radius: 8%;
-    }
-    .dash-container .items-grid .item-details h3{
-        font-size: 8px;
-        color: #ddd;
-        margin-left: 5%;
-    }
-    .dash-container .items-grid .item-details p{
-        font-size: 8px;
-        color: #ddd;
-        margin-left: 5%;
-        margin-bottom: 5%;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 /******************************
 ***** css loginuser.html *****
 ******************************/
 
-/* loginuser-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* loginuser-login */
-
 .login-container{
     flex-basis: 80%;
     min-height: 100vh;
-    /* padding-left: 17%; */
     padding-right: 2%;
     padding-bottom: 0px;
     background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
@@ -1047,7 +462,6 @@ form{
     flex-direction: column;
     gap: 15px;
 }
-
 
 .login-container .form-group {
     display: flex;
@@ -1077,9 +491,6 @@ form{
     border: 1px solid#ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    /* padding-left: 2%;
-    width: 300px;
-    height: 40px; */
 }
 
 .login-container .btn-primary {
@@ -1127,198 +538,14 @@ form{
     color: #fff;
 }
 
-/************************
-***** SD loginuser *****
-************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
-        margin: 0 2%;
-    }
-    /* loginuser-sidebar */
-    .sidebar{
-        display: none;
-    }
-    /* loginuser-login */
-    .login-container{
-        flex-basis: 100%;
-        min-height: 100vh;
-        grid-column: 1 / span 12;
-        flex-basis: 100%;
-        /* margin-bottom: -50px; */
-        /* padding-left: 17%; */
-        padding: 2%;
-        background-image: linear-gradient(to right, rgba(186, 215, 236, 0.3), rgba(119, 174, 233, 0.3)), url(../images/background6.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-    .login-container h1{
-        font-size: 22px;
-        font-weight: 600;
-        margin-left:15%;
-        margin-top: 10%;
-        margin-bottom: 10px;
-    }
-    form{
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-    .login-container .form-group {
-        display: flex;
-        align-items: center;
-        margin-left: 15%;
-        margin-bottom: 5px;
-    }
-    .login-container .form-group .form-label {
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        color: rgb(237, 237, 237);
-        margin-right: 35px;
-        margin-bottom: 5px;
-    }
-    .login-container .form-group input[type='text'],
-    .login-container .form-group input[type='password']{
-        font-size: 12px;
-        width: 40%;
-        padding: 2px;
-        border: 1px solid#ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        /* padding-left: 2%;
-        width: 300px;
-        height: 40px; */
-    }
-    .login-container .btn-primary {
-        border: none;
-        font-size: 10px;
-        font-weight: 500;
-        width: 20%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        margin-left: 60%;
-        padding: 2%;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin-bottom: 20px;
-    }
-    .login-container .submit-button:hover {
-        background-color: #07284b;
-    }
-    .login-container .error-message {
-        color: #f7dcde;
-        font-size: 14px;
-        font-weight: 500;
-        /* background-color: #f8d7da;
-        border-color: #f5c6cb; */
-        padding: 10px;
-        margin-top: 10px;
-        margin-left: 15%;
-    }
-    .login-container .text-center{
-        color: rgb(237, 237, 237);
-        font-size: 12px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-}
-
-
-
-
-
-
-
-
-
 
 /***************************
 ***** signupuser.html *****
 ***************************/
 
-/* signupuser-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* signupuser-signup */
-
 .signup-container{
     flex-basis: 80%;
     min-height: 100vh;
-    /* padding-left: 17%; */
     padding-right: 2%;
     padding-bottom: 0px;
     background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
@@ -1341,7 +568,6 @@ form{
     flex-direction: column;
     gap: 15px;
 }
-
 
 .signup-container .form-group {
     display: flex;
@@ -1372,9 +598,6 @@ form{
     border: 1px solid#ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    /* padding-left: 2%;
-    width: 300px;
-    height: 40px; */
 }
 
 .signup-container .submit-button {
@@ -1422,194 +645,10 @@ form{
     color: #fff;
 }
 
-/******************************
-***** SD signupuser.html *****
-******************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        grid-template-columns: auto 1fr;
-        justify-content: space-between;
-        padding: 12px;
-        margin: 0 2%;
-    }
-    /* signupuser-sidebar */
-    .sidebar{
-        display: none;
-    }
-    /* signupuser-signup */
-    .signup-container{
-        flex-basis: 100%;
-        min-height: 100vh;
-        grid-column: 1 / span 12;
-        flex-basis: 100%;
-        /* margin-bottom: -50px; */
-        /* padding-left: 17%; */
-        padding: 2%;
-        background-image: linear-gradient(to right, rgba(186, 215, 236, 0.3), rgba(119, 174, 233, 0.3)), url(../images/background6.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-    .signup-container h1{
-        font-size: 22px;
-        font-weight: 600;
-        margin-left:15%;
-        margin-top: 10%;
-        margin-bottom: 10px;
-    }
-    form{
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-    .signup-container .form-group {
-        display: flex;
-        align-items: center;
-        margin-left: 15%;
-        margin-bottom: 5px;
-    }
-    .signup-container .form-group .form-label {
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        color: rgb(237, 237, 237);
-        margin-right: 35px;
-        margin-bottom: 5px;
-    }
-    .signup-container .form-group input[type='text'],
-    .signup-container .form-group input[type='email'],
-    .signup-container .form-group input[type='password']{
-        font-size: 12px;
-        width: 40%;
-        padding: 2px;
-        border: 1px solid#ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        /* padding-left: 2%;
-        width: 300px;
-        height: 40px; */
-    }
-    .signup-container .submit-button {
-        border: none;
-        font-size: 10px;
-        font-weight: 500;
-        width: 20%;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        margin-left: 60%;
-        padding: 2%;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin-bottom: 20px;
-    }
-    .signup-container .submit-button:hover {
-        background-color: #07284b;
-    }
-    .signup-container .error-message {
-        color: #f7dcde;
-        font-size: 14px;
-        font-weight: 500;
-        /* background-color: #f8d7da;
-        border-color: #f5c6cb; */
-        padding: 10px;
-        margin-top: 10px;
-        margin-left: 15%;
-    }
-    .signup-container .text-center{
-        color: rgb(237, 237, 237);
-        font-size: 12px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-}
-
-
-
-
-
-
-
-
 
 /*********************************
 ***** css item:detail.html *****
 *********************************/
-
-/* item:detail-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* item:detail-details */
 
 .details-container {
     flex-basis: 80%;
@@ -1737,219 +776,14 @@ form{
     margin-left: 5%;
 }
 
-/**************************
-***** SD item:detail *****
-**************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        /* grid-template-columns: auto 1fr; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        /* padding: 12px; */
-    }
-    /* item:detail-sidebar */
-    .sidebar{
-        display: none;
-    }
-    /* item:detail-details */
-    .details-container {
-        flex-basis: 100%;
-        /* min-height: 100vh; */
-        /* padding-left: 17%; */
-        padding: 2%;
-        background: linear-gradient(to right, black,rgb(34, 34, 110));
-        background-size: cover;
-        text-align: center;
-    }
-    .details-container .grid-container{
-        display: inline-block;
-    }
-    .grid-container .left-col .item-image{
-        width: 280px;
-        height: 210px;
-        margin: 0 auto;
-    }
-    .grid-container .right-col{
-        padding-left: 5%;
-        text-align: left;
-    }
-    .grid-container .right-col .item-name{
-        color: #ddd;
-        font-size: 16px;
-        font-weight: 600;
-        margin-top: 12px;
-        margin-bottom: 8px;
-    }
-    .grid-container .right-col .item-details{
-        color: #ddd;
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-    .grid-container .right-col .item-description{
-        color: #ddd;
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-    .grid-container .right-col .owner-info p{
-        color: lightsalmon;
-        font-size: 12px;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-    .grid-container .owner-info .edit-btn{
-        background: rgb(255, 125, 0);
-        font-size: 8px;
-        color: #fff;
-        margin-right: 5%;
-        margin-top: 20%;
-        padding: 5px 22px;
-        border-radius: 20%;
-        text-decoration: none;
-    }
-    .grid-container .owner-info .delete-btn{
-        background: rgb(255, 125, 0);
-        font-size: 8px;
-        color: #fff;
-        padding: 5px 16px;
-        border-radius: 20%;
-        text-decoration: none;
-    }
-    .grid-container .contact-btn{
-        background: rgb(255, 125, 0);
-        font-size: 8px;
-        color: #fff;
-        padding: 5px 16px;
-        border-radius: 20%;
-        text-decoration: none;
-    }
-    .related-items h2{
-        color: #fff;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: left;
-        margin-top: 5%;
-        margin-bottom: 2%;
-        margin-left: 5%;
-    }
-    .related-items .items-grid{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-        grid-gap: 5px;
-    }
-    .related-items .items-grid .related-item{
-        position: relative;
-    }
-    .related-items .items-grid .related-item a{
-        text-decoration: none;
-    }
-    .related-items .items-grid .related-item img{
-        width: 64px;
-        height: 48px;
-        border-radius: 4px;
-        margin-left: 3%;
-    }
-    .related-items .items-grid .related-item h3,
-    .related-items .items-grid .related-item p{
-        font-size: 7px;
-        color: #ddd;
-        margin-left: 5%;
-    }
-}
-
-
-
-
-
-
-
 
 /**************************
 ***** item:form.html *****
 **************************/
 
-/* item:detail-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* item:form.html-add_item */
 .add_item{
     flex-basis: 80%;
     min-height: 100vh;
-    /* padding-left: 17%; */
     padding-right: 2%;
     padding-bottom: 0px;
     background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/background4.jpg);
@@ -2019,14 +853,6 @@ form{
     border-radius: 6px;
     box-sizing: border-box;
 }
-
-/* .form-container .left-column #form-desc{
-    width: 500px;
-    height: 50px;
-    padding: 15px;
-    border-radius: 6px;
-    box-sizing: border-box;
-} */
 
 .form-container .left-column .form-textarea {
     width: 500px;
@@ -2104,259 +930,17 @@ select {
     display: none;
 }
 
-/*****************************
-***** SD item:form.html *****
-*****************************/
-
-@media screen and (max-width: 768px) {
-    .container{
-        /* grid-template-columns: auto 1fr;
-        justify-content: space-between; */
-        flex-direction: column;
-        margin: 0 2%;
-    }
-    /* item:detail-sidebar */
-    .sidebar{
-        display: none;
-    }
-    /* item:form.html-add_item */
-    .add_item{
-        flex-basis: 100%;
-        min-height: 100vh;
-        padding: 2%;
-        background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/background4.jpg);
-        background-size: cover;
-        background-repeat: no repeat;
-        background-position: center;
-    }
-    .add_item h1{
-        font-size: 25px;
-        font-weight: 500;
-        color: #fff;
-        margin-left: 8%;
-        padding-top:15%;
-        margin-bottom: 5%;
-    }
-    .add_item .form-container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%; /* Ensure full width container */
-    }
-    .add_item .form-container label{
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 500;
-        color: rgb(234, 234, 154);
-        margin-left: 0%;
-        margin-bottom: 5px;
-    }
-    .add_item .form-container .left-column{
-        /* flex: 0 0 auto; */
-        width: 96%;
-    }
-    .add_item .form-container .left-column input[type='file']{
-        font-size: 8px;
-        font-weight: 500;
-        color: rgb(234, 234, 154);
-        width: 45%;
-        padding: 1px;
-        margin: 5px 2px;
-        border: 1px solid#ccc;
-        border-radius: 3px;
-        box-sizing: border-box;
-        }
-    .add_item .form-container .left-column input[type='number']{
-        font-size: 12px;
-        width: 30%;
-        padding: 1%;
-        margin: 5px 2px;
-        border: 1px solid#ccc;
-        border-radius: 3px;
-        box-sizing: border-box;
-    }
-    .add_item .form-container .left-column input[type='text']{
-        font-size: 12px;
-        width: 30%;
-        padding: 1%;
-        margin: 5px 2px;
-        border: 1px solid#ccc;
-        border-radius: 3px;
-        box-sizing: border-box;
-    }
-    .form-container .left-column .form-textarea {
-        width: 250px;
-        height: 100px;
-        padding: 5px;
-        margin: 5px 2px;
-    }
-    .add_item .form-container .right-column{
-        /* flex: 0 0 auto;
-        width: calc(90%);
-        margin-top: 2%;
-        margin-left: 10%; */
-        flex: unset;
-        width: 96%;
-    }
-    .right-column .right-left{
-        margin-left: -15px;
-        margin-right: 25px;
-        margin-bottom: 0;
-        display: flex;
-        justify-content: space-between;
-    }
-    .right-column .right-right{
-        margin-left: -15px;
-        margin-right: 25px;
-        margin-top: 0px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-    }
-    select {
-        width: 25px;
-        height: 14px;
-        padding: 1%;
-        border-radius: 3px;
-        font-size: 8px;
-    }
-    .right-column .right-left label[for='category'],
-    .right-column .right-left label[for='material'],
-    .right-column .right-left label[for='frame_size'],
-    .right-column .right-right label[for='brake_type']{
-        margin-right: 1px;
-        margin-left: 12px;
-    }
-    .add_item .right-column label[for='tire_size']{
-        margin-top: 0px;
-        margin-right: 1px;
-    }
-    .add_item .submit-button {
-        font-size: 8px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        width: 12%;
-        margin-top: -7%;
-        margin-left: 75%;
-        padding: 5px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin-bottom: 20px;
-    }
-    .add_item .submit-button:hover {
-        background-color: #07284b;
-    }
-    .add_item .error-message {
-        color: #f7dcde;
-        padding: 10px;
-        margin-left: 25%;
-        margin-top: -30px;
-        margin-bottom: 10px;
-    }
-    .add_item hr{
-        display: block;
-        border: 0;
-        height: 1px;
-        background: #ccc;
-        margin: 20px;
-        width: 90%;
-    }
-}
-
-
-
-
-
-
-
-
 
 /********************************
 ***** location: index.html *****
 ********************************/
 
-/* location:index-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* location-index main */
-
-/* CSS for location-container */
 .location-container {
     flex-basis: 80%;
     min-height: 100vh;
     margin-left: 30px;
 }
+
 .location-container h1 {
 font-size: 24px;
 margin-top: 45px;
@@ -2458,12 +1042,889 @@ background-color: #f2f2f2;
 background-color: #f2f2f2;
 }
 
+
+/**********************************
+***** conversation: new.html *****
+**********************************/
+
+.new-conversation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.new-conversation .img-box,
+.new-conversation .message-box{
+    flex: 0 0 auto;
+    width: 45%;
+    margin: 0 2.5%;
+}
+
+.new-conversation .img-box img {
+    max-width: 100%;
+    padding: 2%;
+}
+
+.new-conversation .message-box {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+.new-conversation .message-box .entry-errors {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.new-conversation .message-box h1 {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.new-conversation .message-box p {
+font-size: 16px;
+margin-bottom: 20px;
+}
+
+.new-conversation .message-box button {
+background-color: #4CAF50;
+color: white;
+width: 100%;
+margin: 0 auto;
+display: block;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.new-conversation .message-box button:hover {
+background-color: #128618;
+}
+
+
+/*************************************
+***** conversation: detail.html *****
+*************************************/
+
+.conversation-detail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.conversation-detail .pre-msg,
+.conversation-detail .message-box{
+    flex: 0 0 auto;
+    width: 40%;
+    margin: 5%;
+}
+
+.conversation-detail .pre-msg h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.conversation-detail .pre-msg .blue-text {
+    color: #007bff;
+    font-size: 16px;
+}
+
+.conversation-detail .pre-msg .gray-text {
+    color: gray;
+    font-size: 16px;
+}
+
+.conversation-detail .message-box {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 20px;
+}
+
+.conversation-detail .message-box p {
+    font-size: 16px;
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
+.conversation-detail .message-box .entry-errors {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.conversation-detail .message-box button {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.conversation-detail .message-box button:hover {
+    background-color: #128618;
+}
+
+
+/************************************
+***** conversation: inbox.html *****
+************************************/
+
+.streams {
+    flex-basis: 80%;
+    min-height: 100vh;
+    margin-left: 3%;
+}
+
+.streams h1{
+    font-size: 36px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+
+/* CSS for the table */
+.inbox {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.inbox th, .inbox td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.inbox th, .inbox td a{
+    text-decoration: none;
+}
+
+.inbox img{
+    width: 100px;
+    height: auto;
+}
+
+.inbox th {
+    background-color: #f2f2f2;
+}
+
+.inbox tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    /**********************
+    **** SD base.html ****
+    **********************/
+    
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1% 5%;
+        z-index: 1000;
+    }
+    .nav-left a{
+        display: flex; 
+        align-items: center; 
+        text-decoration: none;
+        color: #323232;
+    }
+    .nav-left a .logo-text{
+        display: inline-block;  
+        opacity: 0; 
+        color: #4b4b4b;
+        font-size: 10px;
+        vertical-align: 180%; 
+        margin: -5px;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .nav-left a:hover .logo-text{
+        display: inline-block;
+        opacity: 1;
+    }
+    .logo{
+        width: 60px;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+    .nav-links li{ 
+        list-style: none; 
+        display: inline-block; 
+        margin: 6px 6px; 
+        position: relative; 
+    } 
+    .nav-links li a{ 
+        text-decoration: none; 
+        color: #323232; 
+    } 
+    .nav-links a span { 
+        display: none; 
+        opacity: 0; 
+        position: absolute; 
+        bottom: 100%; 
+        left: 50%; 
+        margin-bottom: 20px;
+        transform: translateX(-50%); 
+        color: #4b4b4b;
+        font-size: 10px; 
+        transition: opacity 0.5s ease-in-out; 
+    } 
+    .nav-links a:hover span { 
+    display: inline-block; 
+    margin-bottom: 2px; 
+    opacity: 1;
+    } 
+    .fa-heart, 
+    .fa-square-plus, 
+    .fa-envelope-circle-check,
+    .fa-lock, 
+    .fa-user-plus,
+    .fa-lock-open{ 
+        color: rgb(5, 112, 5); 
+    } 
+    .fa-shop, 
+    .fa-blog, 
+    .fa-location-dot,
+    .fa-handshake, 
+    /* .fa-screwdriver-wrench, */ 
+    .fa-heart, 
+    .fa-square-plus, 
+    .fa-envelope-circle-check, 
+    .fa-lock, 
+    .fa-user-plus, 
+    .fa-lock-open{ 
+        font-size: 13px;
+    } 
+    .footer a{
+        margin: 2px;
+    }
+    .footer p{
+        font-size: 8px;
+    }
+
+    /*************************
+    ***** SD index.html *****
+    *************************/
+    
+    .container{
+        grid-template-columns: auto 1fr;
+        justify-content: space-between;
+        /* padding: 12px; */
+        margin: 0 2%;
+    }
+    /* SD index-sidebar */
+    .sidebar{
+        display: none;
+    }
+    /* SD index-hero */
+    .hero{
+        grid-column: 1 / span 12;
+        flex-basis: 100%;
+        background-size: 150% 100%;
+        background-repeat: no repeat;
+        background-position: left;
+    }
+    .hero h1{
+        font-size: 22px;
+        margin-left: 6%;
+        margin-top: 20%;
+    }
+    .hero li{
+        /* list-style: none; */
+        width: 70%;
+        padding: 5px;
+    }
+    .hero .statement li label{
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+        background: #323232;
+        color: #eee;
+        padding: 3%;
+        margin-left: 5%;
+        padding-right: 5%;
+        margin-bottom: 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .hero .statement li label::after{
+        content: '  >>';
+        font-size: 10px;
+        position: absolute;
+        right: 5px;
+        transition: transform 0.5s;
+    }
+    .hero .details{
+        font-size: 10px;
+        background: #4b4b4b;
+        color: #eee;
+        margin-left: 5%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s, padding 0.5s;
+    }
+    .hero input[type='radio']:checked + label + .details{
+        max-height: 600px;
+        padding: 15px 10px;
+    }
+    .hero input[type='radio']:checked + label::after{
+        transform: rotate(90deg);
+    }
+
+    /*******************************
+    ***** SD marketplace.html *****
+    *******************************/
+
+    .main-container {
+        flex-basis: 100%;
+        min-height: 100vh;
+        padding: 2%;
+        background: linear-gradient(to right, black,rgb(34, 34, 110));
+        background-size: cover;
+    }
+    .main-container .section-title {
+        font-size: 13px;
+        color:  #ddd;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        text-align: center;
+    }
+    .main-container .item-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 5px;
+        margin: 5px;
+    }
+    .main-container .item-container .item{
+        position: relative;
+    }
+    .main-container .item-container .item a{
+        text-decoration: none;
+    }
+    .main-container .item-container .item img{
+        width: 100px;
+        height: 75px;
+        border-radius: 8px;
+    }
+    .main-container .item-container .item span{
+        color: #dddd;
+        font-size: 8px;
+    }
+    .main-container hr{
+        border: 0;
+        height: 1px;
+        margin-top: -5px;
+        margin-bottom: -5px;
+        margin-left: 5%;
+        background: #ccc;
+        width: 88%;
+    }
+    .main-container .category-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        grid-gap: 5px;
+        margin: 5px;
+    }
+    .main-container .category-container .category{
+        position: relative;
+        background-color:#fbe2c7;
+        width: 90px;
+        margin: 5px;
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .main-container .category-container .category a{
+        text-decoration: none;
+    }
+    .main-container .category-container .category-details span{
+        color: #063b75;
+        font-size: 8px;
+    }
+    
+    /*****************************
+    ***** SD dashboard.html *****
+    *****************************/
+
+    .dash-container {
+        flex-basis: 100%;
+        min-height: 100vh;
+        padding: 2%;
+        background: linear-gradient(to right, black,rgb(34, 34, 110));
+        background-size: cover;
+    }
+    .dash-container h2{
+        color: #ddd;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom:15px;
+    }
+    .dash-container .items-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 5px;
+    }
+    .dash-container .items-grid .item-card{
+        position: relative;
+    }
+    .dash-container .item-card .item-image{
+        width: 100px;
+        height: 75px;
+        padding-bottom: 2%;
+        border-radius: 8%;
+    }
+    .dash-container .items-grid .item-details h3{
+        font-size: 8px;
+        color: #ddd;
+        margin-left: 5%;
+    }
+    .dash-container .items-grid .item-details p{
+        font-size: 8px;
+        color: #ddd;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    /************************
+    ***** SD loginuser *****
+    ************************/
+
+    /* loginuser-login */
+    .login-container{
+        flex-basis: 100%;
+        min-height: 100vh;
+        grid-column: 1 / span 12;
+        flex-basis: 100%;
+        padding: 2%;
+        background-image: linear-gradient(to right, rgba(186, 215, 236, 0.3), rgba(119, 174, 233, 0.3)), url(../images/background6.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .login-container h1{
+        font-size: 22px;
+        font-weight: 600;
+        margin-left:15%;
+        margin-top: 10%;
+        margin-bottom: 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .login-container .form-group {
+        display: flex;
+        align-items: center;
+        margin-left: 15%;
+        margin-bottom: 5px;
+    }
+    .login-container .form-group .form-label {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(237, 237, 237);
+        margin-right: 35px;
+        margin-bottom: 5px;
+    }
+    .login-container .form-group input[type='text'],
+    .login-container .form-group input[type='password']{
+        font-size: 12px;
+        width: 40%;
+        padding: 2px;
+        border: 1px solid#ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .login-container .btn-primary {
+        border: none;
+        font-size: 10px;
+        font-weight: 500;
+        width: 20%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 60%;
+        padding: 2%;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .login-container .submit-button:hover {
+        background-color: #07284b;
+    }
+    .login-container .error-message {
+        color: #f7dcde;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px;
+        margin-top: 10px;
+        margin-left: 15%;
+    }
+    .login-container .text-center{
+        color: rgb(237, 237, 237);
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /******************************
+    ***** SD signupuser.html *****
+    ******************************/
+
+    /* signupuser-signup */
+    .signup-container{
+        flex-basis: 100%;
+        min-height: 100vh;
+        grid-column: 1 / span 12;
+        flex-basis: 100%;
+        padding: 2%;
+        background-image: linear-gradient(to right, rgba(186, 215, 236, 0.3), rgba(119, 174, 233, 0.3)), url(../images/background6.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .signup-container h1{
+        font-size: 22px;
+        font-weight: 600;
+        margin-left:15%;
+        margin-top: 10%;
+        margin-bottom: 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .signup-container .form-group {
+        display: flex;
+        align-items: center;
+        margin-left: 15%;
+        margin-bottom: 5px;
+    }
+    .signup-container .form-group .form-label {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(237, 237, 237);
+        margin-right: 35px;
+        margin-bottom: 5px;
+    }
+    .signup-container .form-group input[type='text'],
+    .signup-container .form-group input[type='email'],
+    .signup-container .form-group input[type='password']{
+        font-size: 12px;
+        width: 40%;
+        padding: 2px;
+        border: 1px solid#ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .signup-container .submit-button {
+        border: none;
+        font-size: 10px;
+        font-weight: 500;
+        width: 20%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 60%;
+        padding: 2%;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .signup-container .submit-button:hover {
+        background-color: #07284b;
+    }
+    .signup-container .error-message {
+        color: #f7dcde;
+        font-size: 14px;
+        font-weight: 500;
+        /* background-color: #f8d7da;
+        border-color: #f5c6cb; */
+        padding: 10px;
+        margin-top: 10px;
+        margin-left: 15%;
+    }
+    .signup-container .text-center{
+        color: rgb(237, 237, 237);
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /**************************
+    ***** SD item:detail *****
+    **************************/
+
+    /* item:detail-details */
+    .details-container {
+        flex-basis: 100%;
+        padding: 2%;
+        background: linear-gradient(to right, black,rgb(34, 34, 110));
+        background-size: cover;
+        text-align: center;
+    }
+    .details-container .grid-container{
+        display: inline-block;
+    }
+    .grid-container .left-col .item-image{
+        width: 280px;
+        height: 210px;
+        margin: 0 auto;
+    }
+    .grid-container .right-col{
+        padding-left: 5%;
+        text-align: left;
+    }
+    .grid-container .right-col .item-name{
+        color: #ddd;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 12px;
+        margin-bottom: 8px;
+    }
+    .grid-container .right-col .item-details{
+        color: #ddd;
+        font-size: 10px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    .grid-container .right-col .item-description{
+        color: #ddd;
+        font-size: 10px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+    .grid-container .right-col .owner-info p{
+        color: lightsalmon;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    .grid-container .owner-info .edit-btn{
+        background: rgb(255, 125, 0);
+        font-size: 8px;
+        color: #fff;
+        margin-right: 5%;
+        margin-top: 20%;
+        padding: 5px 22px;
+        border-radius: 20%;
+        text-decoration: none;
+    }
+    .grid-container .owner-info .delete-btn{
+        background: rgb(255, 125, 0);
+        font-size: 8px;
+        color: #fff;
+        padding: 5px 16px;
+        border-radius: 20%;
+        text-decoration: none;
+    }
+    .grid-container .contact-btn{
+        background: rgb(255, 125, 0);
+        font-size: 8px;
+        color: #fff;
+        padding: 5px 16px;
+        border-radius: 20%;
+        text-decoration: none;
+    }
+    .related-items h2{
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        margin-left: 5%;
+    }
+    .related-items .items-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+        grid-gap: 5px;
+    }
+    .related-items .items-grid .related-item{
+        position: relative;
+    }
+    .related-items .items-grid .related-item a{
+        text-decoration: none;
+    }
+    .related-items .items-grid .related-item img{
+        width: 64px;
+        height: 48px;
+        border-radius: 4px;
+        margin-left: 3%;
+    }
+    .related-items .items-grid .related-item h3,
+    .related-items .items-grid .related-item p{
+        font-size: 7px;
+        color: #ddd;
+        margin-left: 5%;
+    }
+
+    /*****************************
+    ***** SD item:form.html *****
+    *****************************/
+
+    /* item:form.html-add_item */
+    .add_item{
+        flex-basis: 100%;
+        min-height: 100vh;
+        padding: 2%;
+        background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/background4.jpg);
+        background-size: cover;
+        background-repeat: no repeat;
+        background-position: center;
+    }
+    .add_item h1{
+        font-size: 25px;
+        font-weight: 500;
+        color: #fff;
+        margin-left: 8%;
+        padding-top:15%;
+        margin-bottom: 5%;
+    }
+    .add_item .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%; /* Ensure full width container */
+    }
+    .add_item .form-container label{
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgb(234, 234, 154);
+        margin-left: 0%;
+        margin-bottom: 5px;
+    }
+    .add_item .form-container .left-column{
+        width: 96%;
+    }
+    .add_item .form-container .left-column input[type='file']{
+        font-size: 8px;
+        font-weight: 500;
+        color: rgb(234, 234, 154);
+        width: 45%;
+        padding: 1px;
+        margin: 5px 2px;
+        border: 1px solid#ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        }
+    .add_item .form-container .left-column input[type='number']{
+        font-size: 12px;
+        width: 30%;
+        padding: 1%;
+        margin: 5px 2px;
+        border: 1px solid#ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    .add_item .form-container .left-column input[type='text']{
+        font-size: 12px;
+        width: 30%;
+        padding: 1%;
+        margin: 5px 2px;
+        border: 1px solid#ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    .form-container .left-column .form-textarea {
+        width: 250px;
+        height: 100px;
+        padding: 5px;
+        margin: 5px 2px;
+    }
+    .add_item .form-container .right-column{
+        flex: unset;
+        width: 96%;
+    }
+    .right-column .right-left{
+        margin-left: -15px;
+        margin-right: 25px;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .right-column .right-right{
+        margin-left: -15px;
+        margin-right: 25px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    select {
+        width: 25px;
+        height: 14px;
+        padding: 1%;
+        border-radius: 3px;
+        font-size: 8px;
+    }
+    .right-column .right-left label[for='category'],
+    .right-column .right-left label[for='material'],
+    .right-column .right-left label[for='frame_size'],
+    .right-column .right-right label[for='brake_type']{
+        margin-right: 1px;
+        margin-left: 12px;
+    }
+    .add_item .right-column label[for='tire_size']{
+        margin-top: 0px;
+        margin-right: 1px;
+    }
+    .add_item .submit-button {
+        font-size: 8px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        width: 12%;
+        margin-top: -7%;
+        margin-left: 75%;
+        padding: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+    .add_item .submit-button:hover {
+        background-color: #07284b;
+    }
+    .add_item .error-message {
+        color: #f7dcde;
+        padding: 10px;
+        margin-left: 25%;
+        margin-top: -30px;
+        margin-bottom: 10px;
+    }
+    .add_item hr{
+        display: block;
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 20px;
+        width: 90%;
+    }
+
 /**********************************
 ***** SD location:index.html *****
 **********************************/
 
-/* CSS for location-container */
-@media screen and (max-width: 768px) {
     .location-container{
         margin-top: 10px;
         margin-bottom: 8px;
@@ -2485,7 +1946,6 @@ background-color: #f2f2f2;
     .location-container form {
         margin-top: 8px;
     }
-
     .location-container label {
         display: block;
         font-size: 10px;
@@ -2539,457 +1999,17 @@ background-color: #f2f2f2;
     background-color: #f2f2f2;
     font-size: 8px;
     }
-}
 
+    /************************************
+    ***** SD conversation:new.html *****
+    ************************************/
 
-
-
-
-
-
-
-
-/********************************
-***** conversation: new.html *****
-********************************/
-
-/* location:index-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* CSS for new conversation section */
-.new-conversation {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.new-conversation .img-box,
-.new-conversation .message-box{
-    flex: 0 0 auto;
-    width: 45%;
-    margin: 0 2.5%;
-}
-
-.new-conversation .img-box img {
-    max-width: 100%;
-    padding: 2%;
-}
-
-
-.new-conversation .message-box {
-    font-size: 16px;
-    padding: 2%;
-    margin-bottom: 20px;
-}
-
-.new-conversation .message-box .entry-errors {
-    color: red;
-    margin-bottom: 20px;
-}
-
-.new-conversation .message-box h1 {
-font-size: 24px;
-margin-bottom: 20px;
-}
-
-.new-conversation .message-box p {
-font-size: 16px;
-margin-bottom: 20px;
-}
-
-.new-conversation .message-box button {
-background-color: #4CAF50;
-color: white;
-width: 100%;
-margin: 0 auto;
-display: block;
-padding: 10px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-font-size: 16px;
-}
-
-.new-conversation .message-box button:hover {
-background-color: #128618;
-}
-
-/**********************************
-***** SD conversation:new.html *****
-**********************************/
-
-/* CSS for location-container */
-@media screen and (max-width: 768px) {
-    .location-container{
+    /************************************
+    **** SD conversation/inbox.html ****
+    ************************************/
+    .streams{
         margin-top: 10px;
         margin-bottom: 8px;
         margin-left: 10px;
     }
-}
-
-
-
-
-
-
-
-
-
-/*************************************
-***** conversation: detail.html *****
-*************************************/
-
-/* location:index-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* CSS for detail conversation section */
-.conversation-detail {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.conversation-detail .pre-msg,
-.conversation-detail .message-box{
-    flex: 0 0 auto;
-    width: 40%;
-    margin: 5%;
-}
-
-.conversation-detail .pre-msg h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.conversation-detail .pre-msg .blue-text {
-    color: #007bff;
-    font-size: 16px;
-}
-
-.conversation-detail .pre-msg .gray-text {
-    color: gray;
-    font-size: 16px;
-}
-
-/* .conversation-detail .pre-msg img {
-    max-width: 100%;
-    padding: 2%;
-} */
-
-.conversation-detail .message-box {
-    font-size: 16px;
-    padding: 2%;
-    margin-bottom: 20px;
-}
-
-.conversation-detail .message-box p {
-    font-size: 16px;
-    padding: 2%;
-    margin-bottom: 10px;
-}
-
-.conversation-detail .message-box .entry-errors {
-    color: red;
-    margin-bottom: 20px;
-}
-
-.conversation-detail .message-box button {
-background-color: #4CAF50;
-color: white;
-width: 100%;
-margin: 0 auto;
-display: block;
-padding: 10px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-font-size: 16px;
-}
-
-.conversation-detail .message-box button:hover {
-background-color: #128618;
-}
-
-/**********************************
-***** SD conversation:new.html *****
-**********************************/
-
-/* CSS for location-container */
-@media screen and (max-width: 768px) {
-    .location-container{
-        margin-top: 10px;
-        margin-bottom: 8px;
-        margin-left: 10px;
-    }
-}
-
-
-
-
-
-
-
-
-/********************************
-***** conversation: inbox.html *****
-********************************/
-
-/* conversation:inbox-sidebar */
-
-.sidebar{
-    background: #eee;
-    flex-basis: 20%;
-    min-height: 100vh;
-    padding-right: 2%;
-}
-.sidebar h2{
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar .trending{
-    padding: 10%;
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sidebar .trending a {
-    font-size: 15px;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-bottom: 20px;
-}
-
-.sidebar .preowned{
-    text-decoration: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 50px;
-    width: fit-content;
-}
-
-.sidebar .preowned img{
-    width: 100px;
-    height: 75px;
-    border-radius: 8%;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-
-.sidebar .preowned a{
-    font-size: 15px;
-    color: #626262;
-    text-decoration: none;
-    padding-left: 10px;
-    display: flex;
-    width: 250px;
-    flex-basis: 250px;
-    align-items: center;
-}
-
-.sidebar /.preowned a span{
-    font-weight: bold;
-}
-
-.sidebar hr{
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 90%;
-}
-
-/* conversation-inbox */
-
-/* CSS for location-inbox */
-.streams {
-    flex-basis: 80%;
-    min-height: 100vh;
-    margin-left: 3%;
-}
-
-.streams h1{
-    font-size: 36px;
-    margin-top: 45px;
-    margin-bottom: 10px;
-    margin-left: 5%;
-}
-
-/* CSS for the table */
-.inbox {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 90%;
-    margin-left: 5%;
-}
-
-.inbox th, .inbox td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.inbox th, .inbox td a{
-    text-decoration: none;
-}
-
-.inbox img{
-    width: 100px;
-    height: auto;
-}
-
-.inbox th {
-    background-color: #f2f2f2;
-}
-
-.inbox tr:hover {
-    background-color: #f2f2f2;
 }
