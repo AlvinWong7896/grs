@@ -75,19 +75,6 @@ font-weight: 600;
 margin-bottom: 2px; 
 } 
 
-.fa-heart,
-.fa-location-dot,
-.fa-square-plus, 
-.fa-envelope-circle-check, 
-.fa-lock-open{ 
-    color: rgb(5, 112, 5); 
-} 
-
-.fa-user-plus, 
-.fa-lock{ 
-    color: rgb(211, 81, 33); 
-} 
-
 .fa-shop, 
 .fa-blog,  
 .fa-location-dot,
@@ -95,18 +82,30 @@ margin-bottom: 2px;
     color: #4b4b4b;
 } 
 
+.fa-user-plus, 
+.fa-lock{ 
+    color: rgb(211, 81, 33); 
+} 
+
+.fa-heart,
+.fa-square-plus, 
+.fa-envelope-circle-check, 
+.fa-lock-open{ 
+    color: rgb(5, 112, 5); 
+} 
+
+/* .fa-screwdriver-wrench, */ 
 .fa-shop, 
 .fa-blog,  
 .fa-location-dot,
 .fa-handshake, 
-/* .fa-screwdriver-wrench, */ 
+.fa-user-plus, 
+.fa-lock, 
 .fa-heart,
 .fa-square-plus, 
 .fa-envelope-circle-check,
-.fa-lock, 
-.fa-user-plus, 
 .fa-lock-open{ 
-    font-size: 30px; 
+font-size: 30px; 
 } 
 
 /* base-footer */
@@ -1296,11 +1295,11 @@ background-color: #128618;
     .fa-lock-open{ 
         color: rgb(5, 112, 5); 
     } 
+    /* .fa-screwdriver-wrench, */ 
     .fa-shop, 
     .fa-blog, 
     .fa-location-dot,
     .fa-handshake, 
-    /* .fa-screwdriver-wrench, */ 
     .fa-heart, 
     .fa-square-plus, 
     .fa-envelope-circle-check, 
