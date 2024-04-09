@@ -33,15 +33,28 @@ def contact(request):
 
 
 def signupuser(request):
+    next_url = None
     if request.method == "POST":
         form = SignupForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            return redirect("core:home")  # Redirect only if the form is valid
+            user = form.save()
+            username = form.cleaned_data.get("username")
+            raw_password = form.cleaned_data.get("password1")
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)  # Log in the user
+            # Redirect the user back to the previous page if 'next parameter exists
+            next_url = request.GET.get("next")
+            print(f"next_url from loginuser.html: ", {next_url})
+            if next_url:
+                return redirect(next_url)
+            else:
+                return redirect("core:home")
     else:
+        # Retrieve the 'next' parameter from the query string for GET requests
+        next_url = request.GET.get("next")
         form = SignupForm()
-    return render(request, "core/signupuser.html", {"form": form})
+    return render(request, "core/signupuser.html", {"form": form, "next": next_url})
 
 
 def loginuser(request):
@@ -49,7 +62,11 @@ def loginuser(request):
         # Retrieve the 'next' parameter from the query string
         next_url = request.GET.get("next", "")
         print("Next_URL: ", next_url)  # Print the content of 'next' parameter
-        return render(request, "core/loginuser.html", {"form": AuthenticationForm()})
+        return render(
+            request,
+            "core/loginuser.html",
+            {"form": AuthenticationForm(), "next": next_url},
+        )
     elif request.method == "POST":
         # Ensure CSRF token is correct
         if not request.POST.get("csrfmiddlewaretoken"):

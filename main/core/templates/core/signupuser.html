@@ -33,7 +33,7 @@
         </div>
         {% endif %}
 
-        <form method="POST" action="{% url 'core:signupuser' %}">
+        <form method="POST" action="{% url 'core:signupuser' %}?next={{ request.GET.next }}">
             {% csrf_token %}
 
             <div class="form-group">
