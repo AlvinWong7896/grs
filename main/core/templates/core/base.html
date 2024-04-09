@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +36,7 @@
                     <li><a href="{% url 'item:new' %}"><i class="fa-solid fa-square-plus"></i><span>AddItem</span></a></li>
                     <li><a href="{% url 'conversation:inbox' %}"><i class="fa-solid fa-envelope-circle-check"></i><span>Message</span></a></li>
                     <li><a href="{% url 'core:logoutuser' %}"><i class="fa-solid fa-lock-open"></i><span>Logout</span></a></li>
+                    <li class="wel-msg">{{ request.user.username|capfirst }}</li>
                 
                     {% else %}
                     <li><a href="{% url 'core:signupuser' %}"><i class="fa-solid fa-user-plus"></i><span>Signup</span></a></li>

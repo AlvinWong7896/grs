@@ -108,6 +108,14 @@ margin-bottom: 2px;
 font-size: 30px; 
 } 
 
+.nav-right .nav-links .wel-msg{
+    color: #0f63bc;
+    font-family: Franklin Gothic Medium;
+    font-weight: 500;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 /* base-footer */
 
 .foot-container{
@@ -1308,6 +1316,9 @@ background-color: #128618;
     .fa-lock-open{ 
         font-size: 13px;
     } 
+    .nav-right .nav-links .wel-msg{
+        font-size: 10px;
+    }
     .footer a{
         margin: 2px;
     }
