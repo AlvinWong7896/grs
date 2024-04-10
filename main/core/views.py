@@ -11,21 +11,29 @@ from .forms import SignupForm
 
 
 def home(request):
-    return render(request, "core/index.html")
-
-
-def index(request):
-    items = Item.objects.filter(is_sold=False)[0:4]
-    categories = Category.objects.all()
+    items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
 
     return render(
         request,
         "core/index.html",
         {
-            "categories": categories,
             "items": items,
         },
     )
+
+
+# def index(request):
+#     items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
+#     categories = Category.objects.all()
+
+#     return render(
+#         request,
+#         "core/index.html",
+#         {
+#             "categories": categories,
+#             "items": items,
+#         },
+#     )
 
 
 def contact(request):
