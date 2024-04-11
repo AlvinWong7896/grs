@@ -126,9 +126,18 @@ STATIC_URL = "static/"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+# LOGIN settings
 LOGIN_URL = "/loginuser/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+# EMAILsettings
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "alvinwong7896@gmail.com"
+EMAIL_PASSWORD = "ulhp yhxs fzdv nwwu"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

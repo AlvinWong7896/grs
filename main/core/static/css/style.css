@@ -109,11 +109,12 @@ font-size: 30px;
 } 
 
 .nav-right .nav-links .wel-msg{
-    color: #0f63bc;
+    color: hotpink;
     font-family: Franklin Gothic Medium;
     font-weight: 500;
     margin-left: -10px;
     margin-right: -10px;
+    text-align: center;
 }
 
 /* base-footer */
