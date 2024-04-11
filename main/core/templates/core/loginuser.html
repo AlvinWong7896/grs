@@ -47,8 +47,8 @@
     </form>
     <hr>
     <div class="text-center">
-      Need an account?&middot;&middot;&middot;&marker;<a href="{% url 'core:signupuser' %}?next={{ request.GET.next }}">Sign Up here</a><br>
-      <a href="{% url 'password_reset' %}?next={{ request.GET.next }}">Forgotten your password?</a>
+      Don't have an account?&middot;&middot;&middot;&marker;<a href="{% url 'core:signupuser' %}?next={{ request.GET.next }}">Sign Up here</a><br>
+      <a href="{% url 'core:reset_password' %}">Forget password?</a>
     </div>
   </div>
 </div>

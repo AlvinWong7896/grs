@@ -24,8 +24,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("core.urls", namespace="core")),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path("password_reset/", include("django.contrib.auth.urls")),
     path("inbox/", include("conversation.urls", namespace="conversations")),
     path("dashboard/", include("dashboard.urls")),
     path("items/", include("item.urls", namespace="items")),
