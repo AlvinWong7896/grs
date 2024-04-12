@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from PIL import Image
 import locale
 
 
@@ -18,7 +19,7 @@ class Item(models.Model):
     category = models.ForeignKey(
         Category, related_name="items", on_delete=models.CASCADE, default="Bike"
     )
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="item_images", blank=True, null=True)
@@ -68,6 +69,7 @@ class Item(models.Model):
             ("24in", "24in"),
             ("26in", "26in"),
             ("27.5in", "27.5in"),
+            ("29in", "29in"),
         ],
         blank=True,
         null=True,
@@ -88,6 +90,14 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        if img.height > 500 or img.width > 500:
+            output_size = (500, 500)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     def formatted_price(self):
         """
