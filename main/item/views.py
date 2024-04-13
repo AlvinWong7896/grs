@@ -72,11 +72,8 @@ def new(request):
             item = form.save(commit=False)
             item.created_by = request.user
             item.save()
-            # time.sleep(5)        # To debug why image unable to load
 
-            return redirect(
-                "item:detail", pk=item.id
-            )  # pk=item.id, unable to load image
+            return redirect("item:detail", pk=item.id)
     else:
         form = NewItemForm()
 
