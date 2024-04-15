@@ -11,7 +11,7 @@ from .forms import SignupForm
 
 
 def home(request):
-    items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
+    items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
 
     return render(
         request,

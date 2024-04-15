@@ -17,7 +17,7 @@
         <h2 class="sub-title">Latest Pre-owned</h2>
         <div class="preowned">
             
-            {% for item in items %}
+            {% for item in latest_items %}
                 <div class="latest">
                     <a href="{% url 'core:home' %}"><img src="{{ item.image.url}}" alt="latest Image">
                         <p>{{ item.formatted_price }}</p>

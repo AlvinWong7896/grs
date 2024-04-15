@@ -9,13 +9,15 @@ from .models import Category, Item
 
 def marketplace(request):
     if request.user.is_authenticated:
+        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
         items = (
             Item.objects.filter(is_sold=False)
             .exclude(created_by=request.user)
             .order_by("-created_on")
-        )  # [0:6]
+        )
     else:
-        items = Item.objects.filter(is_sold=False).order_by("-created_on")  # [0:6]
+        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+        items = Item.objects.filter(is_sold=False).order_by("-created_on")
     categories = Category.objects.all()
 
     return render(
@@ -23,6 +25,7 @@ def marketplace(request):
         "item/marketplace.html",
         {
             "categories": categories,
+            "latest_items": latest_items,
             "items": items,
         },
     )
