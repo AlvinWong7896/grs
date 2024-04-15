@@ -1,23 +1,24 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
 from geopy.distance import geodesic
 from geopy.geocoders import Nominatim
 from .models import RepairShop
-import csv
-import os
+from item.models import Item
 
 
 def index(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     shops = list(RepairShop.objects.values("latitude", "longitude"))
     # print(shops[:2])
-    return render(request, "location/index.html", {"shops": shops})
+    return render(
+        request, "location/index.html", {"shops": shops, "latest_items": latest_items}
+    )
 
 
 def nearest_shops(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     address = request.GET.get("address")
     geolocator = Nominatim(user_agent="main")
-    location = geolocator.geocode(address)
+    location = geolocator.geocode(address + ", Singapore")
     print(location)
     if location:
         user_location = location.latitude, location.longitude
@@ -31,7 +32,7 @@ def nearest_shops(request):
             shop_distances[shop] = distance
 
         sorted_shops = sorted(shop_distances.items(), key=lambda x: x[1])
-        for shop, distance in sorted_shops[:5]:
+        for shop, distance in sorted_shops[:10]:
             nearest_shops.append({"shop": shop, "distance": round(distance, 2)})
 
         return render(
@@ -40,34 +41,11 @@ def nearest_shops(request):
             {
                 "location": location,
                 "nearest_shops": nearest_shops,
+                "latest_items": latest_items,
             },
         )
     else:
         return render(request, "location/index.html", {"error": "Location not found"})
-
-
-def download_csv(modeladmin, request, queryset):
-    if not request.user.is_staff:
-        raise PermissionDenied
-    opts = queryset.model._meta
-    relative_path = "data"
-    base_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    file_path = os.path.join(base_directory, relative_path, "Repair_Shops.csv")
-    with open(file_path, "w", newline="") as csv_file:
-        writer = csv.writer(csv_file)
-        field_names = [field.name for field in opts.fields]
-        writer.writerow(field_names)
-        for obj in queryset:
-            writer.writerow([getattr(obj, field) for field in field_names])
-    # Optionally return a response
-    return render(
-        request,
-        "location/index.html",
-        {"message": "CSV file has been saved to your project's data directory."},
-    )
-
-
-download_csv.short_description = "Download selected as csv"
 
 
 def my_view(request):

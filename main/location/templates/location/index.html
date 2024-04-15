@@ -18,7 +18,7 @@
     <h2 class="sub-title">Latest Pre-owned</h2>
     <div class="preowned">
             
-      {% for item in items %}
+      {% for item in latest_items %}
           <div class="latest">
               <a href="{% url 'core:home' %}"><img src="{{ item.image.url}}" alt="latest Image">
                   <p>{{ item.formatted_price }}</p>
@@ -63,15 +63,7 @@
         </tr>
         {% endfor %}
       </tbody>
-    </table>
-
-    <h3>Download RepairShop Data</h3>
-    <p><a href="{% url 'location:download_csv' %}">Download CSV</a></p>
-    
-    {% if message %}
-      <div class="message">{{ message }}</div>
-    {% endif %}
-      
+    </table>  
   </div>
 </div>
 
