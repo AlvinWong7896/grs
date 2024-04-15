@@ -17,6 +17,7 @@ def index(request):
 def nearest_shops(request):
     address = request.GET.get("address")
     geolocator = Nominatim(user_agent="main")
+    address += ", Singapore"
     location = geolocator.geocode(address)
     print(location)
     if location:
@@ -31,7 +32,7 @@ def nearest_shops(request):
             shop_distances[shop] = distance
 
         sorted_shops = sorted(shop_distances.items(), key=lambda x: x[1])
-        for shop, distance in sorted_shops[:5]:
+        for shop, distance in sorted_shops[:10]:
             nearest_shops.append({"shop": shop, "distance": round(distance, 2)})
 
         return render(
@@ -44,30 +45,6 @@ def nearest_shops(request):
         )
     else:
         return render(request, "location/index.html", {"error": "Location not found"})
-
-
-def download_csv(modeladmin, request, queryset):
-    if not request.user.is_staff:
-        raise PermissionDenied
-    opts = queryset.model._meta
-    relative_path = "data"
-    base_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    file_path = os.path.join(base_directory, relative_path, "Repair_Shops.csv")
-    with open(file_path, "w", newline="") as csv_file:
-        writer = csv.writer(csv_file)
-        field_names = [field.name for field in opts.fields]
-        writer.writerow(field_names)
-        for obj in queryset:
-            writer.writerow([getattr(obj, field) for field in field_names])
-    # Optionally return a response
-    return render(
-        request,
-        "location/index.html",
-        {"message": "CSV file has been saved to your project's data directory."},
-    )
-
-
-download_csv.short_description = "Download selected as csv"
 
 
 def my_view(request):
