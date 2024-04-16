@@ -11,13 +11,13 @@ from .forms import SignupForm
 
 
 def home(request):
-    items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
 
     return render(
         request,
         "core/index.html",
         {
-            "items": items,
+            "latest_items": latest_items,
         },
     )
 
@@ -27,6 +27,7 @@ def contact(request):
 
 
 def signupuser(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     next_url = None
     if request.method == "POST":
         form = SignupForm(request.POST)
@@ -48,10 +49,15 @@ def signupuser(request):
         # Retrieve the 'next' parameter from the query string for GET requests
         next_url = request.GET.get("next")
         form = SignupForm()
-    return render(request, "core/signupuser.html", {"form": form, "next": next_url})
+    return render(
+        request,
+        "core/signupuser.html",
+        {"form": form, "next": next_url, "latest_items": latest_items},
+    )
 
 
 def loginuser(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     if request.method == "GET":
         # Retrieve the 'next' parameter from the query string
         next_url = request.GET.get("next", "")
@@ -59,7 +65,11 @@ def loginuser(request):
         return render(
             request,
             "core/loginuser.html",
-            {"form": AuthenticationForm(), "next": next_url},
+            {
+                "form": AuthenticationForm(),
+                "next": next_url,
+                "latest_items": latest_items,
+            },
         )
     elif request.method == "POST":
         # Ensure CSRF token is correct

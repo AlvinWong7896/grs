@@ -56,18 +56,22 @@ def items(request):
 
 
 def detail(request, pk):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(
         pk=pk
     )[0:6]
 
     return render(
-        request, "item/detail.html", {"item": item, "related_items": related_items}
+        request,
+        "item/detail.html",
+        {"item": item, "related_items": related_items, "latest_items": latest_items},
     )
 
 
 @login_required
 def new(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     if request.method == "POST":
         form = NewItemForm(request.POST, request.FILES)
 
@@ -87,6 +91,7 @@ def new(request):
         {
             "form": form,
             "title": "New item",
+            "latest_items": latest_items,
         },
     )
 

@@ -17,7 +17,7 @@
             
             {% for item in items %}
                 <div class="latest">
-                    <a href="{% url 'core:home' %}"><img src="{{ item.image.url}}" alt="latest Image">
+                    <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
                         <p>{{ item.formatted_price }}</p>
                     </a>
                 </div> 
