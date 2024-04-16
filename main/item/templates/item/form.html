@@ -53,6 +53,10 @@
                 {{ form.price }}
                 <br><label for="image" class="form-label">Upload Photo</label>
                 {{ form.image }}
+                {% if form.image.errors %}
+                    <div class="error">{{ form.image.errors }}</div>
+                {% endif %}
+                    
                 <br><label for="image" class="form-label">Upload Photo</label>
                 {{ form.image_2 }}
                 <br><label for="image" class="form-label">Upload Photo</label>

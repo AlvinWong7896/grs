@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.core.exceptions import ValidationError
 from PIL import Image
 import locale
 
@@ -93,6 +94,16 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        super().clean()
+        if (
+            not self.image
+            and not self.image_2
+            and not self.image_3
+            and not self.image_4
+        ):
+            raise ValidationError("At least one image is required.")
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

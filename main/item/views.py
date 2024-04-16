@@ -78,8 +78,9 @@ def new(request):
 
             return redirect("item:detail", pk=item.id)
     else:
-        form = NewItemForm()
-
+        form = NewItemForm(request.POST or None, request.FILES or None)
+        form.full_clean()
+    print(form.errors)
     return render(
         request,
         "item/form.html",

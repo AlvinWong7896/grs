@@ -892,7 +892,7 @@ form{
 
 .add_item .form-container .left-column input[type='text']{
     font-size: 18px;
-    width: 70%;
+    width: 100%;
     padding: 2%;
     margin: 20px 4px;
     border: 1px solid#ccc;
@@ -964,10 +964,12 @@ select {
     background-color: #07284b;
 }
 
-.add_item .error-message {
-    color: #f7dcde;
+.add_item .error {
+    color: #f3bcc4;
+    font-size: 26px;
+    font-weight: 600;
     padding: 10px;
-    margin-left: 25%;
+    margin-left: 10%;
     margin-top: -30px;
     margin-bottom: 10px;
 }
