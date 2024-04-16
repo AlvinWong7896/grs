@@ -18,7 +18,7 @@ class Category(models.Model):
 
 class Item(models.Model):
     category = models.ForeignKey(
-        Category, related_name="items", on_delete=models.CASCADE, default="Bike"
+        Category, related_name="items", on_delete=models.CASCADE
     )
     name = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
@@ -30,12 +30,6 @@ class Item(models.Model):
     is_sold = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name="items", on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now=True)
-
-    # New fields added
-    category = models.ForeignKey(
-        Category, related_name="items", on_delete=models.CASCADE
-    )
-
     material = models.CharField(
         max_length=22,
         choices=[
@@ -68,6 +62,7 @@ class Item(models.Model):
             ("12in", "12in"),
             ("14in", "14in"),
             ("16in", "16in"),
+            ("18in", "18in"),
             ("20in", "20in"),
             ("22in", "22in"),
             ("24in", "24in"),

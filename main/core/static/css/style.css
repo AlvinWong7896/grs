@@ -661,7 +661,6 @@ form{
 .details-container {
     flex-basis: 80%;
     min-height: 100vh;
-    /* padding-left: 17%; */
     padding: 2%;
     background: linear-gradient(to right, black,rgb(34, 34, 110));
     background-size: cover;
@@ -679,47 +678,34 @@ form{
     flex-basis: 50%;
 }
 
-.grid-container .left-col .carousel-inner .first_photo{
-    display: block;
+.grid-container .left-col .item-image #featured{
     width: 100%;
+    height: auto;
+    border-radius: 2%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid black;
 }
 
-.carousel{
-    position: relative;
+.grid-container .left-col .item-image .photo_thumbnail{
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 5%;
+    opacity: 0.5;
+    cursor: pointer;
+    margin: 5px;
+    border: 2px solid black;
 }
 
-.carousel-inner{
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+.grid-container .left-col .item-image .active{
+    opacity: 1;
 }
 
-.carousel-item{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
+.grid-container .left-col .item-image .photo_thumbnail:hover{
+    opacity: 1;
 }
 
-.carousel-item.active{
-    display: block;
-}
-
-.carousel-control-prev,
-.carousel-control-next{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.carousel-control-prev{
-    left: 0;
-}
-
-.carousel-control-next{
-    right: 0;
-}
 
 .grid-container .right-col{
     flex-basis: 50%;

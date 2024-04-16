@@ -62,10 +62,23 @@ def detail(request, pk):
         pk=pk
     )[0:6]
 
+    total_images = 1
+    if item.image_2:
+        total_images += 1
+    if item.image_3:
+        total_images += 1
+    if item.image_4:
+        total_images += 1
+    print("from view", total_images)
     return render(
         request,
         "item/detail.html",
-        {"item": item, "related_items": related_items, "latest_items": latest_items},
+        {
+            "item": item,
+            "related_items": related_items,
+            "total_images": total_images,
+            "latest_items": latest_items,
+        },
     )
 
 
