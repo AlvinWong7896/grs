@@ -8,6 +8,7 @@ from .models import Conversation
 
 @login_required
 def new_conversation(request, item_pk):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     item = get_object_or_404(Item, pk=item_pk)
 
     if item.created_by == request.user:
@@ -38,21 +39,31 @@ def new_conversation(request, item_pk):
     else:
         form = ConversationMessageForm()
 
-    return render(request, "conversation/new.html", {"form": form, "item": item})
+    return render(
+        request,
+        "conversation/new.html",
+        {"form": form, "item": item, "latest_items": latest_items},
+    )
 
 
 @login_required
 def inbox(request):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     conversations = Conversation.objects.filter(members__in=[request.user.id])
     for conversation in conversations:
         conversation.item_name = conversation.item.name
         member_names = [member.username for member in conversation.members.all()]
         conversation.member_names = ", ".join(member_names)
-    return render(request, "conversation/inbox.html", {"conversations": conversations})
+    return render(
+        request,
+        "conversation/inbox.html",
+        {"conversations": conversations, "latest_items": latest_items},
+    )
 
 
 @login_required
 def detail(request, pk):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
     conversation.item_name = conversation.item.name
     member_names = [member.username for member in conversation.members.all()]
@@ -79,5 +90,6 @@ def detail(request, pk):
             "conversation": conversation,
             "form": form,
             "conversation.item_name": conversation.item_name,
+            "latest_items": latest_items,
         },
     )

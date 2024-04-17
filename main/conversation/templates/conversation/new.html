@@ -19,7 +19,7 @@
       <h2 class="sub-title">Latest Pre-owned</h2>
       <div class="preowned">
             
-        {% for item in items %}
+        {% for item in latest_items %}
             <div class="latest">
                 <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
                     <p>{{ item.formatted_price }}</p>
@@ -31,11 +31,23 @@
 
     <div class="new-conversation">
         <div class="img-box">
-            <img src="{{ item.image.url }}" alt="">
+            {% if item.image and item.image.url %}
+            <img src="{{item.image.url}}" class="photo_thumbnail active" alt="latest Image">
+            {% endif %}
+            {% if item.image_2 and item.image_2.url %}
+            <img src="{{item.image_2.url}}" class="photo_thumbnail" alt="latest Image">
+            {% endif %}
+            {% if item.image_3 and item.image_3.url %}
+            <img src="{{item.image_3.url}}" class="photo_thumbnail" alt="latest Image">
+            {% endif %}
+            {% if item.image_4 and item.image_4.url %}
+            <img src="{{item.image_4.url}}" class="photo_thumbnail" alt="latest Image">
+            {% endif %}
+            <img src="{{ item.image.url }}" id=featured alt="latest Image">
         </div>
         <div class="message-box">
             <h1>New Conversation</h1>
-            <p>You are starting a conversation about {{ item.name }} with {{ item.created_by.username }}.</p>
+            <p>You are starting a conversation about {{ item.name }} with {{ item.created_by.username|capfirst }}.</p>
             
             {% if form.errors or form.non_field_errors %}
             <div class="entry-errors">
@@ -48,13 +60,27 @@
 
         <form method="post" action=".">
             {% csrf_token %}
-            
-            <div class="open-message">
-                {{ form.as_p}}
+
+            <div class="msg-container">
+                <label for="content" class="form-label">Conversation</label><br>
+                <textarea name="content" class="form-textarea"></textarea> 
             </div>
             <button type="submit">Send</button>
         </form>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    let thumbnails = document.getElementsByClassName('photo_thumbnail')
+    let activeImages = document.getElementsByClassName('active')
+    for (var i = 0; i < thumbnails.length; i++) {
+      thumbnails[i].addEventListener('mouseover', function(){
+        if (activeImages.length > 0){
+          activeImages[0].classList.remove('active')
+        }
+        this.classList.add('active')
+        document.getElementById('featured').src = this.src
+      });
+    }
+  </script>
 {% endblock  %}

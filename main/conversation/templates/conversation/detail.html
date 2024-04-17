@@ -19,7 +19,7 @@
       <h2 class="sub-title">Latest Pre-owned</h2>
       <div class="preowned">
             
-        {% for item in items %}
+        {% for item in latest_items %}
             <div class="latest">
                 <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
                     <p>{{ item.formatted_price }}</p>
@@ -30,40 +30,51 @@
     </div>
     <div class="conversation-detail">
         <div class="pre-msg">
-            <h1>Past communication regarding {{ conversation.item_name }}.</h1>
-                <!-- {% for message in conversation.messages.all %}
-                    <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100{% else %}bg-gray-100 {% endif %} rounded-xl">
-                        <div>
-                            <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
-                            <p>{{ message.content }}</p>
-                        </div>
-                    </div>
-                {% endfor %} -->
+        <table class="past-conv">
+            <h1>Past communication regarding {{ conversation.item_name }}</h1>
+            <thead>
+                <th style="'width: auto;">Image</th>
+                <th>Initiator</th>
+                <th>Content</th>
+            </thead>
+            <tbody>
                 {% for message in conversation.messages.all %}
-                    {% if message.created_by == request.user %}
-                    <p class="blue-text"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
-                    <p class="blue-text">{{ message.content }}</p>
-                    <br>
-
-                {% else %} 
-                    
-                    <p class="gray-text"><strong>{{ message.created_by.username }}</strong> @ {{message.created_at }}</p>
-                    <p class="gray-text">{{ message.content }}</p>
-                    <br>
-
-                    {% endif %}
-
+                    <tr>
+                        <td>
+                            <a href="{% url 'item:detail' conversation.item.id %}"><img src="{{ conversation.item.image.url }}" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            {% if message.created_by == request.user %}
+                                <a href="{% url 'item:detail' conversation.item.id %}"><p class="blue-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at }}</p></a>
+                            {% else %} 
+                                <a href="{% url 'item:detail'   conversation.item.id %}"></a><p class="gray-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at }}</p></a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if message.created_by == request.user %}
+                                <a href="{% url 'item:detail' conversation.item.id %}"></a><p class="blue-text">{{ message.content }}</p></a>
+                            {% else %} 
+                                <a href="{% url 'item:detail' conversation.item.id %}"><p class="gray-text">{{ message.content }}</p></a>
+                            {% endif %}
+                        </td>
+                    </tr>
                 {% endfor %}
-
+            </tbody>
+        </table>
         </div>
-        <div class="message-box">
-            <p><strong>Enter your message below:</strong></p>
-            {{ message.created_by.username }}
-            <form method="post" action="." class="mt-6">
-                {% csrf_token %}
-                {{ form.as_p }}
 
-                <button>Send</button>
+        <div class="message-box">
+            <p><strong>Enter new message below:</strong></p>
+            <!-- {{ message.created_by.username|capfirst }} -->
+            <form method="post" action=".">
+                {% csrf_token %}
+    
+                <div class="msg-container">
+                    <label for="content" class="form-label"></label><br>
+                    <textarea name="content" class="form-textarea"></textarea> 
+                </div>
+                <button type="submit">Send</button>
             </form>
         </div>
     </div>

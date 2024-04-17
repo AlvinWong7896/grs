@@ -18,7 +18,7 @@
         <h2 class="sub-title">Latest Pre-owned</h2>
         <div class="preowned">
             
-            {% for item in items %}
+            {% for item in latest_items %}
                 <div class="latest">
                     <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
                         <p>{{ item.formatted_price }}</p>
@@ -43,7 +43,7 @@
                     <td><a href="{% url 'conversation:detail' conversation.id %}"><img src="{{ conversation.item.image.url }}" alt=""></a></td>
                             {% for member in conversation.members.all %}
                                 {% if member != request.user %}
-                                    <td><a href="{% url 'conversation:detail' conversation.id %}">{{ member.username }}</a></td>
+                                    <td><a href="{% url 'conversation:detail' conversation.id %}">{{ member.username|capfirst }}</a></td>
                                     <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.item.name }}</a></td>
                                     <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.modified_at }}</a></td>
                                 {% endif %}

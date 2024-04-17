@@ -199,7 +199,7 @@ font-size: 30px;
 
 .sidebar .preowned img{
     width: 100px;
-    height: auto;
+    height: 80px;
     border-radius: 8%;
     text-decoration: none;
     margin-left: 20px;
@@ -313,13 +313,14 @@ input[type='radio']{
     flex-basis: 80%;
     min-height: 100vh;
     padding: 2%;
-    background: linear-gradient(to right, black,rgb(34, 34, 110));
-    background-size: cover;
+    background: #172d13;
+    /* background: linear-gradient(to right, black,rgb(34, 34, 110)); */
+    /* background-size: cover; */
 }
 
 .main-container .section-title {
     font-size: 24px;
-    color:  #ddd;
+    color:  #d76f30;
     margin-top: 5%;
     margin-bottom: 3%;
     text-align: center;
@@ -347,7 +348,7 @@ input[type='radio']{
 }
 
 .main-container .item-container .item span{
-    color: #dddd;
+    color: #eeee;
     font-size: 13px;
 }
 
@@ -357,7 +358,7 @@ input[type='radio']{
     margin-top: 25px;
     margin-bottom: -5px;
     margin-left: 5%;
-    background: #ccc;
+    background: #ddd;
     width: 88%;
 }
 
@@ -370,11 +371,11 @@ input[type='radio']{
 
 .main-container .category-container .category{
     position: relative;
-    background-color:#fbe2c7;
+    background-color:#6bb77b;
     width: 180px;
     margin: 5px;
     text-align: center;
-    border: 2px solid #ccc;
+    border: 2px solid #2cccc3;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -384,7 +385,7 @@ input[type='radio']{
 }
 
 .main-container .category-container .category-details span{
-    color: #063b75;
+    color: #fff;
     font-size: 13px;
 }
 
@@ -397,12 +398,13 @@ input[type='radio']{
     flex-basis: 80%;
     min-height: 100vh;
     padding: 2%;
-    background: linear-gradient(to right, black,rgb(34, 34, 110));
-    background-size: cover;
+    background: #172d13;
+    /* background: linear-gradient(to right, black,rgb(34, 34, 110));
+    background-size: cover; */
 }
 
 .dash-container h2{
-    color: #ddd;
+    color: #d76f30;
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -430,13 +432,13 @@ input[type='radio']{
 .dash-container .items-grid .item-details h3{
     font-size: 14px;
     color: #ddd;
-    margin-left: 5%;
+    margin-left: 0%;
 }
 
 .dash-container .items-grid .item-details p{
     font-size: 12px;
-    color: #ddd;
-    margin-left: 5%;
+    color: #eee;
+    margin-left: 0%;
     margin-bottom: 5%;
 }
 
@@ -450,16 +452,17 @@ input[type='radio']{
     min-height: 100vh;
     padding-right: 2%;
     padding-bottom: 0px;
-    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+    background: #172d13;
+    /* background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
     background-size: 120% 120%;
     background-repeat: no repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .login-container h1{
     font-size: 48px;
     font-weight: 500;
-    color: #fff;
+    color: #d76f30;
     margin-left: 20%;
     padding-top:20%;
     margin-bottom: 50px;
@@ -482,7 +485,7 @@ form{
     display: inline-block;
     font-size: 23px;
     font-weight: 500;
-    color: rgb(234, 234, 154);
+    color: #ddd;
     margin-right: 90px;
     margin-bottom: 5px;
 }
@@ -502,7 +505,7 @@ form{
 }
 
 .login-container .btn-primary {
-    background-color: #007bff;
+    background-color: #6bb77b;
     color: #fff;
     border: none;
     width: 10%;
@@ -516,7 +519,7 @@ form{
 }
 
 .login-container .btn-primary:hover {
-    background-color: #07284b;
+    background-color: #2cccc3;
 }
 
 .login-container .error-message {
@@ -536,8 +539,9 @@ form{
 }
 
 .login-container .text-center{
-    color: rgb(234, 234, 154);
-    text-align: center;
+    color: #1ba098;
+    text-align: left;
+    margin-left: 30%;
     margin-top: 20px;
 }
 
@@ -556,16 +560,17 @@ form{
     min-height: 100vh;
     padding-right: 2%;
     padding-bottom: 0px;
-    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
+    background: #172d13;
+    /* background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
     background-size: 120% 120%;
     background-repeat: no repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .signup-container h1{
     font-size: 48px;
     font-weight: 500;
-    color: #fff;
+    color: #d76f30;
     margin-left: 20%;
     padding-top:20%;
     margin-bottom: 50px;
@@ -588,7 +593,7 @@ form{
     display: inline-block;
     font-size: 23px;
     font-weight: 500;
-    color: rgb(234, 234, 154);
+    color: #fff;
     margin-right: 90px;
     margin-bottom: 5px;
 }
@@ -601,7 +606,7 @@ form{
 .signup-container .form-group input[type='email'],
 .signup-container .form-group input[type='password']{
     font-size: 18px;
-    width: 30%;
+    width: 25%;
     padding: 10px;
     border: 1px solid#ccc;
     border-radius: 4px;
@@ -609,7 +614,7 @@ form{
 }
 
 .signup-container .submit-button {
-    background-color: #007bff;
+    background-color: #6bb77b;
     color: #fff;
     border: none;
     width: 10%;
@@ -623,11 +628,11 @@ form{
 }
 
 .signup-container .submit-button:hover {
-    background-color: #07284b;
+    background-color: #2cccc3;
 }
 
 .signup-container .error-message {
-    color: #f7dcde;
+    color: #facd3d;
     padding: 10px;
     margin-left: 25%;
     margin-top: -30px;
@@ -637,14 +642,15 @@ form{
 .signup-container hr{
     border: 0;
     height: 1px;
-    background: #ccc;
+    background: #fff;
     margin-left: 20%;
     width: 50%;
 }
 
 .signup-container .text-center{
-    color: rgb(234, 234, 154);
-    text-align: center;
+    color: #1ba098;
+    text-align: left;
+    margin-left: 30%;
     margin-top: 20px;
 }
 
@@ -662,8 +668,9 @@ form{
     flex-basis: 80%;
     min-height: 100vh;
     padding: 2%;
-    background: linear-gradient(to right, black,rgb(34, 34, 110));
-    background-size: cover;
+    background: #172d13;
+    /* background: linear-gradient(to right, black,rgb(34, 34, 110));
+    background-size: cover; */
 }
 
 .details-container .grid-container{
@@ -713,7 +720,7 @@ form{
 }
 
 .grid-container .right-col .item-name{
-    color: #ddd;
+    color: #d76f30;
     font-size: 28px;
     font-weight: 500;
     margin-top: 2%;
@@ -721,14 +728,14 @@ form{
 }
 
 .grid-container .right-col .item-details{
-    color: #ddd;
+    color: #eee;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 2%;
 }
 
 .grid-container .right-col .item-description{
-    color: #ddd;
+    color: #eee;
     font-size: 20px;
     font-weight: 500;
     margin-top: 5%;
@@ -736,43 +743,71 @@ form{
 }
 
 .grid-container .right-col .owner-info p{
-    color: lightsalmon;
+    color: #ddd;
     font-size: 22px;
     font-weight: 500;
     margin-bottom:5%;
 }
 
 .grid-container .owner-info .edit-btn{
-    background: rgb(255, 125, 0);
     font-size: 20px;
+    background-color: #6bb77b;
     color: #fff;
-    margin-right: 5%;
-    margin-top: 20%;
-    padding: 5px 32px;
-    border-radius: 20%;
+    border: none;
+    width: 10%;
+    margin-left: 10%;
+    padding: 10px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
     text-decoration: none;
+}
+
+.grid-container .owner-info .edit-btn:hover{
+    background-color: #2cccc3;
 }
 
 .grid-container .owner-info .delete-btn{
-    background: rgb(255, 125, 0);
     font-size: 20px;
+    background-color: #6bb77b;
     color: #fff;
-    padding: 5px 20px;
-    border-radius: 20%;
+    border: none;
+    width: 10%;
+    margin-left: 10%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
     text-decoration: none;
+}
+
+.grid-container .owner-info .delete-btn:hover{
+    background-color: #2cccc3;
 }
 
 .grid-container .contact-btn{
-    background: rgb(255, 125, 0);
     font-size: 20px;
+    background-color: #6bb77b;
     color: #fff;
-    padding: 5px 20px;
-    border-radius: 20%;
+    border: none;
+    width: 10%;
+    margin-left: 10%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
     text-decoration: none;
 }
 
+.grid-container .contact-btn:hover{
+    background-color: #2cccc3;
+}
+
 .related-items h2{
-    color: #fff;
+    color: #d76f30;
     font-size: 25px;
     font-weight: 500;
     margin-top: 5%;
@@ -804,7 +839,7 @@ form{
 .related-items .items-grid .related-item h3,
 .related-items .items-grid .related-item p{
     font-size: 12px;
-    color: #ddd;
+    color: #fff;
     margin-left: 5%;
 }
 
@@ -818,16 +853,17 @@ form{
     min-height: 100vh;
     padding-right: 2%;
     padding-bottom: 0px;
-    background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/background4.jpg);
+    background: #172d13;
+    /* background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/background4.jpg);
     background-size: cover;
     background-repeat: no repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .add_item h1{
     font-size: 48px;
     font-weight: 500;
-    color: #fff;
+    color: #d76f30;
     margin-left: 10%;
     padding-top:10%;
     margin-bottom: 50px;
@@ -843,7 +879,7 @@ form{
     display: inline-block;
     font-size: 23px;
     font-weight: 500;
-    color: rgb(234, 234, 154);
+    color: #ddd;
     margin-left: 5px;
     margin-bottom: 10px;
 }
@@ -934,7 +970,7 @@ select {
 
 .add_item .submit-button {
     font-size: 20px;
-    background-color: #007bff;
+    background-color: #6bb77b;
     color: #fff;
     border: none;
     width: 10%;
@@ -947,11 +983,11 @@ select {
 }
 
 .add_item .submit-button:hover {
-    background-color: #07284b;
+    background-color: #2cccc3;
 }
 
 .add_item .error {
-    color: #f3bcc4;
+    color: #facd3d;
     font-size: 26px;
     font-weight: 600;
     padding: 10px;
@@ -1083,20 +1119,51 @@ background-color: #f2f2f2;
 
 .new-conversation {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 12px;
+    margin: 0 0%;
+    background: #172d13;
 }
 
 .new-conversation .img-box,
 .new-conversation .message-box{
-    flex: 0 0 auto;
-    width: 45%;
-    margin: 0 2.5%;
+    flex-basis: 50%;
+    /* width: 45%;
+    margin: 0 2.5%; */
 }
 
-.new-conversation .img-box img {
+/* .new-conversation .img-box img {
     max-width: 100%;
     padding: 2%;
+} */
+
+.new-conversation .img-box #featured{
+    width: 100%;
+    height: auto;
+    border-radius: 2%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.new-conversation .img-box .photo_thumbnail{
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 5%;
+    opacity: 0.5;
+    cursor: pointer;
+    margin: 5px;
+    border: 2px solid black;
+}
+
+.new-conversation .img-box .active{
+    opacity: 1;
+}
+
+.new-conversation .img-box .photo_thumbnail:hover{
+    opacity: 1;
 }
 
 .new-conversation .message-box {
@@ -1106,35 +1173,66 @@ background-color: #f2f2f2;
 }
 
 .new-conversation .message-box .entry-errors {
-    color: red;
+    color: #facd3d;
+    margin-left: 20px;
     margin-bottom: 20px;
 }
 
 .new-conversation .message-box h1 {
-font-size: 24px;
-margin-bottom: 20px;
+    color: #d76f30;
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-top: 2%;
+    margin-bottom: 5%;
 }
 
 .new-conversation .message-box p {
-font-size: 16px;
-margin-bottom: 20px;
+    font-size: 18px;
+    width: 100%;
+    padding: 2%;
+    margin: 20px 4px;
+    color: #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* .new-conversation .message-box input[type='text']{
+    width: 500px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 20px;
+} */
+
+.new-conversation .message-box .form-textarea{
+    width: 500px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 20px;
 }
 
 .new-conversation .message-box button {
-background-color: #4CAF50;
-color: white;
-width: 100%;
-margin: 0 auto;
-display: block;
-padding: 10px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-font-size: 16px;
+    font-size: 14px;
+    background-color: #6bb77b;
+    color: #fff;
+    border: none;
+    width: 15%;
+    margin-left: 5%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .new-conversation .message-box button:hover {
-background-color: #128618;
+background-color: #2cccc3;
 }
 
 
@@ -1144,20 +1242,82 @@ background-color: #128618;
 
 .conversation-detail {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-basis: 80%;
+    min-height: 100vh;
+    margin-left: 0%;
+    background: #172d13;
 }
 
-.conversation-detail .pre-msg,
+.conversation-detail .pre-msg{
+    flex: 0 0 auto;
+    width: 45%;
+    margin: 2%;
+}
+
 .conversation-detail .message-box{
     flex: 0 0 auto;
     width: 40%;
-    margin: 5%;
+    margin: 2%;
 }
 
 .conversation-detail .pre-msg h1 {
-    font-size: 24px;
+    color: #d76f30;
+    font-size: 28px;
+    margin-left: 5%;
+    margin-top: 45px;
     margin-bottom: 20px;
+}
+
+/* CSS for the table */
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.past-conv {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0%;
+}
+
+.past-conv th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.past-conv td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.past-conv th, .past-conv td a{
+    text-decoration: none;
+}
+
+.past-conv th, .past-conv td p{
+    width: fit-content;
+}
+
+.past-conv img{
+    width: 100px;
+    height: auto;
+}
+
+.past-conv th{
+    background-color: #1ba098;
+    color: #fff;
+    padding: 20px;
+}
+
+.past-conv tr{
+    background-color: #3fd2c7;
+    width: 40%;
+}
+
+.past-conv tr:hover {
+    background-color: #f2f2f2;
 }
 
 .conversation-detail .pre-msg .blue-text {
@@ -1171,37 +1331,50 @@ background-color: #128618;
 }
 
 .conversation-detail .message-box {
+    color: #fff;
     font-size: 16px;
     padding: 2%;
     margin-bottom: 20px;
 }
 
 .conversation-detail .message-box p {
+    color: #d76f30;
     font-size: 16px;
     padding: 2%;
-    margin-bottom: 10px;
+    margin-top: 100px;
+    margin-bottom: -10px;
 }
 
+.conversation-detail .message-box .form-textarea{
+    width: 500px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 20px;
+}
 .conversation-detail .message-box .entry-errors {
-    color: red;
+    color: #facd3d;
     margin-bottom: 20px;
 }
 
 .conversation-detail .message-box button {
-    background-color: #4CAF50;
-    color: white;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #6bb77b;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    width: 15%;
+    margin-left: 5%;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .conversation-detail .message-box button:hover {
-    background-color: #128618;
+    background-color: #2cccc3;
 }
 
 
@@ -1212,11 +1385,13 @@ background-color: #128618;
 .streams {
     flex-basis: 80%;
     min-height: 100vh;
-    margin-left: 3%;
+    margin-left: 0%;
+    background: #172d13;
 }
 
 .streams h1{
-    font-size: 36px;
+    color: #d76f30;
+    font-size: 28px;
     margin-top: 45px;
     margin-bottom: 10px;
     margin-left: 5%;
@@ -1245,8 +1420,15 @@ background-color: #128618;
     height: auto;
 }
 
-.inbox th {
-    background-color: #f2f2f2;
+.inbox th{
+    background-color: #1ba098;
+    color: #fff;
+    padding: 20px;
+}
+
+.inbox tr{
+    background-color: #3fd2c7;
+    color: #007bff;
 }
 
 .inbox tr:hover {
