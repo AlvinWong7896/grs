@@ -308,6 +308,76 @@ input[type='radio']{
 ***** css for marketplace.html *****
 ************************************/
 
+/* marketplace/search */
+.container .sidebar .search-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container .sidebar .search-container label{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #063b75;
+    margin-left: 25%;
+    margin-bottom: -12px;
+}
+
+.container .sidebar .search-container input[type='text']{
+    font-size: 16px;
+    width: 100%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-top: 0px;
+    border: 1px solid#ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+} 
+
+.container .sidebar .search-container input[type='number']{
+    font-size: 16px;
+    width: 100%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-top: 0px;
+    border: 1px solid#ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+} 
+
+.container .sidebar .search-container select{
+    font-size: 16px;
+    color: #063b75;
+    text-align: center;
+    width: 100%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-top: 0px;
+    border: 1px solid#ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+} 
+
+.container .sidebar .search-container select option{
+    font-size: 16px;
+} 
+
+.container .sidebar .search-container form button{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #6bb77b;
+    color: #fff;
+    border: none;
+    width: 60%;
+    margin-left: 25%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+} 
+
 /* marketplace/main-container */
 .main-container {
     flex-basis: 80%;

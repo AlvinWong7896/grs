@@ -34,8 +34,8 @@ class Item(models.Model):
         max_length=22,
         choices=[
             ("Steel", "Steel"),
-            ("Aluminum/Foldable Bike", "Aluminum/Alloy"),
-            ("Carbon City Bike", "Carbon Fiber"),
+            ("Aluminum/Alloy", "Aluminum/Alloy"),
+            ("Carbon Fiber", "Carbon Fiber"),
             ("Titanium", "Titanium"),
         ],
         blank=True,
@@ -47,7 +47,7 @@ class Item(models.Model):
         choices=[
             ("XS", "17in"),
             ("S", "17-19in"),
-            ("M", "19-22in"),
+            ("M", "19-21in"),
             ("L", "21-23in"),
             ("XL", ">23in"),
         ],

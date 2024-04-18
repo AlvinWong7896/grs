@@ -14,31 +14,81 @@
             <a href="#">Green advices</a>
         </div>
         <hr>
-        <h2 class="sub-title">Latest Pre-owned</h2>
-        <div class="preowned">
-            
-            {% for item in latest_items %}
-                <div class="latest">
-                    <a href="{% url 'core:home' %}"><img src="{{ item.image.url}}" alt="latest Image">
-                        <p>{{ item.formatted_price }}</p>
-                    </a>
-                </div> 
-            {% endfor %}
+        <h2>Search</h2>
+        <div class="search-container">
+            <form action="{% url 'item:search' %}" method="GET">
+                <label for="query">Search for...</label>
+                <input type="text" name="query">
+
+                <label for="min_price">Min Price</label>
+                <input type="number" name="min_price">
+                <label for="max_price">Max Price</label>
+                <input type="number" name="max_price"">
+                
+                <select name="category">
+                    <option value="">Select Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="material">
+                    <option value="">Select Material</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Aluminum/Alloy">Aluminum/Alloy</option>
+                    <option value="Carbon Fiber">Carbon Fiber</option>
+                    <option value="Titanium">Titanium</option>
+                </select>
+                <select name="frame_size">
+                    <option value="">Select Frame Size</option>
+                    <option value="17in">17in</option>
+                    <option value="17-19in">17-19in</option>
+                    <option value="19-21in">19-21in</option>
+                    <option value="21-23">21-23</option>
+                    <option value=">23in">>23in</option>
+                </select>
+                <select name="tire_size">
+                    <option value="">Select Tire Size</option>
+                    <option value="10in">10in</option>
+                    <option value="12in">12in</option>
+                    <option value="14in">14in</option>
+                    <option value="16in">16in</option>
+                    <option value="18in">18in</option>
+                    <option value="20in">20in</option>
+                    <option value="22in">22in</option>
+                    <option value="24in">24in</option>
+                    <option value="26in">26in</option>
+                    <option value="27.5in">27.5in</option>
+                    <option value="29in">29in</option>
+                </select>
+                <select name="brake_type">
+                    <option value="">Select Brake Type</option>
+                    <option value="Caliper">Caliper</option>
+                    <option value="V-Brake">V-Brake</option>
+                    <option value="Cantilever">Cantilever</option>
+                    <option value="Mechanical Disc">Mechanical Disc</option>
+                    <option value="Hydraulic Disc">Hydraulic Disc</option>
+                </select>
+                <button type="submit">Search now</button>
+            </form>
         </div>
     </div>
     <div class="main-container">
         <h2 class="section-title">Pre-owned Bikes for Sales</h2>
         <div class="item-container">
-            {% for item in items %}
-                <div class="item">
-                    <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url }}" alt="Item Image">
-                    <span>
-                        <h3>{{ item.name }}</h3>
-                        <p>Price: {{ item.formatted_price }}</p>
-                    </span>
-                    </a>
-                </div>
-            {% endfor %}
+            {% if items %}
+                {% for item in items %}
+                    <div class="item">
+                        <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url }}" alt="Item Image">
+                        <span>
+                            <h3>{{ item.name }}</h3>
+                            <p>Price: {{ item.formatted_price }}</p>
+                        </span>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                    <p>No items found.</p>
+            {% endif %}   
         </div>
         <br>
         <hr>

@@ -34,26 +34,49 @@ def marketplace(request, category_id=None):
     )
 
 
-def items(request):
-    query = request.GET.get("query", "")
-    category_id = request.GET.get("category", 0)
-    categories = Category.objects.all()
+def search(request):
     items = Item.objects.filter(is_sold=False)
+    categories = Category.objects.all()
 
-    if category_id:
-        items = items.filter(category_id=category_id)
-
+    query = request.GET.get("query")
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
+    category_id = request.GET.get("category")
+    if category_id:
+        items = items.filter(category_id=category_id)
+
+    min_price = request.GET.get("min_price")
+    max_price = request.GET.get("max_price")
+    if min_price and max_price:
+        items = items.filter(price__gte=min_price, price__lte=max_price)
+    elif min_price:
+        items = items.filter(price__gte=min_price)
+    elif max_price:
+        items = items.filter(price__lte=max_price)
+
+    material = request.GET.get("material")
+    if material:
+        items = items.filter(material=material)
+
+    frame_size = request.GET.get("frame_size")
+    if frame_size:
+        items = items.filter(frame_size=frame_size)
+
+    tire_size = request.GET.get("tire_size")
+    if tire_size:
+        items = items.filter(tire_size=tire_size)
+
+    brake_type = request.GET.get("brake_type")
+    if brake_type:
+        items = items.filter(brake_type=brake_type)
+
     return render(
         request,
-        "item/items.html",
+        "item/marketplace.html",
         {
             "items": items,
-            "query": query,
             "categories": categories,
-            "category_id": int(category_id),
         },
     )
 
