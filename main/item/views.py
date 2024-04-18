@@ -7,7 +7,7 @@ from .forms import NewItemForm, EditItemForm
 from .models import Category, Item
 
 
-def marketplace(request):
+def marketplace(request, category_id=None):
     if request.user.is_authenticated:
         latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
         items = (
@@ -18,8 +18,11 @@ def marketplace(request):
     else:
         latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
         items = Item.objects.filter(is_sold=False).order_by("-created_on")
-    categories = Category.objects.all()
 
+    categories = Category.objects.all()
+    if category_id is not None:
+        category = get_object_or_404(Category, id=category_id)
+        items = items.filter(category=category)
     return render(
         request,
         "item/marketplace.html",

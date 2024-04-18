@@ -46,9 +46,9 @@
                         </td>
                         <td>
                             {% if message.created_by == request.user %}
-                                <a href="{% url 'item:detail' conversation.item.id %}"><p class="blue-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at }}</p></a>
+                                <a href="{% url 'item:detail' conversation.item.id %}"><p class="blue-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at|date:"Y-m-d" }}</p></a>
                             {% else %} 
-                                <a href="{% url 'item:detail'   conversation.item.id %}"></a><p class="gray-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at }}</p></a>
+                                <a href="{% url 'item:detail'   conversation.item.id %}"></a><p class="gray-text"><strong>{{ message.created_by.username|capfirst }}</strong> @ {{message.created_at|date:"Y-m-d" }}</p></a>
                             {% endif %}
                         </td>
                         <td>

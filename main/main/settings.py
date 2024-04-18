@@ -145,3 +145,6 @@ EMAIL_HOST_PASSWORD = "Bw1pl7Clr9"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Add this line at the end of your settings.py file
+DATE_FORMAT = "Y-m-d"

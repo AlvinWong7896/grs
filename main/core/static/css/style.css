@@ -1250,13 +1250,13 @@ background-color: #2cccc3;
 
 .conversation-detail .pre-msg{
     flex: 0 0 auto;
-    width: 45%;
+    width: 55%;
     margin: 2%;
 }
 
 .conversation-detail .message-box{
     flex: 0 0 auto;
-    width: 40%;
+    width: 30%;
     margin: 2%;
 }
 
@@ -1277,7 +1277,7 @@ table{
     margin-top: 20px;
     border-collapse: collapse;
     width: 100%;
-    margin-left: 0%;
+    margin-left: 5%;
 }
 
 .past-conv th{
@@ -1346,13 +1346,13 @@ table{
 }
 
 .conversation-detail .message-box .form-textarea{
-    width: 500px;
-    height: 150px;
+    width: 380px;
+    height: 200px;
     padding: 10px;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 .conversation-detail .message-box .entry-errors {
     color: #facd3d;
@@ -1364,7 +1364,7 @@ table{
     background-color: #6bb77b;
     color: #fff;
     border: none;
-    width: 15%;
+    width: 25%;
     margin-left: 5%;
     padding: 10px 20px;
     border-radius: 8px;
