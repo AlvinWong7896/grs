@@ -53,10 +53,6 @@
                 {{ form.price }}
                 <br><label for="image" class="form-label">Upload Photo#1</label>
                 {{ form.image }}
-                {% if form.image.errors %}
-                    <div class="error">{{ form.image.errors }}</div>
-                {% endif %}
-                    
                 <br><label for="image" class="form-label">Upload Photo#2</label>
                 {{ form.image_2 }}
                 <br><label for="image" class="form-label">Upload Photo#3</label>
@@ -79,6 +75,12 @@
                     {{ form.tire_size }}
                     <br><label for="brake_type" class="form-label">Brake Type</label>
                     {{ form.brake_type }}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="is_sold" name="is_sold" {% if form.is_sold.value %}checked{% endif %}>
+                        <label class="form-check-label" for="is_sold">
+                            Not available / Sold
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

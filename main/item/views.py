@@ -95,7 +95,6 @@ def detail(request, pk):
         total_images += 1
     if item.image_4:
         total_images += 1
-    print("from view", total_images)
     return render(
         request,
         "item/detail.html",
@@ -137,6 +136,7 @@ def new(request):
 
 @login_required
 def delete(request, pk):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
     item.delete()
 
@@ -145,6 +145,7 @@ def delete(request, pk):
 
 @login_required
 def edit(request, pk):
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
 
     if request.method == "POST":
@@ -163,5 +164,6 @@ def edit(request, pk):
         {
             "form": form,
             "title": "Edit item",
+            "latest_items": latest_items,
         },
     )

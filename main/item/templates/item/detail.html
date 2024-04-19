@@ -58,7 +58,7 @@
                 <strong>Price: </strong>{{ item.formatted_price }}
               </p>
               <p class="item-details">
-                <strong>Seller: </strong>{{ item.created_by }}
+                <strong>Seller: </strong>{{ item.created_by|capfirst }}
               </p>
               <p class="item-details">
                 <strong>Posted on: </strong>{{ item.created_on }}
@@ -84,10 +84,12 @@
               {% if request.user == item.created_by %}
                 <div class="owner-info">
                   <!-- <p>This is your item!</p> -->
+                  <br>
                   <a href="{% url 'item:edit' item.id %}" class="edit-btn">Edit</a>
                   <a href="{% url 'item:delete' item.id %}" class="delete-btn">Delete</a>
                 </div>
               {% else %}
+              <br>
                 <a href="{% url 'conversation:new' item.id %}" class="contact-btn">Contact seller</a>
               {% endif %}
             </div>

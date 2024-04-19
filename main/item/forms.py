@@ -40,6 +40,9 @@ class EditItemForm(forms.ModelForm):
             "description",
             "price",
             "image",
+            "image_2",
+            "image_3",
+            "image_4",
         )
         widgets = {
             "description": forms.Textarea(),
