@@ -961,7 +961,7 @@ form{
 }
 
 .add_item .form-container .left-column input[type='file']{
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: rgb(234, 234, 154);
     width: 48%;
@@ -1019,10 +1019,10 @@ form{
 }
 
 select {
-    width: 120px;
-    height: 38px;
-    font-size: 16px;
-    padding: 2%;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    padding: 2px;
     border-radius: 4px;
     appearance: none;
 }
