@@ -9,14 +9,14 @@ from .models import Category, Item
 
 def marketplace(request, category_id=None):
     if request.user.is_authenticated:
-        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
         items = (
             Item.objects.filter(is_sold=False)
             .exclude(created_by=request.user)
             .order_by("-created_on")
         )
     else:
-        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+        latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
         items = Item.objects.filter(is_sold=False).order_by("-created_on")
 
     categories = Category.objects.all()
@@ -82,11 +82,11 @@ def search(request):
 
 
 def detail(request, pk):
-    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(
         pk=pk
-    )[0:6]
+    )[0:12]
 
     total_images = 1
     if item.image_2:
@@ -109,7 +109,7 @@ def detail(request, pk):
 
 @login_required
 def new(request):
-    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
     if request.method == "POST":
         form = NewItemForm(request.POST, request.FILES)
 
@@ -136,7 +136,7 @@ def new(request):
 
 @login_required
 def delete(request, pk):
-    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
     item.delete()
 
@@ -145,7 +145,7 @@ def delete(request, pk):
 
 @login_required
 def edit(request, pk):
-    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:10]
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
     item = get_object_or_404(Item, pk=pk, created_by=request.user)
 
     if request.method == "POST":
