@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.core.exceptions import ValidationError
 from PIL import Image
-import locale
+import locale, os, tempfile
 
 
 class Category(models.Model):
@@ -102,11 +102,27 @@ class Item(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        img = Image.open(self.image.path)
-        if img.height > 500 or img.width > 500:
-            output_size = (500, 500)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        for image_field in [self.image, self.image_2, self.image_3, self.image_4]:
+            if image_field:
+                image_path = image_field.path
+                img = Image.open(image_path)
+                if img.height > 700 or img.width > 700:
+                    output_size = (700, 700)
+                    img.thumbnail(output_size)
+                    # Save the resized image to a temporary file
+                    with tempfile.NamedTemporaryFile(
+                        suffix=".jpg", dir=os.path.dirname(image_path), delete=False
+                    ) as temp_file:
+                        temp_file_name = temp_file.name
+                        img.save(temp_file_name)
+                        # Replace the original image with the resized one
+                        with open(temp_file_name, "rb") as f:
+                            with image_field.open("wb") as new_image:
+                                new_image.write(f.read())
+                    # Delete the temporary file
+                    os.remove(temp_file_name)
+        # Call the super save method again to save the changes
+        super().save(*args, **kwargs)
 
     def formatted_price(self):
         """
