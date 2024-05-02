@@ -9,9 +9,9 @@
       </a>
     </h2>
     <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
+      Published on {{ post.publish }} by {{ post.author|capfirst }}
     </p>
     {{ post.body|truncatewords:70|linebreaks }}
   {% endfor %}
-  {% include "pagination.html" with page=page_obj %}
+  {% include "pagination.html" with page=posts %}
 {% endblock %}
