@@ -29,4 +29,5 @@ urlpatterns = [
     path("items/", include("item.urls", namespace="items")),
     path("location/", include("location.urls", namespace="location")),
     path("blog/", include("blog.urls", namespace="blog")),
+    path("tinymce/", include("tinymce.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

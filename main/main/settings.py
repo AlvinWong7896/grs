@@ -155,5 +155,5 @@ TINYMCE_DEFAULT_CONFIG = {
     "selector": "textarea",
     "plugins": "advlist autolink lists link image charmap print preview anchor pagebreak code fullscreen insertdatetime media table contextmenu",
     "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
-    "content_css": ["css/style.default.css"],  # Optional path to your stylesheet
+    "content_css": ["css/style.css"],
 }
