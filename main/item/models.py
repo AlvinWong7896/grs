@@ -107,8 +107,8 @@ class Item(models.Model):
             if image_field:
                 image_path = image_field.path
                 img = Image.open(image_path)
-                if img.height > 700 or img.width > 700:
-                    output_size = (700, 700)
+                if img.height > 800 or img.width > 800:
+                    output_size = (800, 800)
                     img.thumbnail(output_size)
                     # Save the resized image to a temporary file
                     with tempfile.NamedTemporaryFile(
