@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "item",
     "blog",
     "tinymce",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -157,3 +158,5 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
     "content_css": ["css/style.css"],
 }
+
+CRISPY_TEMPLATE_PACK = "uni_form"
