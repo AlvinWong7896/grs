@@ -1,6 +1,5 @@
 {% extends 'core/base.html' %}
 {% load static %}
-<!-- {% load crispy_forms_tags %} -->
 
 {% block title %}New conversation{% endblock  %}
 
@@ -61,7 +60,6 @@
 
         <form method="post" action=".">
             {% csrf_token %}
-            <!-- {% crispy form %} -->
 
             <div class="msg-container">
                 <label for="content" class="form-label">Conversation</label><br>

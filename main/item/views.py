@@ -72,9 +72,9 @@ def search(request):
     if material:
         items = items.filter(material=material)
 
-    frame_size = request.GET.get("frame_size")
-    if frame_size:
-        items = items.filter(frame_size=frame_size)
+    drivetrain = request.GET.get("drivetrain")
+    if drivetrain:
+        items = items.filter(drivetrain=drivetrain)
 
     tire_size = request.GET.get("tire_size")
     if tire_size:

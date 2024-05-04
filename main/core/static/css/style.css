@@ -7,12 +7,17 @@
 
 
 /* Override Crispy Forms styles */
-.crispy .form-control {
+/* .crispy .form-control {
     width: auto !important;
     height: auto !important;
-    /* Add more custom styles as needed */
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+  } */
 
 /*************************
 ***** css base.html *****
@@ -1007,6 +1012,27 @@ form{
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
+}
+
+.form-container .left-column .upload-photo .form-label::after{
+    content: '';
+}
+
+.form-container .left-column .upload-photo .input[type='file']::before{
+    content: '';
+}
+
+.add_item .form-container .left-column .upload-photo input[type='file']{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(234, 234, 154);
+    width: 68%;
+    padding: 4px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border: 1px solid#ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
 .add_item .form-container .right-column input[type='checkbox']{

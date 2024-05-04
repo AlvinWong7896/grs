@@ -48,17 +48,28 @@
                 {{ form.name }}
                 <br>
                 <label for="description" class="form-label">Description</label><br>
-                <textarea name="description" class="form-textarea"></textarea>
+                <textarea name="description" class="form-textarea">{{ form.description.value }}</textarea>
                 <br><label for="price" class="form-label">Price</label>
                 {{ form.price }}
-                <br><label for="image" class="form-label">Upload Photo#1</label>
-                {{ form.image }}
-                <br><label for="image" class="form-label">Upload Photo#2</label>
-                {{ form.image_2 }}
-                <br><label for="image" class="form-label">Upload Photo#3</label>
-                {{ form.image_3 }}
-                <br><label for="image" class="form-label">Upload Photo#4</label>
-                {{ form.image_4 }}
+                <div class="upload-photo">
+                <label for="image" class="form-label">Upload Photo#1</label>
+                    {{ form.image }}
+                </div>
+                <br> 
+                <div class="upload-photo">
+                    <label for="image" class="form-label">Upload Photo#2</label>
+                    {{ form.image_2 }}
+                </div>
+                <br>
+                <div class="upload-photo">
+                    <label for="image" class="form-label">Upload Photo#3</label>
+                    {{ form.image_3 }}
+                </div>
+                <br>
+                <div class="upload-photo">
+                    <label for="image" class="form-label">Upload Photo#4</label>
+                    {{ form.image_4 }}
+                </div>
             </div>
             <hr>
             <div class="right-column">
@@ -67,8 +78,8 @@
                     {{ form.category }}
                     <br><label for="material" class="form-label">Material</label>
                     {{ form.material }}
-                    <br><label for="frame_size" class="form-label">Frame Size</label>
-                    {{ form.frame_size }}
+                    <br><label for="frame_size" class="form-label">Drivetrain</label>
+                    {{ form.drivetrain }}
                 </div>
                 <div class="right-right">
                     <label for="tire_size" class="form-label">Tire Size</label>
@@ -89,4 +100,16 @@
     </form>
     </div>
 </div>
+$(document).ready(function() {
+    // Disable clicking on file inputs
+    $('.file-input').on('click', function(e) {
+        e.preventDefault();
+    });
+
+    // Disable clicking on checkbox labels
+    $('.checkbox-label').on('click', function(e) {
+        e.preventDefault();
+    });
+});
+
 {% endblock %}

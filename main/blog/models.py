@@ -2,7 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
-from tinymce.models import HTMLField
+
+# from tinymce.models import HTMLField
 
 
 class PublishedManager(models.Manager):
@@ -20,7 +21,8 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    body = HTMLField()
+    # body = HTMLField()
+    body = models.TextField(blank=True, null=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

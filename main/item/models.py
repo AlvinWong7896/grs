@@ -3,7 +3,8 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from PIL import Image
 import locale, os, tempfile
-from tinymce.models import HTMLField
+
+# from tinymce.models import HTMLField
 
 
 class Category(models.Model):
@@ -21,8 +22,9 @@ class Item(models.Model):
     category = models.ForeignKey(
         Category, related_name="items", on_delete=models.CASCADE
     )
-    name = models.CharField(max_length=50)
-    description = HTMLField(blank=True, null=True)
+    name = models.CharField(max_length=25)
+    # description = HTMLField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="item_images", blank=True, null=True)
     image_2 = models.ImageField(upload_to="item_images", blank=True, null=True)
@@ -43,14 +45,17 @@ class Item(models.Model):
         null=True,
     )
 
-    frame_size = models.CharField(
-        max_length=5,
+    drivetrain = models.CharField(
+        max_length=9,
         choices=[
-            ("XS", "17in"),
-            ("S", "17-19in"),
-            ("M", "19-21in"),
-            ("L", "21-23in"),
-            ("XL", ">23in"),
+            ("Nil", "Nil"),
+            ("7-speed", "7-speed"),
+            ("8-speed", "8-speed"),
+            ("9-speed", "9-speed"),
+            ("10-speed", "10-speed"),
+            ("11-speed", "11-speed"),
+            ("12-speed", "12-speed"),
+            (">12-speed", ">12-speed"),
         ],
         blank=True,
         null=True,

@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     "location",
     "item",
     "blog",
-    "tinymce",
-    "crispy_forms",
+    # "tinymce",
+    # "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -152,11 +152,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DATE_FORMAT = "Y-m-d"
 
 
-TINYMCE_DEFAULT_CONFIG = {
-    "selector": "textarea",
-    "plugins": "advlist autolink lists link image charmap print preview anchor pagebreak code fullscreen insertdatetime media table contextmenu",
-    "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
-    "content_css": ["css/style.css"],
-}
+# TINYMCE_DEFAULT_CONFIG = {
+#     "selector": "textarea",
+#     "plugins": "advlist autolink lists link image charmap print preview anchor pagebreak code fullscreen insertdatetime media table contextmenu",
+#     "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
+#     "content_css": ["css/style.css"],
+#     "valid_elements": "p, h1, h2, h3, h4, h5, h6, strong, em, a[href], ul, ol, li",
+#     "extended_valid_elements": "img[src, alt, title]",
+# }
 
-CRISPY_TEMPLATE_PACK = "uni_form"
+# CRISPY_TEMPLATE_PACK = "uni_form"
