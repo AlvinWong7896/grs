@@ -14,6 +14,11 @@ class CustomClearableFileInput(forms.ClearableFileInput):
 
 
 class NewItemForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(NewItemForm, self).__init__(*args, **kwargs)
+        self.fields["description"].initial = ""
+
     class Meta:
         model = Item
         fields = (

@@ -5,76 +5,7 @@
 
 {% block content %}
 <div class="container">
-    <div class="sidebar">
-        <h2 class="sub-title">Popular Blog Topics</h2>
-        <div class="trending">
-            <a href="#">Health tips</a>
-            <a href="#">Bike DIY maintenance</a>
-            <a href="#">Professional biking</a>
-            <a href="#">Green advices</a>
-        </div>
-        <hr>
-        <h2>Search</h2>
-        <div class="search-container">
-            <form action="{% url 'item:search' %}" method="GET">
-                <label for="query">Search for...</label>
-                <input type="text" name="query">
-
-                <label for="min_price">Min Price</label>
-                <input type="number" name="min_price">
-                <label for="max_price">Max Price</label>
-                <input type="number" name="max_price"">
-                
-                <select name="category">
-                    <option value="">Select Category</option>
-                    {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
-                    {% endfor %}
-                </select>
-                <select name="material">
-                    <option value="">Select Material</option>
-                    <option value="Steel">Steel</option>
-                    <option value="Aluminum/Alloy">Aluminum/Alloy</option>
-                    <option value="Carbon Fiber">Carbon Fiber</option>
-                    <option value="Titanium">Titanium</option>
-                </select>
-                <select name="drivetrain">
-                    <option value="">Select Drivetrain</option>
-                    <option value="Nil">Nil</option>
-                    <option value="7-speed">7-speed</option>
-                    <option value="8-speed">8-speed</option>
-                    <option value="9-speed">9-speed</option>
-                    <option value="10-speed">10-speed</option>
-                    <option value="11-speed">11-speed</option>
-                    <option value="12-speed">12-speed</option>
-                    <option value=">12-speed">>12-speed</option>
-                </select>
-                <select name="tire_size">
-                    <option value="">Select Tire Size</option>
-                    <option value="10in">10in</option>
-                    <option value="12in">12in</option>
-                    <option value="14in">14in</option>
-                    <option value="16in">16in</option>
-                    <option value="18in">18in</option>
-                    <option value="20in">20in</option>
-                    <option value="22in">22in</option>
-                    <option value="24in">24in</option>
-                    <option value="26in">26in</option>
-                    <option value="27.5in">27.5in</option>
-                    <option value="29in">29in</option>
-                </select>
-                <select name="brake_type">
-                    <option value="">Select Brake Type</option>
-                    <option value="Caliper">Caliper</option>
-                    <option value="V-Brake">V-Brake</option>
-                    <option value="Cantilever">Cantilever</option>
-                    <option value="Mechanical Disc">Mechanical Disc</option>
-                    <option value="Hydraulic Disc">Hydraulic Disc</option>
-                </select>
-                <button type="submit">Search now</button>
-            </form>
-        </div>
-    </div>
+    {% include 'core/sidebar.html' with latest_items=latest_items %}
     <div class="main-container">
         <h2 class="section-title">Pre-owned Bikes for Sales</h2>
         <div class="item-container">

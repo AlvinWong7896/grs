@@ -5,27 +5,7 @@
 
 {% block content %}
 <div class="container">
-    <div class="sidebar">
-        <h2 class="sub-title">Popular Blog Topics</h2>
-        <div class="trending">
-            <a href="#">Health tips</a>
-            <a href="#">Bike DIY maintenance</a>
-            <a href="#">Professional biking</a>
-            <a href="#">Green advices</a>
-        </div>
-        <hr>
-        <h2 class="sub-title">Latest Pre-owned</h2>
-        <div class="preowned">
-            
-            {% for item in latest_items %}
-                <div class="latest">
-                    <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
-                        <p>{{ item.formatted_price }}</p>
-                    </a>
-                </div> 
-            {% endfor %}
-        </div>
-    </div>
+    {% include 'core/sidebar.html' with latest_items=latest_items %}
     <div class="signup-container">
         <h1 class="signup-title">Sign up</h1>
         
