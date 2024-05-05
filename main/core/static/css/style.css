@@ -1014,12 +1014,15 @@ form{
     font-size: 16px;
 }
 
-.form-container .left-column .upload-photo .form-label::after{
-    content: '';
+.form-container .left-column .upload-photo label{
+    display: block;
 }
 
-.form-container .left-column .upload-photo .input[type='file']::before{
-    content: '';
+.form-container .left-column .upload-photo a,
+.form-container .left-column .upload-photo .input[type='checkbox']{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
 }
 
 .add_item .form-container .left-column .upload-photo input[type='file']{
