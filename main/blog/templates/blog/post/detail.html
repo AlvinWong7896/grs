@@ -1,9 +1,18 @@
 {% extends "core/base.html" %}
-{% block title %}{{ post.title }}{% endblock %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
 {% block content %}
-  <h1>{{ post.title }}</h1>
-  <p class="date">
-    Published {{ post.publish }} by {{ post.author }}
-  </p>
-  {{ post.body|striptags|linebreaksbr }}
+<div class="container">
+  {% include 'core/sidebar.html' with latest_items=latest_items %}
+  <div class="blog-container">
+    <h1>{{ post.title }}</h1>
+    <p class="date">
+      Published {{ post.publish }} by {{ post.author }}
+    </p>
+    <div class="blog-details">
+      {{ post.body|striptags|linebreaksbr }}
+    </div>
+  </div>
+</div>
 {% endblock %}
