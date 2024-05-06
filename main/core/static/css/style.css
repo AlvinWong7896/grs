@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'poppins', sans-serif; */
+    font-family: 'poppins', sans-serif;
 }
 
 
@@ -1591,7 +1591,7 @@ table{
 
 .blog-details .blog-grids .blog-item .blog_overview h3,
 .blog-details .blog-grids .blog-item .blog_overview h5{
-    color: #fff;
+    color: #ccc;
     margin: 10px 30px;
 }
 
@@ -1600,7 +1600,7 @@ table{
 ************************************/
 
 .pagination .step-links{
-    color:#fff;
+    color:#eee;
 }
 .pagination .step-links a{
         color: #facd3d;
