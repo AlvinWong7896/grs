@@ -1584,7 +1584,7 @@ table{
 }
 
 .blog-details .blog-grids .blog-item .blog_overview h2 a{
-    color: #fff;
+    color: #facd3d;
     margin-left: 30px;
     text-decoration: none;
 }
@@ -1593,6 +1593,18 @@ table{
 .blog-details .blog-grids .blog-item .blog_overview h5{
     color: #fff;
     margin: 10px 30px;
+}
+
+/************************************
+***** CSS blog pagination.html *****
+************************************/
+
+.pagination .step-links{
+    color:#fff;
+}
+.pagination .step-links a{
+        color: #facd3d;
+        text-decoration: none;
 }
 
 

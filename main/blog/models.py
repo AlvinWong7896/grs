@@ -23,7 +23,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     thumbnail = models.ImageField(
-        default="images/default_photo.jpg", upload_to="images/"
+        default="/images/default_photo.jpg", upload_to="images/"
     )
     overview = models.TextField(blank=True)
     body = HTMLField(blank=True, null=False, default="")
