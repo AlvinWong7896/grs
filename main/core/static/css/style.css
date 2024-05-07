@@ -1595,6 +1595,46 @@ table{
     margin: 10px 30px;
 }
 
+/******************************
+***** CSS blog detail.html *****
+******************************/
+
+.blog-container {
+    flex-basis: 80%;
+    min-height: 100vh;
+    padding: 2%;
+    background: #172d13;
+}
+
+.blog-container h1{
+    color: #d76f30;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom:50px;
+}
+
+.blog-container img{
+    width: 100%;
+    height: 350px;
+    border-radius: 2%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    /* max-width: 100%; */
+}
+
+.blog-container h4{
+    color: #ccc;
+    margin: 0px 50px;
+}
+
+.blog-container h2{
+    color: #ccc;
+    margin: 30px 50px;
+}
+
 /************************************
 ***** CSS blog pagination.html *****
 ************************************/

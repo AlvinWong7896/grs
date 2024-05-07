@@ -7,12 +7,9 @@
   {% include 'core/sidebar.html' with latest_items=latest_items %}
   <div class="blog-container">
     <h1>{{ post.title }}</h1>
-    <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
-    </p>
-    <div class="blog-details">
-      {{ post.body|striptags|linebreaksbr }}
-    </div>
+    <img src="{{ post.thumbnail.url }}" alt="{{ post.name }}" class="post-thumbnail">
+    <h4>Published {{ post.publish }} by {{ post.author }}</h4>
+    <h2>{{ post.body|striptags|linebreaksbr }}</h2>
   </div>
 </div>
 {% endblock %}
