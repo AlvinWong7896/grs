@@ -1569,14 +1569,14 @@ table{
 }
 
 .blog-details .blog-grids .blog-item .blog_img img{
-    width: auto;
-    height: auto;
+    width: 400px;
+    height: 250px;
     border-radius: 2%;
     object-fit: cover;
     cursor: pointer;
-    border: 2px solid black;
     margin-bottom: 30px;
-    max-width: 100%;
+    padding-right: 50px;
+    /* max-width: 100%; */
 }
 
 .blog-details .blog-grids .blog-item .blog_overview{
@@ -1585,14 +1585,14 @@ table{
 
 .blog-details .blog-grids .blog-item .blog_overview h2 a{
     color: #facd3d;
-    margin-left: 30px;
+    margin: 10px 0px;
     text-decoration: none;
 }
 
 .blog-details .blog-grids .blog-item .blog_overview h3,
 .blog-details .blog-grids .blog-item .blog_overview h5{
     color: #ccc;
-    margin: 10px 30px;
+    margin: 10px 0px;
 }
 
 /******************************

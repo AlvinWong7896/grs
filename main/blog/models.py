@@ -52,8 +52,8 @@ class Post(models.Model):
             if image_field:
                 image_path = image_field.path
                 img = Image.open(image_path)
-                if img.height > 500 or img.width > 500:
-                    output_size = (500, 500)
+                if img.height > 900 or img.width > 900:
+                    output_size = (900, 900)
                     img.thumbnail(output_size)
                     # Overwrite the original image file with the resized one
                     img.save(image_path)

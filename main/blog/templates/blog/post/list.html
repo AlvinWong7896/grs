@@ -16,7 +16,7 @@
         <div class="blog_overview">
           <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
           <h5>Published on {{ post.publish }} by {{ post.author|capfirst }}</h5>
-          <h3>{{ post.body|truncatewords:70|striptags|linebreaksbr }}</h3>
+          <h3>{{ post.body|truncatewords:60|striptags|linebreaksbr }}</h3>
         </div>
       </div>
       {% endfor %}
