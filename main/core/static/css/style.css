@@ -240,6 +240,7 @@ font-size: 30px;
     height: 1px;
     background: #ccc;
     width: 90%;
+    margin: 0 auto;
 }
 
 /* index-hero */
@@ -388,7 +389,7 @@ input[type='radio']{
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 } 
 
 /* marketplace/main-container */
@@ -1647,6 +1648,59 @@ table{
         text-decoration: none;
 }
 
+/************************************
+***** CSS blog sidebar.html *****
+************************************/
+
+.container .sidebar .blog-search{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container .sidebar .blog-search label{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #063b75;
+    margin-left: 25%;
+    margin-bottom: -12px;
+}
+
+.container .sidebar .blog-search input[type='text']{
+    font-size: 16px;
+    width: 100%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-top: 0px;
+    border: 1px solid#ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+} 
+
+.container .sidebar .blog-search form button{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #6bb77b;
+    color: #fff;
+    border: none;
+    width: 60%;
+    margin-left: 25%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.container .sidebar hr{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 90%;
+    align-content: center;
+    margin-top: 30px;
+}
 
 
 

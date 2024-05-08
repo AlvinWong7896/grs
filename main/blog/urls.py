@@ -10,4 +10,5 @@ urlpatterns = [
         views.post_detail,
         name="post_detail",
     ),
+    path("search/", views.search, name="search"),
 ]

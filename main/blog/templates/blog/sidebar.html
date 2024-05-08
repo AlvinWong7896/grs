@@ -1,0 +1,42 @@
+{% load static %}
+
+
+{% block content %}
+<div class="sidebar">
+    <h2 class="sub-title">Blog Topics</h2>
+    <div class="trending">
+        <a href="#">Health tips</a>
+        <a href="#">Bike DIY maintenance</a>
+        <a href="#">Professional biking</a>
+        <a href="#">Green advices</a>
+    </div>
+    <hr>
+    <h2>Blog Search</h2>
+    <div class="blog-search">
+        <form action="{% url 'blog:search' %}" method="GET">
+            <label for="query">for...</label>
+            <input type="text" name="query">
+
+            <!-- <select name="category">
+                <option value="">Select Topics</option>
+                {% for subject in subjects %}
+                    <option value="{{ subject.id }}">{{ subject.name }}</option>
+                {% endfor %}
+            </select> -->
+            <button type="submit">Search now</button>
+        </form>
+    </div>
+    <hr>
+    <h2 class="sub-title">Latest Pre-owned</h2>
+    <div class="preowned">
+        
+        {% for item in latest_items %}
+            <div class="latest">
+                <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">
+                    <p>{{ item.formatted_price }}</p>
+                </a>
+            </div> 
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
