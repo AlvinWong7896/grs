@@ -20,21 +20,21 @@ def marketplace(request, category_id=None):
         latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:6]
         items = Item.objects.filter(is_sold=False).order_by("-created_on")
 
-    paginator = Paginator(items, 20)  # 20 items per page
-    page = request.GET.get("page")
-    try:
-        items = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver the first page
-        items = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range, deliver last page of results
-        items = paginator.page(paginator.num_pages)
-
     categories = Category.objects.all()
     if category_id is not None:
         category = get_object_or_404(Category, id=category_id)
         items = items.filter(category=category)
+
+    paginator = Paginator(items, 20)  # 20 items per page
+    page = request.GET.get("page")
+    try:
+        paginated_items = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver the first page
+        paginated_items = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range, deliver last page of results
+        paginated_items = paginator.page(paginator.num_pages)
     return render(
         request,
         "item/marketplace.html",
@@ -42,7 +42,7 @@ def marketplace(request, category_id=None):
             "categories": categories,
             "latest_items": latest_items,
             "page": page,
-            "items": items,
+            "items": paginated_items,
         },
     )
 
