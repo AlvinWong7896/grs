@@ -49,6 +49,7 @@ class Item(models.Model):
         max_length=9,
         choices=[
             ("Nil", "Nil"),
+            ("6-speed", "6-speed"),
             ("7-speed", "7-speed"),
             ("8-speed", "8-speed"),
             ("9-speed", "9-speed"),
