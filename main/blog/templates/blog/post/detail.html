@@ -6,10 +6,10 @@
 <div class="container">
   {% include 'blog/sidebar.html' with latest_items=latest_items %}
   <div class="blog-container">
-    <h1>{{ post.title }}</h1>
+    <h2>{{ post.title }}</h2>
     <img src="{{ post.thumbnail.url }}" alt="{{ post.name }}" class="post-thumbnail">
-    <h4>Published {{ post.publish }} by {{ post.author|capfirst }}</h4>
-    <h2>{{ post.body|striptags|linebreaksbr }}</h2>
+    <h6>Posted on {{ post.publish }} by {{ post.author|capfirst }}</h6>
+    <div class="blog_body">{{ post.body|striptags|linebreaksbr }}</div>
   </div>
 </div>
 {% endblock %}

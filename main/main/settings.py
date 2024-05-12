@@ -151,17 +151,32 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Add this line at the end of your settings.py file
 DATE_FORMAT = "Y-m-d"
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 262144  # 256kB
 
 TINYMCE_DEFAULT_CONFIG = {
+    "custom_undo_redo_levels": 100,
     "selector": "textarea",
-    "plugins": "advlist autolink lists link image charmap print preview anchor pagebreak code fullscreen insertdatetime media table contextmenu",
-    "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
-    "ally_advanced_options": "true",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "link image preview contextmenu table fullscreen",
+    "toolbar1": "undo redo |backcolor casechange permanentpen formatpainter removeformat formatselect fontselect fontsizeselect",
+    "toolbar2": "bold italic underline blockquote | alignleft aligncenter alignright alignjustify",
+    "contextmenu": "formats | link image",
+    "block_formats": "Paragraph=p; Header 1=h1, Header 2=h2",
+    "fontsize_formats": "8pt 10pt 12pt 14pt 16pt 18pt",
+    "content_style": "body { font-family: Arial; background: white; color: black; font-size: 12pt}",
+    "image_class_list": [{"title": "Fluid", "value": "img-fluid", "style": {}}],
+    "width": "1000px",
+    "height": "600px",
+    "image_caption": True,
+    "images_upload_url": "upload_image",
+    # "plugins": "advlist autolink lists link image charmap print preview anchor pagebreak code fullscreen insertdatetime media table contextmenu",
+    # "toolbar": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullscreen",
+    # "ally_advanced_options": "true",
     "file_picker_types": "file image media",
-    "content_css": ["core/css/style.css"],
-    "valid_elements": "p, h1, h2, h3, h4, h5, h6, strong, em, a[href], ul, ol, li",
-    "extended_valid_elements": "img[src, alt, title]",
-    "extended_valid_elements": "textarea[cols|rows]",
+    # "content_css": ["core/css/style.css"],
+    # "valid_elements": "p, h1, h2, h3, h4, h5, h6, strong, em, a[href], ul, ol, li",
+    # "extended_valid_elements": "img[src, alt, title]",
+    # "extended_valid_elements": "textarea[cols|rows]",
 }
 
 CRISPY_TEMPLATE_PACK = "uni_form"

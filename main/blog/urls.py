@@ -11,4 +11,5 @@ urlpatterns = [
         name="post_detail",
     ),
     path("search/", views.search, name="search"),
+    path("upload_image/", views.upload_image, name="upload_image"),
 ]

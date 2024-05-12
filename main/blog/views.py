@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 from .models import Post
 from item.models import Item
 
@@ -80,3 +82,9 @@ def search(request):
             # "subjects": subjects,
         },
     )
+
+
+@csrf_exempt
+@login_required
+def upload_image(request):
+    pass
