@@ -13,7 +13,7 @@ class PostAdminForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["overview"].widget = forms.Textarea()
+        # self.fields["overview"].widget = forms.Textarea()
         self.fields["body"].widget = TinyMCE(attrs={"cols": 80, "rows": 30})
 
 
