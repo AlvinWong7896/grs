@@ -521,18 +521,12 @@ input[type='radio']{
     padding-right: 2%;
     padding-bottom: 0px;
     background: #172d13;
-    /* background-image: linear-gradient(to left, rgba(0,0,0,.3), rgba(35,35,35,.3)), url(../images/banner.png);
-    background-size: 120% 120%;
-    background-repeat: no repeat;
-    background-position: center; */
 }
 
 .login-container h1{
-    font-size: 48px;
-    font-weight: 500;
     color: #d76f30;
     margin-left: 20%;
-    padding-top:20%;
+    padding-top:10%;
     margin-bottom: 50px;
 }
 
@@ -549,16 +543,15 @@ form{
     margin-bottom: 10px;
 }
 
-.login-container .form-group .form-label {
+.login-container .form-group h3 {
     display: inline-block;
-    font-size: 23px;
     font-weight: 500;
     color: #ddd;
     margin-right: 90px;
     margin-bottom: 5px;
 }
 
-.login-container .form-group .form-label::after{
+.login-container .form-group h3::after{
     content: none;
 }
 
@@ -590,12 +583,11 @@ form{
     background-color: #2cccc3;
 }
 
-.login-container .error-message {
-    color: #f7dcde;
-    padding: 10px;
-    margin-left: 25%;
+.login-container .alert-danger {
+    color: rgb(255, 0, 0);
+    margin-left: 20%;
     margin-top: -30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .login-container hr{

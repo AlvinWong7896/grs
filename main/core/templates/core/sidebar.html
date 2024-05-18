@@ -13,7 +13,6 @@
     <hr>
     <h3 class="sub-title">Latest Pre-owned</h3>
     <div class="preowned">
-        
         {% for item in latest_items %}
             <div class="latest">
                 <a href="{% url 'item:detail' item.id %}"><img src="{{ item.image.url}}" alt="latest Image">

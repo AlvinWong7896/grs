@@ -16,11 +16,11 @@
     <form method="POST" action="{% url 'core:loginuser' %}?next={{ request.GET.next }}">
       {% csrf_token %}
       <div class="form-group">
-        <label for="id_username" class="form-label">Username</label><br>
+        <h3 label for="id_username">Username</label></h3><br>
         {{ form.username }}
       </div>
       <div class="form-group">
-        <label for="password" class="form-label">Password</label><br>
+        <h3 label for="password">Password</label></h3><br>
         {{ form.password }}
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
