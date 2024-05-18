@@ -6,19 +6,6 @@
 }
 
 
-/* Override Crispy Forms styles */
-/* .crispy .form-control {
-    width: auto !important;
-    height: auto !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: Arial, sans-serif;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-size: 1.5em;
-  } */
-
 /*************************
 ***** css base.html *****
 *************************/
@@ -160,7 +147,7 @@ font-size: 30px;
 
 
 /**************************
-***** css index.html *****
+***** css core sidebar.html *****
 **************************/
 
 .container{
@@ -243,6 +230,10 @@ font-size: 30px;
     margin: 0 auto;
 }
 
+
+/**************************
+***** css index.html *****
+**************************/
 /* index-hero */
 .hero{
     flex-basis: 80%;
@@ -257,7 +248,6 @@ font-size: 30px;
 }
 
 .hero h1{
-    font-size: 48px;
     font-weight: 500;
     color: #fff;
     margin-left: 5%;
@@ -265,9 +255,9 @@ font-size: 30px;
     margin-bottom: 20px;
 }
 
-.hero li{
+.hero h2{
     list-style: none;
-    width: 60%;
+    width: 65%;
     padding: 5px;
 }
 
@@ -275,10 +265,9 @@ input[type='radio']{
     display: none;
 }
 
-.hero .statement li label{
+.hero .statement h2 label{
     display: flex;
     align-items: center;
-    font-size: 25px;
     font-weight: 500;
     background: #323232;
     color: #eee;
@@ -290,17 +279,16 @@ input[type='radio']{
     cursor: pointer;
 }
 
-.hero .statement li label::after{
+.hero .statement h2 label::after{
     content: '  >>';
-    font-size: 20px;
     position: absolute;
     right: 20px;
     transition: transform 0.5s;
 }
 
 .hero .details{
-    font-size: 20px;
     background: #4b4b4b;
+    font-size: 17px;
     color: #eee;
     margin-left: 5%;
     max-height: 0;
