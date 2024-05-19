@@ -1600,11 +1600,12 @@ table{
 }
 
 .blog-container .blog_body{
+    font-size: 18px;
     color: #ccc;
     margin: 30px 50px;
 }
 
-.blog-container h6{
+.blog-container h5{
     color: #ccc;
     margin: 5px 50px;
 }

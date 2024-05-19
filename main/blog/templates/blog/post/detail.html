@@ -8,7 +8,7 @@
   <div class="blog-container">
     <h2>{{ post.title }}</h2>
     <img src="{{ post.thumbnail.url }}" alt="{{ post.name }}" class="post-thumbnail">
-    <h6>Posted on {{ post.publish }} by {{ post.author|capfirst }}</h6>
+    <h5>Posted on {{ post.publish }} by {{ post.author|capfirst }}</h5>
     <div class="blog_body">{{ post.body|safe }}</div>
   </div>
 </div>
