@@ -7,37 +7,37 @@
 <div class="container">
     {% include 'core/sidebar.html' with latest_items=latest_items %}
     <div class="signup-container">
-        <h1 class="signup-title">Sign up</h1>
+        <h1>Sign up</h1>
         
         {% if form.errors or form.non_field_errors %}
-        <div class="error-message">
-            {% for field in form %}
-                {{ field.errors }}
-            {% endfor %}
-            {{ form.non_field_errors }}
-        </div>
+            <div class="alert alert-danger" role="alert">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+                {{ form.non_field_errors }}
+            </div>
         {% endif %}
 
         <form method="POST" action="{% url 'core:signupuser' %}?next={{ request.GET.next }}">
             {% csrf_token %}
 
             <div class="form-group">
-                <label for="id_username" class="form-label">Username&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label><br>
+                <h3 label for="id_username">Username&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label></h3><br>
                 {{ form.username }}
             </div>
 
             <div class="form-group">
-                <label for="id_email" class="form-label">Email address</label><br>
+                <h3 label for="id_email">Email address</label></h3><br>
                 {{ form.email }}
             </div>
 
             <div class="form-group">
-                <label for="id_password1" class="form-label">Password&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label><br>
+                <h3 label for="id_password1">Password&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label></h3><br>
                 {{ form.password1 }}
             </div>
 
             <div class="form-group">
-                <label for="id_password2" class="form-label">Repeat....&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label><br>
+                <h3 label for="id_password2">Repeat....&#160;&#160;&#160;&#160;&#160;&#160;&#160;</label></h3><br>
                 {{ form.password2 }}
             </div>
 
