@@ -304,10 +304,9 @@ input[type='radio']{
 
 
 /************************************
-***** css for marketplace.html *****
+***** css for item_search.html *****
 ************************************/
 
-/* marketplace/search */
 .container .sidebar .search-container{
     display: flex;
     flex-wrap: wrap;
@@ -377,7 +376,10 @@ input[type='radio']{
     margin-bottom: 50px;
 } 
 
-/* marketplace/main-container */
+/************************************
+***** css for marketplace.html *****
+************************************/
+
 .main-container {
     flex-basis: 80%;
     min-height: 100vh;
