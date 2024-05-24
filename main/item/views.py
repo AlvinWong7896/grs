@@ -54,22 +54,37 @@ def search(request, category_id=None):
     else:
         items = Item.objects.filter(is_sold=False).order_by("-created_on")
 
-    query = request.GET.get("query")
+    query = request.GET.get("query", "")
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
     category_id = request.GET.get("category")
     if category_id:
-        items = items.filter(category_id=category_id)
+        if category_id.isdigit():
+            category = get_object_or_404(Category, id=category_id)
+            items = items.filter(category=category)
+        else:
+            category_id = None
 
     min_price = request.GET.get("min_price")
     max_price = request.GET.get("max_price")
     if min_price and max_price:
-        items = items.filter(price__gte=min_price, price__lte=max_price)
+        try:
+            items = items.filter(
+                price__gte=float(min_price), price__lte=float(max_price)
+            )
+        except ValueError:
+            min_price, max_price = None, None
     elif min_price:
-        items = items.filter(price__gte=min_price)
+        try:
+            items = items.filter(price__gte=float(min_price))
+        except ValueError:
+            min_price = None
     elif max_price:
-        items = items.filter(price__lte=max_price)
+        try:
+            items = items.filter(price__lte=float(max_price))
+        except ValueError:
+            max_price = None
 
     material = request.GET.get("material")
     if material:
@@ -88,9 +103,6 @@ def search(request, category_id=None):
         items = items.filter(brake_type=brake_type)
 
     categories = Category.objects.all()
-    if category_id is not None:
-        category = get_object_or_404(Category, id=category_id)
-        items = items.filter(category=category)
 
     paginator = Paginator(items, 20)  # 20 items per page
     page = request.GET.get("page")
