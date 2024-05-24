@@ -1,13 +1,13 @@
 <div class="pagination">
   <span class="step-links">
     {% if page.has_previous %}
-      <a href="?page={{ page.previous_page_number }}" class="prev"> &#x21e6;&#160;&#160;Prev&#160;&#160;&#160;</a>
+      <a href="?page={{ page.previous_page_number }}&{{ query_string }}" class="prev"> &#x21e6;&#160;&#160;Prev&#160;&#160;&#160;</a>
     {% endif %}
     <span class="page-info flexible">
       Page {{ page.number }} of {{ page.paginator.num_pages }}
     </span>
     {% if page.has_next %}
-      <a href="?page={{ page.next_page_number }} " class="next"> &#160;&#160;&#160;Next&#160;&#160;&#x21e8;</a>
+      <a href="?page={{ page.next_page_number }}&{{ query_string }}" class="next"> &#160;&#160;&#160;Next&#160;&#160;&#x21e8;</a>
     {% endif %}
   </span>
 </div>
