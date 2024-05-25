@@ -9,19 +9,52 @@
 <div class="container">
     {% include 'core/sidebar.html' with latest_items=latest_items %}
     <div class="dash-container">
-        <h2>My Dashboard</h2>
-        <div class="items-grid">
-        {% for item in items %}
-            <div class="item-card">
-            <a href="{% url 'item:detail' item.id %}">
-                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-image">
-            </a>
-            <div class="item-details">
-                <h3>{{ item.name }}</h3>
-                <p>Price: {{ item.formatted_price }}</p>
+        <div class="dashboard">
+            <h2>My Dashboard</h2>
+            <thead>
+                <th><a href="{% url 'dashboard:index' %}" class="selection">My Items</a></th>
+                <th><a href="{% url 'conversation:inbox' %}" class="selection">My Inbox</a></th>
+                <th><a href="{% url 'blog:post_list' %}" class="selection">My Blogs</a></th>
+            </thead>
+            <div class="items-grid">
+            {% for item in items %}
+                <div class="item-card">
+                <a href="{% url 'item:detail' item.id %}">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-image">
+                </a>
+                <div class="item-details">
+                    <h3>{{ item.name }}</h3>
+                    <p>Price: {{ item.formatted_price }}</p>
+                </div>
+                </div>
+            {% endfor %}
             </div>
-            </div>
-        {% endfor %}
+            <br><hr>
+        </div>
+        <div class="streams">
+            <table class='inbox'>
+            <h2>Conversation streams</h2>
+            <thead>
+                <th>Image</th>
+                <th>Member name</th>
+                <th>Product</th>
+                <th>Last communicated</th>
+            </thead>
+            <tbody>
+                {% for conversation in conversations %}
+                    <tr>
+                    
+                        <td><a href="{% url 'conversation:detail' conversation.id %}"><img src="{{ conversation.item.image.url }}" alt=""></a></td>
+                                {% for member in conversation.members.all %}
+                                    {% if member != request.user %}
+                                        <td><a href="{% url 'conversation:detail' conversation.id %}">{{ member.username|capfirst }}</a></td>
+                                        <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.item.name }}</a></td>
+                                        <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.modified_at }}</a></td>
+                                    {% endif %}
+                                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
         </div>
     </div>
 </div>
