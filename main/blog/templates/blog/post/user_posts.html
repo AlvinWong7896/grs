@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}My Blogs{% endblock %}
+    
+{% block content %}
+<div class="container">
+  {% include 'blog/sidebar.html' with latest_items=latest_items %}
+  <div class="blog-details">
+    <h1>My Blog</h1>
+    <div class="blog-grids">
+      {% for post in posts %}
+      <div class="blog-item">
+        <div class="blog_img">
+          <img src="{{ post.thumbnail.url }}" alt="{{ post.name }}" class="post-thumbnail">
+        </div>
+        <div class="blog_overview">
+          <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+          <h5>Published on {{ post.publish }} by {{ post.author|capfirst }}</h5>
+          <h3>{{ post.body|truncatewords:60|striptags|linebreaksbr }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+      {% include "pagination.html" with page=posts %}
+    </div>
+  </div>
+</div>
+{% endblock %}

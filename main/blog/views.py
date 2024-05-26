@@ -11,6 +11,26 @@ def home(request):
     return render(request, "core/index.html")
 
 
+@login_required
+def user_blog_posts(request):
+    user = request.user
+    latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:8]
+    object_list = Post.objects.filter(author=user, status="published")
+    paginator = Paginator(object_list, 4)  # 4 posts per page
+    page = request.GET.get("page")
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(
+        request,
+        "blog/user_posts.html",
+        {"page": page, "posts": posts, "latest_items": latest_items},
+    )
+
+
 def post_list(request):
     latest_items = Item.objects.filter(is_sold=False).order_by("-created_on")[0:8]
     object_list = Post.published.all()

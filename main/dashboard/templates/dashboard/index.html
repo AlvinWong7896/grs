@@ -14,12 +14,10 @@
             <ul class="dashboard-menu">
                 <li><a href="{% url 'dashboard:index' %}" class="selection" id="my-items"><h3>My Items</h3></a></li>
                 <li><a href="{% url 'conversation:inbox' %}" class="selection" id="my-inbox"><h3>My Inbox</h3></a></li>
-                <li><a href="{% url 'blog:post_list' %}" class="selection" id="my-blogs"><h3>My Blogs</h3></a></li>
+                <li><a href="{% url 'blog:user_blog_posts' %}" class="selection" id="my-blogs"><h3>My Blogs</h3></a></li>
             </ul>
             <br><br>
-            <div class="id=content">
-
-            </div>
+            <div id="content">
             <div class="items-grid">
             {% for item in items %}
                 <div class="item-card">
@@ -30,8 +28,9 @@
                     <h3>{{ item.name }}</h3>
                     <p>Price: {{ item.formatted_price }}</p>
                 </div>
-                </div>
+            </div>
             {% endfor %}
+        </div>
         </div>
     </div>
 </div>
@@ -39,29 +38,74 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const menuItems = document.querySelectorAll('.dashboard-menu .selection');
+        const content = document.getElementById('content');
+        
+        function loadContent(id) {
+            let htmlContent = '';
+            if (id === 'my-items') {
+                htmlContent = `
+                    <div class="items-grid">
+                        {% for item in items %}
+                            <div class="item-card">
+                                <a href="{% url 'item:detail' item.id %}">
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-image">
+                                </a>
+                                <div class="item-details">
+                                    <h3>{{ item.name }}</h3>
+                                    <p>Price: {{ item.formatted_price }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>`;
+            } else if (id === 'my-inbox') {
+                htmlContent = `
+                    <div class="streams">
+                        <table class='inbox'>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Member name</th>
+                                    <th>Product</th>
+                                    <th>Last communicated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for conversation in conversations %}
+                                    <tr>
+                                        <td><a href="{% url 'conversation:detail' conversation.id %}"><img src="{{ conversation.item.image.url }}" alt=""></a></td>
+                                        {% for member in conversation.members.all %}
+                                            {% if member != request.user %}
+                                                <td><a href="{% url 'conversation:detail' conversation.id %}">{{ member.username|capfirst }}</a></td>
+                                                <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.item.name }}</a></td>
+                                                <td><a href="{% url 'conversation:detail' conversation.id %}">{{ conversation.modified_at }}</a></td>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>`;
+            } else if (id === 'my-blogs') {
+                htmlContent = '<p>Content for My Blogs</p>'; // Replace with actual content for My Blogs
+            }
+            content.innerHTML = htmlContent;
+        }
+
         menuItems.forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
                 menuItems.forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
-    
-                // Load content dynamically (You can change this part based on your actual content loading logic)
-                const content = document.getElementById('content');
-                if (this.id === 'my-items') {
-                    content.innerHTML = '<p>Content for My Items</p>';
-                } else if (this.id === 'my-inbox') {
-                    content.innerHTML = '<p>Content for My Inbox</p>';
-                } else if (this.id === 'my-blogs') {
-                    content.innerHTML = '<p>Content for My Blogs</p>';
-                }
+                loadContent(this.id);
             });
         });
-    
+
         // Set initial active item and content
         if (menuItems.length > 0) {
-            menuItems[0].click();
+            menuItems[0].classList.add('active');
+            loadContent(menuItems[0].id);
         }
     });
-    </script>
+</script>
 
 {% endblock %}

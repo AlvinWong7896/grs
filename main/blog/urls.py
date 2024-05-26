@@ -5,6 +5,7 @@ app_name = "blog"
 
 urlpatterns = [
     path("", views.post_list, name="post_list"),
+    path("my-blogs", views.user_blog_posts, name="user_blog_posts"),
     path(
         "<int:year>/<int:month>/<int:day>/<slug:post>/",
         views.post_detail,
